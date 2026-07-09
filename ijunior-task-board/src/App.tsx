@@ -1,7 +1,16 @@
+import Header from "./componentes/Header";
+import ServiceCard from "./componentes/ServiceCard";
+import NewServiceForm from "./componentes/NewServiceForm";
+
 export function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <>
+    <div>
+    <Header />
+    <NewServiceForm />
+    <ServiceCard />
+    </div>
+    </>
+    
   )
 }
