@@ -7,8 +7,10 @@ export function App() {
     <>
     <div>
     <Header />
-    <NewServiceForm />
-    <ServiceCard />
+    <main>
+      <NewServiceForm />
+      <ServiceCard />
+    </main>
     </div>
     </>
     
