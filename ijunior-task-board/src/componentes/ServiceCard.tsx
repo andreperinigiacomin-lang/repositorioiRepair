@@ -8,30 +8,48 @@ interface ServiceCardProps {
 
 const ServiceCard = ({ order, onRemoveOrder }: ServiceCardProps) => {
   const getDeviceIcon = () => {
-    const aparelho = order.aparelho.toLowerCase();
+      const aparelho = order.aparelho.toLowerCase();
+      
+      if (
+          aparelho.includes("iphone") ||
+          aparelho.includes("celular") ||
+          aparelho.includes("galaxy")
+        ) {
+            return "bi-phone";
+        }
+        
+        if (
+            aparelho.includes("notebook") ||
+            aparelho.includes("laptop") || aparelho.includes("macbook")
+        ) {
+            return "bi-laptop";
+        }
+        
+        if (aparelho.includes("tablet")) {
+            return "bi-tablet";
+        }
+        
+        return "bi-tools";
+    };
+    const getIconStyle = () => {
+  switch (order.status) {
+    case "Aberto":
+      return "bg-emerald-50 text-emerald-600";
 
-    if (
-      aparelho.includes("iphone") ||
-      aparelho.includes("celular") ||
-      aparelho.includes("galaxy")
-    ) {
-      return "bi-phone";
-    }
+    case "Em Andamento":
+      return "bg-blue-50 text-blue-600";
 
-    if (
-      aparelho.includes("notebook") ||
-      aparelho.includes("laptop") || aparelho.includes("macbook")
-    ) {
-      return "bi-laptop";
-    }
+    case "Aguardando Peça":
+      return "bg-orange-50 text-orange-600";
 
-    if (aparelho.includes("tablet")) {
-      return "bi-tablet";
-    }
+    case "Finalizado":
+      return "bg-slate-100 text-slate-600";
 
-    return "bi-tools";
-  };
-
+    default:
+      return "bg-slate-100 text-slate-600";
+  }
+};
+    
 const statusStyle: Record<string, string> = {
     "Aberto": "bg-emerald-100 text-emerald-800",
     "Em Andamento": "bg-blue-100 text-blue-800",
@@ -43,7 +61,7 @@ const statusStyle: Record<string, string> = {
       
       <div className="flex items-start justify-between w-full">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl">
+          <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-xl ${getIconStyle()}`}>
             <i className={`bi ${getDeviceIcon()}`}></i> 
           </div>{/*logo */}
           
