@@ -1,8 +1,21 @@
 import React, { useState } from "react";
+interface NewServiceFormProps {
+    onAddOrder: (order: {
+        cliente: string;
+        aparelho: string;
+        defeito: string;
+        status: string;
+    }) => void;
+}
 
-const NewServiceForm = () => {
+const NewServiceForm = ({ onAddOrder }: NewServiceFormProps) => {
+    const [cliente, setCliente] = useState("");
+    const [aparelho, setAparelho] = useState("");
+    const [defeito, setDefeito] = useState("");
+    const [status, setStatus] = useState("Aberto");
+    console.log(status);
   return (
-    <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm max-w-md w-full">
+    <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm w-full">
       <div className="flex items-center gap-2 mb-6">
         <div className="bg-[#10b981]/10 p-1 rounded-lg text-[#10b981] flex items-center justify-center">
           <i className="bi bi-file-earmark-arrow-up text-lg [-webkit-text-stroke:0.5px]"></i>
@@ -12,7 +25,23 @@ const NewServiceForm = () => {
           Nova Ordem de Serviço
         </h2>
       </div>{/*titulo*/}
-      <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
+      <form
+    onSubmit={(e) => {
+        e.preventDefault();
+        if (!cliente || !aparelho || !defeito) {
+          return;
+      }
+        onAddOrder({
+    cliente,
+    aparelho,
+    defeito,
+    status,
+});
+setCliente("");
+setAparelho("");
+setDefeito("");
+setStatus("Aberto");
+    }} className="space-y-4">
         <div className="flex flex-col gap-1.5">
           <label className="text-sm font-semibold text-slate-700">
             Cliente
@@ -20,6 +49,8 @@ const NewServiceForm = () => {
           <input
             type="text"
             placeholder="Nome do cliente"
+            value={cliente}
+            onChange={(e) => setCliente(e.target.value)}
             className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#10b981] focus:bg-white transition-colors text-sm"
           />
         </div>{/*cliente*/}
@@ -30,6 +61,8 @@ const NewServiceForm = () => {
           <input
             type="text"
             placeholder="Modelo do aparelho"
+            value={aparelho}
+            onChange={(e) => setAparelho(e.target.value)}
             className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#10b981] focus:bg-white transition-colors text-sm"
           />
         </div>{/*Aparelho */}
@@ -40,6 +73,8 @@ const NewServiceForm = () => {
           <input
             type="text"
             placeholder="Descreva o defeito"
+            value={defeito}
+            onChange={(e) => setDefeito(e.target.value)}
             className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#10b981] focus:bg-white transition-colors text-sm"
           />
         </div>{/*Defeito */}
@@ -48,8 +83,9 @@ const NewServiceForm = () => {
           <div className="relative">
             <select
               className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 focus:outline-none focus:border-[#10b981] focus:bg-white transition-colors text-sm appearance-none cursor-pointer"
-              defaultValue="Aberto"
-              >
+              value={status}
+              onChange={(e) => setStatus(e.target.value)}
+            >
               <option value="Aberto">Aberto</option>
               <option value="Em Andamento">Em Andamento</option>
               <option value="Aguardando Peça">Aguardando Peça</option>
