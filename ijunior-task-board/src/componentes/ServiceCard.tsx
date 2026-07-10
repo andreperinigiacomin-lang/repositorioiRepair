@@ -7,6 +7,30 @@ interface ServiceCardProps {
 }
 
 const ServiceCard = ({ order, onRemoveOrder }: ServiceCardProps) => {
+  const getDeviceIcon = () => {
+    const aparelho = order.aparelho.toLowerCase();
+
+    if (
+      aparelho.includes("iphone") ||
+      aparelho.includes("celular") ||
+      aparelho.includes("galaxy")
+    ) {
+      return "bi-phone";
+    }
+
+    if (
+      aparelho.includes("notebook") ||
+      aparelho.includes("laptop") || aparelho.includes("macbook")
+    ) {
+      return "bi-laptop";
+    }
+
+    if (aparelho.includes("tablet")) {
+      return "bi-tablet";
+    }
+
+    return "bi-tools";
+  };
 
 const statusStyle: Record<string, string> = {
     "Aberto": "bg-emerald-100 text-emerald-800",
@@ -20,7 +44,7 @@ const statusStyle: Record<string, string> = {
       <div className="flex items-start justify-between w-full">
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl">
-            <i className="bi bi-phone"></i> 
+            <i className={`bi ${getDeviceIcon()}`}></i> 
           </div>{/*logo */}
           
           <div className="flex flex-col">
