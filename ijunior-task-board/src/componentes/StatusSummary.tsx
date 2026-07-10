@@ -40,7 +40,7 @@ const StatusSummary = ({ orders }: StatusSummaryProps) => {
           </div>
 
           <span className="font-bold text-slate-700">
-            {orders.filter(order => order.status === "Em andamento").length}
+            {orders.filter(order => order.status === "Em Andamento").length}
           </span>
         </div>
 
@@ -57,7 +57,7 @@ const StatusSummary = ({ orders }: StatusSummaryProps) => {
           </div>
 
           <span className="font-bold text-slate-700">
-            {orders.filter(order => order.status === "Aguardando peça").length}
+            {orders.filter(order => order.status === "Aguardando Peça").length}
           </span>
         </div>
 
