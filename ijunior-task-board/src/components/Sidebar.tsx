@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 
 const Sidebar = () => {
     return (
@@ -6,26 +6,35 @@ const Sidebar = () => {
 
             <nav className="flex flex-col gap-3">
 
-                <Link
+                <NavLink
                     to="/"
-                    className="rounded-lg px-4 py-2 hover:bg-slate-100"
+                    className = {({isActive}) =>
+                    `rounded-lg px-4 py-2 ${
+                    isActive ? "bg-emerald-500 text-white": "hover:bg-slate-100"}`
+            }
                 >
                     Dashboard
-                </Link>
+                </NavLink>
 
-                <Link
+                <NavLink
                     to="/clients"
-                    className="rounded-lg px-4 py-2 hover:bg-slate-100"
+                    className = {({isActive}) =>
+                    `rounded-lg px-4 py-2 ${
+                    isActive ? "bg-emerald-500 text-white": "hover:bg-slate-100"}`
+            }
                 >
                     Clients
-                </Link>
+                </NavLink>
 
-                <Link
+                <NavLink
                     to="/service-orders"
-                    className="rounded-lg px-4 py-2 hover:bg-slate-100"
+                    className = {({isActive}) =>
+                    `rounded-lg px-4 py-2 ${
+                    isActive ? "bg-emerald-500 text-white": "hover:bg-slate-100"}`
+            }
                 >
                     Service Orders
-                </Link>
+                </NavLink>
 
             </nav>
 
