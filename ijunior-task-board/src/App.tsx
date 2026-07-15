@@ -1,8 +1,8 @@
-import Header from "./componentes/Header";
-import ServiceCard from "./componentes/ServiceCard";
-import NewServiceForm from "./componentes/NewServiceForm";
-import type { ServiceOrder } from "./interfaces/ServiceOrder";
-import StatusSummary from "./componentes/StatusSummary";
+import Header from "./components/Header";
+import ServiceCard from "./components/ServiceCard";
+import NewServiceForm from "./components/NewServiceForm";
+import type { ServiceOrder } from "./types/ServiceOrder";
+import StatusSummary from "./components/StatusSummary";
 import { useState } from "react";
 
 export function App() {

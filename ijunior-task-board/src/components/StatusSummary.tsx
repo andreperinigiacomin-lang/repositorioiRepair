@@ -1,4 +1,4 @@
-import type { ServiceOrder } from "../interfaces/ServiceOrder";
+import type { ServiceOrder } from "../types/ServiceOrder";
 
 interface StatusSummaryProps {
   orders: ServiceOrder[];

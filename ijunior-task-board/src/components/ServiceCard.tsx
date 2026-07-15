@@ -1,5 +1,5 @@
 import React from "react";
-import type { ServiceOrder } from "../interfaces/ServiceOrder";
+import type { ServiceOrder } from "../types/ServiceOrder";
 
 interface ServiceCardProps {
   order: ServiceOrder;
