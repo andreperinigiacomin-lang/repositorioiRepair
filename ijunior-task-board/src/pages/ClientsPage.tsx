@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from "react";
-import { getAllClients } from "../services/clientService";
-import type { Client } from "../types";
+import { getAllClients, createClient } from "../services/clientService";
+import type { Client, CreateClientData } from "../types";
 import NewClientForm from "../components/NewClientForm";
 
 const ClientsPage = () => {
@@ -24,6 +24,15 @@ const ClientsPage = () => {
         loadClients();
     }, []);
 
+    const handleCreateClient = async (client: CreateClientData) => {
+    try {
+        await createClient(client);
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+
     if (isLoading) {
         return <p>Loading...</p>;
     }
@@ -34,7 +43,7 @@ const ClientsPage = () => {
             Clients
         </h1>
         <NewClientForm
-            onCreateClient={() => {}}
+            onCreateClient={handleCreateClient}
         />
         <ul>
             {clients.map((client) => (
