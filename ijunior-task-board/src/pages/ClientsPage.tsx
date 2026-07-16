@@ -7,6 +7,7 @@ import NewClientForm from "../components/NewClientForm";
 const ClientsPage = () => {
   const [clients, setClients] = useState<Client[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  
 
   async function loadClients() {
     try {
