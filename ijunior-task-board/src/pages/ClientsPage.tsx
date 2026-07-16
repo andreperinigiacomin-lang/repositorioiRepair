@@ -1,59 +1,79 @@
-import React from 'react'
+import React from "react";
 import { useEffect, useState } from "react";
-import { getAllClients, createClient } from "../services/clientService";
+import {getAllClients, createClient, deleteClient} from "../services/clientService";
 import type { Client, CreateClientData } from "../types";
 import NewClientForm from "../components/NewClientForm";
 
 const ClientsPage = () => {
-    const [clients, setClients] = useState<Client[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
+  const [clients, setClients] = useState<Client[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        async function loadClients() {
-            try {
-                const data = await getAllClients();
-                console.log(data);
-                setClients(data);
-            } catch (error) {
-                console.error(error);
-            } finally {
-                setIsLoading(false);
-            }
-        }
-
-        loadClients();
-    }, []);
-
-    const handleCreateClient = async (client: CreateClientData) => {
+  async function loadClients() {
     try {
-        await createClient(client);
+      const data = await getAllClients();
+      console.log(data);
+      setClients(data);
     } catch (error) {
-        console.error(error);
+      console.error(error);
+    } finally {
+      setIsLoading(false);
     }
-};
+  }
 
+  useEffect(() => {
+    loadClients();
+  }, []);
 
-    if (isLoading) {
-        return <p>Loading...</p>;
+  const handleCreateClient = async (client: CreateClientData) => {
+    try {
+      const newClient = await createClient(client);
+      console.log("Cliente criado:", newClient);
+      await loadClients();
+    } catch (error) {
+      console.error(error);
     }
+  };
+  const handleDeleteClient = async (id: number) => {
+    try {
+      await deleteClient(id);
 
-    return (
+      await loadClients();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  return (
     <div className="space-y-8">
-        <h1 className="text-2xl font-bold">
-            Clients
-        </h1>
-        <NewClientForm
-            onCreateClient={handleCreateClient}
-        />
-        <ul>
-            {clients.map((client) => (
-                <li key={client.id}>
-                    {client.name}
-                </li>
-            ))}
-        </ul>
+      <h1 className="text-2xl font-bold">Clients</h1>
+      <NewClientForm onCreateClient={handleCreateClient} />
+      <ul className="space-y-3">
+        {clients.map((client) => (
+          <li
+            key={client.id}
+            className="flex items-center justify-between bg-white border border-slate-200 rounded-xl px-4 py-3 shadow-sm"
+          >
+            <div>
+              <p className="font-medium">{client.name}</p>
+              <p className="text-sm text-slate-500">{client.email}</p>
+            </div>{/*bloco-direita*/}
+
+            <button
+              onClick={() => handleDeleteClient(client.id)}
+              className="text-red-500 hover:text-red-700 transition-colors cursor-pointer"
+              title="Excluir cliente"
+            >
+              <i className="bi bi-trash3"></i>
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
-    );
+  );
 };
 
 export default ClientsPage;
