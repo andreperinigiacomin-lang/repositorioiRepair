@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from "react";
 import { getAllClients } from "../services/clientService";
 import type { Client } from "../types";
+import NewClientForm from "../components/NewClientForm";
 
 const ClientsPage = () => {
     const [clients, setClients] = useState<Client[]>([]);
@@ -28,17 +29,21 @@ const ClientsPage = () => {
     }
 
     return (
-        <div>
-            <h1 className="text-2xl font-bold mb-6">Clients</h1>
-
-            <ul>
-                {clients.map((client) => (
-                    <li key={client.id}>
-                        {client.name}
-                    </li>
-                ))}
-            </ul>
-        </div>
+    <div className="space-y-8">
+        <h1 className="text-2xl font-bold">
+            Clients
+        </h1>
+        <NewClientForm
+            onCreateClient={() => {}}
+        />
+        <ul>
+            {clients.map((client) => (
+                <li key={client.id}>
+                    {client.name}
+                </li>
+            ))}
+        </ul>
+    </div>
     );
 };
 

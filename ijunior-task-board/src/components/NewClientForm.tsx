@@ -42,7 +42,7 @@ const NewClientForm = ({ onCreateClient }: NewClientFormProps) => {
           placeholder="Nome do cliente"
           value={name}
           onChange={(event) => setName(event.target.value)}
-          className="border rounded-lg p-2"
+          className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#10b981] focus:bg-white transition-colors text-sm"
         />
 
         <input
@@ -50,7 +50,7 @@ const NewClientForm = ({ onCreateClient }: NewClientFormProps) => {
           placeholder="(31)99999-9999"
           value={phone}
           onChange={(event) => setPhone(event.target.value)}
-          className="border rounded-lg p-2"
+          className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#10b981] focus:bg-white transition-colors text-sm"
         />
 
         <input
@@ -58,12 +58,12 @@ const NewClientForm = ({ onCreateClient }: NewClientFormProps) => {
           placeholder="email@email.com"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          className="border rounded-lg p-2"
+          className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#10b981] focus:bg-white transition-colors text-sm"
         />
 
         <button
           type="submit"
-          className="bg-blue-600 text-white rounded-lg py-2"
+          className="w-full mt-2 bg-[#10b981] hover:bg-[#0e9f6e] text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-colors shadow-sm shadow-[#10b981]/20 cursor-pointer text-sm"
         >
           Create Client
         </button>
