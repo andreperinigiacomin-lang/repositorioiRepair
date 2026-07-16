@@ -1,110 +1,152 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import type {
+  Client,
+  CreateServiceOrderData,
+  ServiceOrderStatus,
+} from "../types";
+
 interface NewServiceFormProps {
-  onAddOrder: (order: {
-    cliente: string;
-    aparelho: string;
-    defeito: string;
-    status: string;
-  }) => void;
+  clients: Client[];
+  onCreateServiceOrder: (
+    order: CreateServiceOrderData
+  ) => void;
 }
 
-const NewServiceForm = ({ onAddOrder }: NewServiceFormProps) => {
-  const [cliente, setCliente] = useState("");
-  const [aparelho, setAparelho] = useState("");
-  const [defeito, setDefeito] = useState("");
-  const [status, setStatus] = useState("Aberto");
-  console.log(status);
+const NewServiceForm = ({
+  clients,
+  onCreateServiceOrder,
+}: NewServiceFormProps) => {
+  const [clientId, setClientId] = useState("");
+  const [device, setDevice] = useState("");
+  const [issue, setIssue] = useState("");
+  const [status, setStatus] =
+    useState<ServiceOrderStatus>("open");
+
+  function handleSubmit(event: React.FormEvent) {
+    event.preventDefault();
+
+    if (!clientId || !device || !issue) {
+      return;
+    }
+
+    onCreateServiceOrder({
+      client_id: Number(clientId),
+      device,
+      issue,
+      status,
+    });
+
+    setClientId("");
+    setDevice("");
+    setIssue("");
+    setStatus("open");
+  }
+
   return (
-    <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm w-full">{/*nova OS*/}
-      <div className="flex items-center gap-2 mb-6">{/*cabecalho nova OS*/}
-        <div className="bg-[#10b981]/10 p-1 rounded-lg text-[#10b981] flex items-center justify-center">{/*icone*/}
+    <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm w-full">
+      <div className="flex items-center gap-2 mb-6">
+        <div className="bg-[#10b981]/10 p-1 rounded-lg text-[#10b981] flex items-center justify-center">
           <i className="bi bi-file-earmark-arrow-up text-lg [-webkit-text-stroke:0.5px]"></i>
-        </div>{/*icone */}
+        </div>
+
         <h2 className="text-lg font-bold text-slate-800 tracking-tight">
           Nova Ordem de Serviço
         </h2>
-      </div>{/*cabecalho nova OS*/}
+      </div>
+
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (!cliente || !aparelho || !defeito) {
-            return;
-          }
-          onAddOrder({
-            cliente,
-            aparelho,
-            defeito,
-            status,
-          });
-          setCliente("");
-          setAparelho("");
-          setDefeito("");
-          setStatus("Aberto");
-        }}
-        className="space-y-4">
-        <div className="flex flex-col gap-1.5">{/*cliente*/}
+        onSubmit={handleSubmit}
+        className="space-y-4"
+      >
+        <div className="flex flex-col gap-1.5">
           <label className="text-sm font-semibold text-slate-700">
             Cliente
           </label>
-          <input
-            type="text"
-            placeholder="Nome do cliente"
-            value={cliente}
-            onChange={(e) => setCliente(e.target.value)}
-            className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#10b981] focus:bg-white transition-colors text-sm"
-          />
-        </div>{/*cliente*/}
-        <div className="flex flex-col gap-1.5">{/*aparelho*/}
+
+          <select
+            value={clientId}
+            onChange={(e) =>
+              setClientId(e.target.value)
+            }
+            className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm"
+          >
+            <option value="">
+              Selecione um cliente
+            </option>
+
+            {clients.map((client) => (
+              <option
+                key={client.id}
+                value={client.id}
+              >
+                {client.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="flex flex-col gap-1.5">
           <label className="text-sm font-semibold text-slate-700">
             Aparelho
           </label>
+
           <input
             type="text"
+            value={device}
+            onChange={(e) =>
+              setDevice(e.target.value)
+            }
             placeholder="Modelo do aparelho"
-            value={aparelho}
-            onChange={(e) => setAparelho(e.target.value)}
-            className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#10b981] focus:bg-white transition-colors text-sm"
+            className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm"
           />
-        </div>{/*Aparelho */}
-        <div className="flex flex-col gap-1.5">{/*defeito*/}
+        </div>
+
+        <div className="flex flex-col gap-1.5">
           <label className="text-sm font-semibold text-slate-700">
             Defeito
           </label>
+
           <input
             type="text"
+            value={issue}
+            onChange={(e) =>
+              setIssue(e.target.value)
+            }
             placeholder="Descreva o defeito"
-            value={defeito}
-            onChange={(e) => setDefeito(e.target.value)}
-            className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#10b981] focus:bg-white transition-colors text-sm"
+            className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm"
           />
-        </div>{/*Defeito */}
-        <div className="flex flex-col gap-1.5">{/*status*/}
-          <label className="text-sm font-semibold text-slate-700">Status</label>
-          <div className="relative">{/*selecao de status*/}
-            <select
-              className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 focus:outline-none focus:border-[#10b981] focus:bg-white transition-colors text-sm appearance-none cursor-pointer"
-              value={status}
-              onChange={(e) => setStatus(e.target.value)}
-            >
-              <option value="Aberto">Aberto</option>
-              <option value="Em Andamento">Em Andamento</option>
-              <option value="Aguardando Peça">Aguardando Peça</option>
-              <option value="Finalizado">Finalizado</option>
-            </select>
-            <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none text-slate-500 text-xs">{/*setinha*/}
-              <i className="bi bi-caret-down-fill"></i>
-            </div>{/*Setinha */}
-          </div>{/*selecao de status*/}
-        </div>{/*status */}
+        </div>
+
+        <div className="flex flex-col gap-1.5">
+          <label className="text-sm font-semibold text-slate-700">
+            Status
+          </label>
+
+          <select
+            value={status}
+            onChange={(e) =>
+              setStatus(
+                e.target.value as ServiceOrderStatus
+              )
+            }
+            className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm"
+          >
+            <option value="open">Open</option>
+            <option value="in_progress">
+              In Progress
+            </option>
+            <option value="done">Done</option>
+          </select>
+        </div>
+
         <button
           type="submit"
           className="w-full mt-2 bg-[#10b981] hover:bg-[#0e9f6e] text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-colors shadow-sm shadow-[#10b981]/20 cursor-pointer text-sm"
         >
-          <i className="bi bi-plus-circle-fill text-xl "></i>
+          <i className="bi bi-plus-circle-fill text-xl"></i>
           Salvar Ordem de Serviço
         </button>
       </form>
-      {/*formulario */}
     </div>
   );
 };

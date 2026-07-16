@@ -1,4 +1,4 @@
-import type { ServiceOrder } from "../types/ServiceOrder";
+import type { ServiceOrder } from "../types";
 
 interface StatusSummaryProps {
   orders: ServiceOrder[];
@@ -18,7 +18,7 @@ const StatusSummary = ({ orders }: StatusSummaryProps) => {
           </div>{/*contador - aberto*/}
 
           <span className="font-bold text-slate-700">
-            {orders.filter((order) => order.status === "Aberto").length}
+            {orders.filter((order) => order.status === "open").length}
           </span>
         </div>{/*contador - aberto*/}
 
@@ -31,22 +31,9 @@ const StatusSummary = ({ orders }: StatusSummaryProps) => {
           </div>{/*texto - em andamento*/}
 
           <span className="font-bold text-slate-700">
-            {orders.filter((order) => order.status === "Em Andamento").length}
+            {orders.filter((order) => order.status === "in_progress").length}
           </span>
         </div>{/*em andamento*/}
-
-        <div className="h-[1px] bg-slate-100"></div>{/*linha divisoria*/}
-
-        <div className="flex items-center justify-between">{/*aguardando peca*/}
-          <div className="flex items-center gap-2">{/* texto - aguardando peca*/}
-            <span className="w-2 h-2 rounded-full bg-orange-600"></span>
-            <p className="text-sm text-slate-600">Aguardando peça</p>
-          </div>{/*texto - aguardando peca*/}
-
-          <span className="font-bold text-slate-700">
-            {orders.filter((order) => order.status === "Aguardando Peça").length}
-          </span>
-        </div>{/*aguardando peca*/}
 
         <div className="h-[1px] bg-slate-100"></div>{/*linha divisoria*/}
 
@@ -57,7 +44,7 @@ const StatusSummary = ({ orders }: StatusSummaryProps) => {
           </div>{/*texto - finalizado*/}
 
           <span className="font-bold text-slate-700">
-            {orders.filter((order) => order.status === "Finalizado").length}
+            {orders.filter((order) => order.status === "done").length}
           </span>
         </div>{/*finalizado*/}
       </div>{/*bloco que segura um embaixo do outro*/}
