@@ -8,6 +8,7 @@ import type { ServiceOrder, Client, CreateServiceOrderData } from "../types";
 import { getAllClients } from "../services/clientService";
 import ServiceCard from "../components/ServiceCard";
 import NewServiceForm from "../components/NewServiceForm";
+import Loading from "../components/Loading";
 
 const ServiceOrdersPage = () => {
   const [orders, setOrders] = useState<ServiceOrder[]>([]);
@@ -69,7 +70,7 @@ const ServiceOrdersPage = () => {
   }, []);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loading />
   }
 
   return (

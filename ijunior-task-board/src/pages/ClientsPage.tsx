@@ -1,8 +1,8 @@
-import React from "react";
 import { useEffect, useState } from "react";
 import {getAllClients, createClient, deleteClient} from "../services/clientService";
 import type { Client, CreateClientData } from "../types";
 import NewClientForm from "../components/NewClientForm";
+import Loading from "../components/Loading";
 
 const ClientsPage = () => {
   const [clients, setClients] = useState<Client[]>([]);
@@ -48,7 +48,7 @@ const ClientsPage = () => {
   };
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
 
   return (

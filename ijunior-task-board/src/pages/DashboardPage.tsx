@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { getAllServiceOrders } from "../services/serviceOrderService";
 import { getAllClients } from "../services/clientService";
 import type { Client } from "../types/client";
+import Loading from "../components/Loading";
 
 const DashboardPage = () => {
   const [orders, setOrders] = useState<ServiceOrder[]>([]);
@@ -37,7 +38,7 @@ const DashboardPage = () => {
   }, []);
   
   if (isLoading){
-    return <p>Carregando...</p>
+    return <Loading />;
   }
   return (
     <>
