@@ -49,7 +49,7 @@ const DashboardPage = () => {
             onClick={() => (window.location.href = "/service-orders")}
             className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-4 py-2 rounded-xl flex items-center gap-2 transition-colors"
           >
-            <i className="bi bi-plus-circle-fill"></i>
+            <i className="bi bi-plus-lg"></i>
             Nova OS
           </button>
         </div>{/*flex */}
