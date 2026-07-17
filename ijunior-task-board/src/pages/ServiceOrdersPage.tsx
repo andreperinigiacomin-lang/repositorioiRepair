@@ -3,57 +3,54 @@ import { getAllServiceOrders } from "../services/serviceOrderService";
 import type { ServiceOrder } from "../types";
 import { getAllClients } from "../services/clientService";
 import type { Client } from "../types";
+import ServiceCard from "../components/ServiceCard";
 
 const ServiceOrdersPage = () => {
-    const [orders, setOrders] = useState<ServiceOrder[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [clients, setClients] = useState<Client[]>([]);
+  const [orders, setOrders] = useState<ServiceOrder[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [clients, setClients] = useState<Client[]>([]);
 
-    async function loadServiceOrders() {
-        try {
-            const data = await getAllServiceOrders();
-            console.log(data);
-            setOrders(data);
-        } catch (error) {
-            console.error(error);
-        } finally {
-            setIsLoading(false);
-        }
-    }
-
-    async function loadClients() {
+  async function loadServiceOrders() {
     try {
-        const data = await getAllClients();
-        setClients(data);
+      const data = await getAllServiceOrders();
+      console.log(data);
+      setOrders(data);
     } catch (error) {
-        console.error(error);
+      console.error(error);
+    } finally {
+      setIsLoading(false);
     }
-}
+  }
 
-    useEffect(() => {
-        loadServiceOrders();
-        loadClients();
-    }, []);
-
-    if (isLoading) {
-        return <p>Loading...</p>;
+  async function loadClients() {
+    try {
+      const data = await getAllClients();
+      setClients(data);
+    } catch (error) {
+      console.error(error);
     }
+  }
 
-    return (
-        <div>
-            <h1 className="text-2xl font-bold mb-6">
-                Service Orders
-            </h1>
+  useEffect(() => {
+    loadServiceOrders();
+    loadClients();
+  }, []);
 
-            <ul>
-                {orders.map((order) => (
-                    <li key={order.id}>
-                        {order.device}
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  return (
+    <div>
+      <h1 className="text-2xl font-bold mb-6">Service Orders</h1>
+
+      <div className="grid grid-cols-3 gap-4">
+        {orders.map((order) => (
+          <ServiceCard key={order.id} order={order} clients={clients} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default ServiceOrdersPage;
