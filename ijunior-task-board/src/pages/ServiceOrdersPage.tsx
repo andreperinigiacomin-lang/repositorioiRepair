@@ -34,6 +34,7 @@ const ServiceOrdersPage = () => {
       console.error(error);
     }
   }
+
   async function handleCreateServiceOrder(order: CreateServiceOrderData) {
     try {
       await createServiceOrder(order);
@@ -43,6 +44,16 @@ const ServiceOrdersPage = () => {
       console.error(error);
     }
   }
+
+  async function handleDeleteOrder(id: number) {
+    try {
+        await deleteServiceOrder(id);
+
+        await loadServiceOrders();
+    } catch (error) {
+        console.error(error);
+    }
+}
 
   useEffect(() => {
     loadServiceOrders();
@@ -63,7 +74,11 @@ const ServiceOrdersPage = () => {
 
       <div className="grid grid-cols-3 gap-4">
         {orders.map((order) => (
-          <ServiceCard key={order.id} order={order} clients={clients} />
+          <ServiceCard 
+          key={order.id} 
+          order={order} 
+          clients={clients} 
+          onRemoveOrder={handleDeleteOrder} />
         ))}
       </div>
     </div>
