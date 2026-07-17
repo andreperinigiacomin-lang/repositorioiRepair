@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
-import {getAllClients, createClient, deleteClient} from "../services/clientService";
+import {
+  getAllClients,
+  createClient,
+  deleteClient,
+} from "../services/clientService";
 import type { Client, CreateClientData } from "../types";
 import NewClientForm from "../components/NewClientForm";
 import Loading from "../components/Loading";
+import ClientCard from "../components/ClientCard";
 
 const ClientsPage = () => {
   const [clients, setClients] = useState<Client[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  
 
   async function loadClients() {
     try {
@@ -26,20 +30,20 @@ const ClientsPage = () => {
 
   const handleCreateClient = async (client: CreateClientData) => {
     try {
-      const newClient = await createClient(client);
+      await createClient(client);
       await loadClients();
     } catch (error) {
       console.error(error);
     }
   };
+  
   const handleDeleteClient = async (id: number) => {
-    const confirmed = window.confirm("Deseja realmente excluir esse usuário?");
-    if(!confirmed){
+    const confirmed = window.confirm("Deseja realmente excluir esse cliente?");
+    if (!confirmed) {
       return;
     }
     try {
       await deleteClient(id);
-
       await loadClients();
     } catch (error) {
       console.error(error);
@@ -56,22 +60,8 @@ const ClientsPage = () => {
       <NewClientForm onCreateClient={handleCreateClient} />
       <ul className="space-y-3">
         {clients.map((client) => (
-          <li
-            key={client.id}
-            className="flex items-center justify-between bg-white border border-slate-200 rounded-xl px-4 py-3 shadow-sm"
-          >
-            <div>
-              <p className="font-medium">{client.name}</p>
-              <p className="text-sm text-slate-500">{client.email}</p>
-            </div>{/*bloco-direita*/}
-
-            <button
-              onClick={() => handleDeleteClient(client.id)}
-              className="text-red-500 hover:text-red-700 transition-colors cursor-pointer"
-              title="Excluir cliente"
-            >
-              <i className="bi bi-trash3"></i>
-            </button>
+          <li key={client.id}>
+            <ClientCard client={client} onRemoveClient={handleDeleteClient} />
           </li>
         ))}
       </ul>
