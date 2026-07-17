@@ -32,6 +32,7 @@ const ClientsPage = () => {
     try {
       await createClient(client);
       await loadClients();
+      alert("Cliente cadastrado com sucesso!");
     } catch (error) {
       console.error(error);
     }
@@ -45,6 +46,7 @@ const ClientsPage = () => {
     try {
       await deleteClient(id);
       await loadClients();
+      alert('Cliente excluído com sucesso!');
     } catch (error) {
       console.error(error);
     }

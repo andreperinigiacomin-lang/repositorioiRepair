@@ -38,8 +38,8 @@ const ServiceOrdersPage = () => {
   async function handleCreateServiceOrder(order: CreateServiceOrderData) {
     try {
       await createServiceOrder(order);
-
       await loadServiceOrders();
+      alert('Ordem de Serviço criada com sucesso!');
     } catch (error) {
       console.error(error);
     }
@@ -56,8 +56,8 @@ const ServiceOrdersPage = () => {
 
     try {
         await deleteServiceOrder(id);
-
         await loadServiceOrders();
+        alert('Ordem de Serviço excluída com sucesso!');
     } catch (error) {
         console.error(error);
     }
