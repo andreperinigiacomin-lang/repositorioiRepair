@@ -89,13 +89,14 @@ const ServiceOrdersPage = () => {
           </p>
         </div>
       ): (
-        <div className="grid grid-cols-3 gap-4">
+        <div className="space-y-4 mt-8">
         {orders.map((order) => (
           <ServiceCard 
           key={order.id} 
           order={order} 
           clients={clients} 
-          onRemoveOrder={handleDeleteOrder} />
+          onRemoveOrder={handleDeleteOrder} 
+          fullWidth/>
         ))}
       </div>
       )}

@@ -41,18 +41,10 @@ const DashboardPage = () => {
   }
   return (
     <>
-      <div>
-        {/*bloco principal*/}
-        <main className="mt-8 ml-8">
-          <div className="flex gap-8">
-            {/*espacamento dos blocos*/}
-
-            <div className="w-1/3 flex flex-col gap-4 items-stretch">
+      <div>{/*bloco principal*/}
+        <h1 className="text-2xl font-bold">Dashboard</h1>
+        <main className="mt-8 ml-8 space-y-8">
               <StatusSummary orders={orders} />
-            </div>
-
-
-            <div className="w-2/3">
               {orders.length === 0 ? (
                 <div className="bg-white rounded-2xl border border-slate-200 p-8 text-center shadow-sm">{/*blco sem mensagens */}
                   <h2 className="text-lg font-semibold text-slate-700">
@@ -75,8 +67,6 @@ const DashboardPage = () => {
                   ))}
                 </div>
               )}
-            </div>{/*segura o bloco das cards 2/3 da tela*/}
-          </div>{/*espacamento dos blocos*/}
         </main>
       </div>
       {/*bloco principal*/}

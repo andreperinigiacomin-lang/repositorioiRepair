@@ -1,17 +1,20 @@
-
 import type { ServiceOrder } from "../types";
 import type { Client } from "../types";
 
 interface ServiceCardProps {
-    order: ServiceOrder;
-    clients: Client[];
-    onRemoveOrder?: (id: number) => void;
+  order: ServiceOrder;
+  clients: Client[];
+  onRemoveOrder?: (id: number) => void;
+  fullWidth?: boolean;
 }
 
-const ServiceCard = ({ order, clients, onRemoveOrder }: ServiceCardProps) => {
-  const client = clients.find(
-  (client) => client.id === order.client_id
-);
+const ServiceCard = ({
+  order,
+  clients,
+  onRemoveOrder,
+  fullWidth = false,
+}: ServiceCardProps) => {
+  const client = clients.find((client) => client.id === order.client_id);
   const getDeviceIcon = () => {
     const device = order.device.toLowerCase();
 
@@ -37,7 +40,7 @@ const ServiceCard = ({ order, clients, onRemoveOrder }: ServiceCardProps) => {
 
     return "bi-tools";
   };
-  
+
   const getIconStyle = () => {
     switch (order.status) {
       case "open":
@@ -55,57 +58,76 @@ const ServiceCard = ({ order, clients, onRemoveOrder }: ServiceCardProps) => {
   };
 
   const statusStyle: Record<string, string> = {
-    "open": "bg-emerald-100 text-emerald-800",
-    "in_progress": "bg-blue-100 text-blue-800",
-    "done": "bg-slate-200 text-slate-700",
+    open: "bg-emerald-100 text-emerald-800",
+    in_progress: "bg-blue-100 text-blue-800",
+    done: "bg-slate-200 text-slate-700",
   };
   return (
-    <div className="w-full max-w-[300px] bg-white rounded-2xl p-5 border border-slate-100 shadow-sm flex flex-col justify-between max-h-[250px]">{/*tamanho do card*/}
+    <div
+      className={`w-full ${
+        fullWidth ? "" : "max-w-[300px] max-h-[250px]"
+      } bg-white rounded-2xl p-5 border border-slate-100 shadow-sm flex flex-col justify-between max-h-[200px]`}
+    >
       <div className="flex items-start justify-between w-full">
         <div className="flex items-center gap-3">
-          <div 
-            className={`w-12 h-12 rounded-xl flex items-center justify-center text-xl ${getIconStyle()}`}>
+          <div
+            className={`w-12 h-12 rounded-xl flex items-center justify-center text-xl ${getIconStyle()}`}
+          >
             <i className={`bi ${getDeviceIcon()}`}></i>
-          </div>{/*logo */}
+          </div>
+          {/*logo */}
 
           <div className="flex flex-col">
             <h4 className="text-sm font-bold text-slate-800 tracking-tight truncate max-w-[140px]">
               {client?.name ?? "Cliente não encontrado"}
             </h4>
-            <p className="text-xs font-medium text-slate-400">
-              {order.device}
-            </p>
-          </div>{/*centralizar-card*/}
-        </div>{/*cabecalho-card */}
+            <p className="text-xs font-medium text-slate-400">{order.device}</p>
+          </div>
+          {/*centralizar-card*/}
+        </div>
+        {/*cabecalho-card */}
 
-        <button
-          onClick={() => onRemoveOrder?.(order.id)}
-          className="text-slate-400 hover:text-red-600 cursor-pointer p-1"
-        >
-          <i className="bi bi-trash3"></i>
-        </button>{/*lixeira */}
+        {onRemoveOrder && (
+          <button
+            onClick={() => onRemoveOrder(order.id)}
+            className="text-slate-400 hover:text-red-600 cursor-pointer p-1"
+          >
+            <i className="bi bi-trash3"></i>
+          </button>
+        )}
+        {/*lixeira */}
       </div>
 
-      <div className="flex flex-col gap-3 mt-4 my-auto">{/*meio do card*/}
+      <div className="flex flex-col gap-3 mt-4 my-auto">
+        {/*meio do card*/}
         <p className="text-sm text-slate-600 font-semibold tracking-tight">
           {order.issue}
         </p>
-        <div className="flex">{/*bolinha e status lado a lado*/}
+        <div className="flex">
+          {/*bolinha e status lado a lado*/}
           <span
-            className={`inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full ${statusStyle[order.status]}`}>
+            className={`inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full ${statusStyle[order.status]}`}
+          >
             <span className="w-2 h-2 aspect-square rounded-full bg-current"></span>
             {order.status}
           </span>
-        </div>{/*bolinha e status lado a lado */}
-      </div>{/*meio do card */}
+        </div>
+        {/*bolinha e status lado a lado */}
+      </div>
+      {/*meio do card */}
 
-      <div className="mt-4 w-full">{/*rodape do card*/}
-        <div className="h-[1px] w-full bg-slate-100 mb-3"></div>{/*linha divisoria */}
-        <div className="flex items-center justify-between text-[11px] font-medium text-slate-400">{/*codigo e data*/}
+      <div className="mt-4 w-full">
+        {/*rodape do card*/}
+        <div className="h-[1px] w-full bg-slate-100 mb-3"></div>
+        {/*linha divisoria */}
+        <div className="flex items-center justify-between text-[11px] font-medium text-slate-400">
+          {/*codigo e data*/}
           <p>{order.id}</p>
           <p>{order.created_at}</p>
-        </div>{/*codigo e data */}
-      </div>{/*rodape do card */}
+        </div>
+        {/*codigo e data */}
+      </div>
+      {/*rodape do card */}
     </div>
   );
 };
