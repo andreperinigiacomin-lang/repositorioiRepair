@@ -74,13 +74,22 @@ const ServiceOrdersPage = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-6">Service Orders</h1>
+      <h1 className="text-2xl font-bold mb-6">Ordens de Serviço</h1>
       <NewServiceForm
         clients={clients}
         onCreateServiceOrder={handleCreateServiceOrder}
       />
-
-      <div className="grid grid-cols-3 gap-4">
+      { orders.length === 0 ?(
+        <div className="bg-white rounded-2xl border border-slate-200 p-8 text-center shadow-sm">
+          <h2 className="text-lg font-semibold text-slate-700">
+            Nenhuma ordem de serviço cadastrada
+            </h2>
+          <p className="text-slate-500 mt-2">
+            Cadastre uma ordem de serviço no formulário acima
+          </p>
+        </div>
+      ): (
+        <div className="grid grid-cols-3 gap-4">
         {orders.map((order) => (
           <ServiceCard 
           key={order.id} 
@@ -89,6 +98,7 @@ const ServiceOrdersPage = () => {
           onRemoveOrder={handleDeleteOrder} />
         ))}
       </div>
+      )}
     </div>
   );
 };
