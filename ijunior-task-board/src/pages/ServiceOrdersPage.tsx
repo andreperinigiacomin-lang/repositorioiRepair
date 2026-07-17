@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
-import { getAllServiceOrders } from "../services/serviceOrderService";
-import type { ServiceOrder } from "../types";
+import {
+  getAllServiceOrders,
+  createServiceOrder,
+  deleteServiceOrder,
+} from "../services/serviceOrderService";
+import type { ServiceOrder, Client, CreateServiceOrderData } from "../types";
 import { getAllClients } from "../services/clientService";
-import type { Client } from "../types";
 import ServiceCard from "../components/ServiceCard";
+import NewServiceForm from "../components/NewServiceForm";
 
 const ServiceOrdersPage = () => {
   const [orders, setOrders] = useState<ServiceOrder[]>([]);
@@ -30,6 +34,15 @@ const ServiceOrdersPage = () => {
       console.error(error);
     }
   }
+  async function handleCreateServiceOrder(order: CreateServiceOrderData) {
+    try {
+      await createServiceOrder(order);
+
+      await loadServiceOrders();
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   useEffect(() => {
     loadServiceOrders();
@@ -43,6 +56,10 @@ const ServiceOrdersPage = () => {
   return (
     <div>
       <h1 className="text-2xl font-bold mb-6">Service Orders</h1>
+      <NewServiceForm
+        clients={clients}
+        onCreateServiceOrder={handleCreateServiceOrder}
+      />
 
       <div className="grid grid-cols-3 gap-4">
         {orders.map((order) => (
