@@ -34,7 +34,12 @@ const NewClientForm = ({ onCreateClient }: NewClientFormProps) => {
       onSubmit={handleSubmit}
       className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200"
     >
-      <h2 className="text-xl font-semibold mb-4">Novo Cliente</h2>
+      <div className="flex">
+        <div className= "w-9 h-9 bg-[#10b981]/10 rounded-full text-[#10b981] flex items-center justify-center">
+          <i className="bi bi-plus-lg text-lg [-webkit-text-stroke:0.5px]"></i>
+        </div>
+      <h2 className="text-xl font-semibold mb-3 ml-2 mt-1">Novo Cliente</h2>
+      </div>{/*flex */}
 
       <div className="flex flex-col gap-4">
         <input
