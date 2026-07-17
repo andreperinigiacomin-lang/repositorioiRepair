@@ -68,7 +68,7 @@ const NewServiceForm = ({
             onChange={(e) =>
               setClientId(e.target.value)
             }
-            className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm"
+            className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#10b981] focus:bg-white transition-colors text-sm"
           >
             <option value="">
               Selecione um cliente
@@ -97,7 +97,7 @@ const NewServiceForm = ({
               setDevice(e.target.value)
             }
             placeholder="Modelo do aparelho"
-            className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm"
+            className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#10b981] focus:bg-white transition-colors text-sm"
           />
         </div>
 
@@ -113,7 +113,7 @@ const NewServiceForm = ({
               setIssue(e.target.value)
             }
             placeholder="Descreva o defeito"
-            className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm"
+            className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#10b981] focus:bg-white transition-colors text-sm"
           />
         </div>
 
@@ -129,7 +129,7 @@ const NewServiceForm = ({
                 e.target.value as ServiceOrderStatus
               )
             }
-            className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm"
+            className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#10b981] focus:bg-white transition-colors text-sm"
           >
             <option value="open">Aberto</option>
             <option value="in_progress">

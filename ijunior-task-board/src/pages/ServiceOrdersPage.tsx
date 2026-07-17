@@ -46,6 +46,14 @@ const ServiceOrdersPage = () => {
   }
 
   async function handleDeleteOrder(id: number) {
+        const confirmed = window.confirm(
+        "Deseja realmente excluir esta ordem de serviço?"
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
     try {
         await deleteServiceOrder(id);
 

@@ -1,5 +1,5 @@
 
-import type { ServiceOrder } from "../types/serviceOrders";
+import type { ServiceOrder } from "../types";
 import type { Client } from "../types";
 
 interface ServiceCardProps {

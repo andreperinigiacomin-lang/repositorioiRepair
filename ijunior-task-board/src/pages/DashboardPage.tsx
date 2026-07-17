@@ -9,6 +9,7 @@ import type { Client } from "../types/client";
 const DashboardPage = () => {
   const [orders, setOrders] = useState<ServiceOrder[]>([]);
   const [clients, setClients] = useState<Client[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
 
   async function loadOrders() {
     try {
@@ -17,6 +18,8 @@ const DashboardPage = () => {
       setOrders(data);
     } catch (error) {
       console.error(error);
+    }
+    finally{(setIsLoading(false))
     }
   }
 
@@ -32,6 +35,10 @@ const DashboardPage = () => {
     loadOrders();
     loadClients();
   }, []);
+  
+  if (isLoading){
+    return <p>Carregando...</p>
+  }
   return (
     <>
       <div>

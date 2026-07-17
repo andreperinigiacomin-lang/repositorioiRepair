@@ -12,7 +12,6 @@ const ClientsPage = () => {
   async function loadClients() {
     try {
       const data = await getAllClients();
-      console.log(data);
       setClients(data);
     } catch (error) {
       console.error(error);
@@ -35,6 +34,10 @@ const ClientsPage = () => {
     }
   };
   const handleDeleteClient = async (id: number) => {
+    const confirmed = window.confirm("Deseja realmente excluir esse usuário?");
+    if(!confirmed){
+      return;
+    }
     try {
       await deleteClient(id);
 
@@ -50,7 +53,7 @@ const ClientsPage = () => {
 
   return (
     <div className="space-y-8">
-      <h1 className="text-2xl font-bold">Clients</h1>
+      <h1 className="text-2xl font-bold">Clientes</h1>
       <NewClientForm onCreateClient={handleCreateClient} />
       <ul className="space-y-3">
         {clients.map((client) => (

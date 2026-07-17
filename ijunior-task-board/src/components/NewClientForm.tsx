@@ -65,7 +65,7 @@ const NewClientForm = ({ onCreateClient }: NewClientFormProps) => {
           type="submit"
           className="w-full mt-2 bg-[#10b981] hover:bg-[#0e9f6e] text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-colors shadow-sm shadow-[#10b981]/20 cursor-pointer text-sm"
         >
-          Create Client
+          Criar cliente
         </button>
       </div>{/*formulario*/}
     </form>
