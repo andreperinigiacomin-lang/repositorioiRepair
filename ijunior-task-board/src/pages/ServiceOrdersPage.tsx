@@ -18,7 +18,6 @@ const ServiceOrdersPage = () => {
   async function loadServiceOrders() {
     try {
       const data = await getAllServiceOrders();
-      console.log(data);
       setOrders(data);
     } catch (error) {
       console.error(error);

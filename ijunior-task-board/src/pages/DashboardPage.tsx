@@ -15,7 +15,6 @@ const DashboardPage = () => {
   async function loadOrders() {
     try {
       const data = await getAllServiceOrders();
-      console.log("Ordens recebidas:", data);
       setOrders(data);
     } catch (error) {
       console.error(error);

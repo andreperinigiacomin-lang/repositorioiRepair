@@ -27,7 +27,6 @@ const ClientsPage = () => {
   const handleCreateClient = async (client: CreateClientData) => {
     try {
       const newClient = await createClient(client);
-      console.log("Cliente criado:", newClient);
       await loadClients();
     } catch (error) {
       console.error(error);
