@@ -30,7 +30,7 @@ const NewServiceForm = ({
     }
 
     onCreateServiceOrder({
-      client_id: Number(clientId),
+      clientId: Number(clientId),
       device,
       issue,
       status,
@@ -131,11 +131,11 @@ const NewServiceForm = ({
             }
             className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm"
           >
-            <option value="open">Open</option>
+            <option value="open">Aberto</option>
             <option value="in_progress">
-              In Progress
+              Em processo
             </option>
-            <option value="done">Done</option>
+            <option value="done">Finalizado</option>
           </select>
         </div>
 
