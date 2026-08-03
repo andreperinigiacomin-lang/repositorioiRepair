@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import {app} from './config/expressConfig';
 
 const PORT = 3000;
