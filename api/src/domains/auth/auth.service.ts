@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt'
-import { prisma } from '../../../config/prismaClient'
-import { generateToken } from '../../../utils/token'
-import { AppError } from '../../../utils/AppError'
+import { prisma } from '../../config/prismaClient'
+import { generateToken } from '../../utils/token'
+import { AppError } from '../../utils/AppError'
 
 const SALT_ROUNDS = 10
 
@@ -19,8 +19,12 @@ export class AuthService {
     const senhaHash = await bcrypt.hash(senha, SALT_ROUNDS)
 
     const usuario = await prisma.usuario.create({
-      data: { email, senha: senhaHash },
-      select: { id: true, email: true },  // nunca retorne o hash da senha
+      data: {
+         email, 
+         senha: senhaHash },
+      select: {
+         id: true, 
+         email: true },
     })
 
     return usuario
@@ -32,7 +36,6 @@ export class AuthService {
     })
 
     if (!usuario) {
-      // Mensagem genérica: não revele se o email existe ou não
       throw new AppError('Credenciais inválidas', 401)
     }
 
