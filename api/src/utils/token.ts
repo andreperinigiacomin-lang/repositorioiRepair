@@ -8,7 +8,7 @@ export function generateToken(payload: TokenPayLoad): string{
     return jwt.sign(
         payload,
         process.env.JWT_SECRET!,{
-            expiresIn: process.env.JWT_EXPIRES_IN,
+            expiresIn: process.env.JWT_EXPIRES_IN as jwt.SignOptions['expiresIn'],
         }
     )
 }
@@ -21,5 +21,5 @@ export function verifyToken(token: string): VerifyTokenPayLoad{
     return jwt.verify(
         token,
         process.env.JWT_SECRET!
-    )as verifyTokenPayLoad
+    )as VerifyTokenPayLoad
 }

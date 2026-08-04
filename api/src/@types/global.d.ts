@@ -1,4 +1,4 @@
-import type { User } from '../../generated/client' // ajuste para o seu path
+import type { Usuario } from '../../generated/prisma/client'
 
 declare global {
   namespace NodeJS {
@@ -13,7 +13,7 @@ declare global {
 
   namespace Express {
     interface Request {
-      user?: Pick<User, 'id' | 'email'>
+      user?: Pick<Usuario, 'id' | 'email'>
     }
   }
 }
