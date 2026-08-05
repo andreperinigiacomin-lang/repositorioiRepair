@@ -9,5 +9,6 @@ router.use(authMiddleware);
 
 router.post("/",clientController.create);
 router.get('/', clientController.getAll);
+router.delete('/:id', clientController.delete);
 
 export default router;

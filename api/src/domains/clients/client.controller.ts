@@ -24,4 +24,11 @@ export class ClientController {
         return res.json(clients);
     }
 
+    async delete(req:Request,res: Response){
+        const id = Number(req.params.id);
+        const userId = req.user!.id;
+        const client = await clientService.deleteClient(id, userId);
+        return res.json(client);
+    }
+
 }

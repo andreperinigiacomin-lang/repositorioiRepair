@@ -24,9 +24,21 @@ export class ClientService {
             }
         });
     }
-    
-    deleteClient(){
 
+    async deleteClient(clienteId: number, userId: number){
+        const client = await prisma.cliente.findFirst({
+            where:{
+                id:clienteId,
+                usuarioId:userId,
+            }
+        });
+        if(!client){
+            throw new Error("Cliente não encontrado");
+        }
+        return await prisma.cliente.delete({
+            where:{
+                id:clienteId,
+            }
+        });
     }
-
 }
