@@ -11,14 +11,39 @@ generator client {
 datasource db {
   provider = "mysql"
 }
-model Task {
-  id        Int      @id @default(autoincrement())
-  title     String
-  completed Boolean  @default(false)
-  createdAt DateTime @default(now())
-}
 model Usuario {
   id    Int    @id @default(autoincrement())
   email String @unique
   senha String
+
+  clientes Cliente[]
+}
+
+model Cliente{
+  id    Int    @id @default(autoincrement())
+  nome String
+  email  String
+  telefone String
+  usuarioId Int
+  usuario Usuario @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+
+  dispositivos Dispositivo[]
+}
+
+model Dispositivo{
+  id    Int    @id @default(autoincrement())
+  modelo String
+  clienteId Int
+  cliente Cliente @relation(fields: [clienteId], references: [id], onDelete: Cascade)
+
+  ordens OrdemServico[]
+}
+
+model OrdemServico {
+  id Int @id @default(autoincrement())
+  problema String
+  status String
+  dataInicio DateTime @default(now())
+  dispositivoId Int
+  dispositivo Dispositivo @relation(fields: [dispositivoId], references: [id], onDelete: Cascade)
 }
