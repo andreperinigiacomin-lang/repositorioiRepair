@@ -8,5 +8,6 @@ const clientController = new ClientController();
 router.use(authMiddleware);
 
 router.post("/",clientController.create);
+router.get('/', clientController.getAll);
 
 export default router;

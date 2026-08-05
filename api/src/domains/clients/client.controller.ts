@@ -17,4 +17,11 @@ export class ClientController {
         return res.status(201).json(client);
     }
 
+    async getAll(req: Request, res: Response){
+        const userId = req.user!.id;
+        const clients =
+            await clientService.getClients(userId);
+        return res.json(clients);
+    }
+
 }
