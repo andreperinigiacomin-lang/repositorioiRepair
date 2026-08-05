@@ -37,6 +37,6 @@ model OrdemServico {
   problema    String
   status      String
   dataInicio  DateTime @default(now())
-  ClienteId   Int
-  cliente     Cliente  @relation(fields: [ClienteId], references: [id], onDelete: Cascade)
+  clienteId   Int
+  cliente     Cliente  @relation(fields: [clienteId], references: [id], onDelete: Cascade)
 }

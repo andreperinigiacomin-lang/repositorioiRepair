@@ -682,7 +682,7 @@ export const OrdemServicoScalarFieldEnum = {
   problema: 'problema',
   status: 'status',
   dataInicio: 'dataInicio',
-  ClienteId: 'ClienteId'
+  clienteId: 'clienteId'
 } as const
 
 export type OrdemServicoScalarFieldEnum = (typeof OrdemServicoScalarFieldEnum)[keyof typeof OrdemServicoScalarFieldEnum]

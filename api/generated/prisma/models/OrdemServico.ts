@@ -28,12 +28,12 @@ export type AggregateOrdemServico = {
 
 export type OrdemServicoAvgAggregateOutputType = {
   id: number | null
-  ClienteId: number | null
+  clienteId: number | null
 }
 
 export type OrdemServicoSumAggregateOutputType = {
   id: number | null
-  ClienteId: number | null
+  clienteId: number | null
 }
 
 export type OrdemServicoMinAggregateOutputType = {
@@ -42,7 +42,7 @@ export type OrdemServicoMinAggregateOutputType = {
   problema: string | null
   status: string | null
   dataInicio: Date | null
-  ClienteId: number | null
+  clienteId: number | null
 }
 
 export type OrdemServicoMaxAggregateOutputType = {
@@ -51,7 +51,7 @@ export type OrdemServicoMaxAggregateOutputType = {
   problema: string | null
   status: string | null
   dataInicio: Date | null
-  ClienteId: number | null
+  clienteId: number | null
 }
 
 export type OrdemServicoCountAggregateOutputType = {
@@ -60,19 +60,19 @@ export type OrdemServicoCountAggregateOutputType = {
   problema: number
   status: number
   dataInicio: number
-  ClienteId: number
+  clienteId: number
   _all: number
 }
 
 
 export type OrdemServicoAvgAggregateInputType = {
   id?: true
-  ClienteId?: true
+  clienteId?: true
 }
 
 export type OrdemServicoSumAggregateInputType = {
   id?: true
-  ClienteId?: true
+  clienteId?: true
 }
 
 export type OrdemServicoMinAggregateInputType = {
@@ -81,7 +81,7 @@ export type OrdemServicoMinAggregateInputType = {
   problema?: true
   status?: true
   dataInicio?: true
-  ClienteId?: true
+  clienteId?: true
 }
 
 export type OrdemServicoMaxAggregateInputType = {
@@ -90,7 +90,7 @@ export type OrdemServicoMaxAggregateInputType = {
   problema?: true
   status?: true
   dataInicio?: true
-  ClienteId?: true
+  clienteId?: true
 }
 
 export type OrdemServicoCountAggregateInputType = {
@@ -99,7 +99,7 @@ export type OrdemServicoCountAggregateInputType = {
   problema?: true
   status?: true
   dataInicio?: true
-  ClienteId?: true
+  clienteId?: true
   _all?: true
 }
 
@@ -195,7 +195,7 @@ export type OrdemServicoGroupByOutputType = {
   problema: string
   status: string
   dataInicio: Date
-  ClienteId: number
+  clienteId: number
   _count: OrdemServicoCountAggregateOutputType | null
   _avg: OrdemServicoAvgAggregateOutputType | null
   _sum: OrdemServicoSumAggregateOutputType | null
@@ -227,7 +227,7 @@ export type OrdemServicoWhereInput = {
   problema?: Prisma.StringFilter<"OrdemServico"> | string
   status?: Prisma.StringFilter<"OrdemServico"> | string
   dataInicio?: Prisma.DateTimeFilter<"OrdemServico"> | Date | string
-  ClienteId?: Prisma.IntFilter<"OrdemServico"> | number
+  clienteId?: Prisma.IntFilter<"OrdemServico"> | number
   cliente?: Prisma.XOR<Prisma.ClienteScalarRelationFilter, Prisma.ClienteWhereInput>
 }
 
@@ -237,7 +237,7 @@ export type OrdemServicoOrderByWithRelationInput = {
   problema?: Prisma.SortOrder
   status?: Prisma.SortOrder
   dataInicio?: Prisma.SortOrder
-  ClienteId?: Prisma.SortOrder
+  clienteId?: Prisma.SortOrder
   cliente?: Prisma.ClienteOrderByWithRelationInput
   _relevance?: Prisma.OrdemServicoOrderByRelevanceInput
 }
@@ -251,7 +251,7 @@ export type OrdemServicoWhereUniqueInput = Prisma.AtLeast<{
   problema?: Prisma.StringFilter<"OrdemServico"> | string
   status?: Prisma.StringFilter<"OrdemServico"> | string
   dataInicio?: Prisma.DateTimeFilter<"OrdemServico"> | Date | string
-  ClienteId?: Prisma.IntFilter<"OrdemServico"> | number
+  clienteId?: Prisma.IntFilter<"OrdemServico"> | number
   cliente?: Prisma.XOR<Prisma.ClienteScalarRelationFilter, Prisma.ClienteWhereInput>
 }, "id">
 
@@ -261,7 +261,7 @@ export type OrdemServicoOrderByWithAggregationInput = {
   problema?: Prisma.SortOrder
   status?: Prisma.SortOrder
   dataInicio?: Prisma.SortOrder
-  ClienteId?: Prisma.SortOrder
+  clienteId?: Prisma.SortOrder
   _count?: Prisma.OrdemServicoCountOrderByAggregateInput
   _avg?: Prisma.OrdemServicoAvgOrderByAggregateInput
   _max?: Prisma.OrdemServicoMaxOrderByAggregateInput
@@ -278,7 +278,7 @@ export type OrdemServicoScalarWhereWithAggregatesInput = {
   problema?: Prisma.StringWithAggregatesFilter<"OrdemServico"> | string
   status?: Prisma.StringWithAggregatesFilter<"OrdemServico"> | string
   dataInicio?: Prisma.DateTimeWithAggregatesFilter<"OrdemServico"> | Date | string
-  ClienteId?: Prisma.IntWithAggregatesFilter<"OrdemServico"> | number
+  clienteId?: Prisma.IntWithAggregatesFilter<"OrdemServico"> | number
 }
 
 export type OrdemServicoCreateInput = {
@@ -295,7 +295,7 @@ export type OrdemServicoUncheckedCreateInput = {
   problema: string
   status: string
   dataInicio?: Date | string
-  ClienteId: number
+  clienteId: number
 }
 
 export type OrdemServicoUpdateInput = {
@@ -312,7 +312,7 @@ export type OrdemServicoUncheckedUpdateInput = {
   problema?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.StringFieldUpdateOperationsInput | string
   dataInicio?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  ClienteId?: Prisma.IntFieldUpdateOperationsInput | number
+  clienteId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type OrdemServicoCreateManyInput = {
@@ -321,7 +321,7 @@ export type OrdemServicoCreateManyInput = {
   problema: string
   status: string
   dataInicio?: Date | string
-  ClienteId: number
+  clienteId: number
 }
 
 export type OrdemServicoUpdateManyMutationInput = {
@@ -337,7 +337,7 @@ export type OrdemServicoUncheckedUpdateManyInput = {
   problema?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.StringFieldUpdateOperationsInput | string
   dataInicio?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  ClienteId?: Prisma.IntFieldUpdateOperationsInput | number
+  clienteId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type OrdemServicoListRelationFilter = {
@@ -362,12 +362,12 @@ export type OrdemServicoCountOrderByAggregateInput = {
   problema?: Prisma.SortOrder
   status?: Prisma.SortOrder
   dataInicio?: Prisma.SortOrder
-  ClienteId?: Prisma.SortOrder
+  clienteId?: Prisma.SortOrder
 }
 
 export type OrdemServicoAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  ClienteId?: Prisma.SortOrder
+  clienteId?: Prisma.SortOrder
 }
 
 export type OrdemServicoMaxOrderByAggregateInput = {
@@ -376,7 +376,7 @@ export type OrdemServicoMaxOrderByAggregateInput = {
   problema?: Prisma.SortOrder
   status?: Prisma.SortOrder
   dataInicio?: Prisma.SortOrder
-  ClienteId?: Prisma.SortOrder
+  clienteId?: Prisma.SortOrder
 }
 
 export type OrdemServicoMinOrderByAggregateInput = {
@@ -385,12 +385,12 @@ export type OrdemServicoMinOrderByAggregateInput = {
   problema?: Prisma.SortOrder
   status?: Prisma.SortOrder
   dataInicio?: Prisma.SortOrder
-  ClienteId?: Prisma.SortOrder
+  clienteId?: Prisma.SortOrder
 }
 
 export type OrdemServicoSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  ClienteId?: Prisma.SortOrder
+  clienteId?: Prisma.SortOrder
 }
 
 export type OrdemServicoCreateNestedManyWithoutClienteInput = {
@@ -489,7 +489,7 @@ export type OrdemServicoScalarWhereInput = {
   problema?: Prisma.StringFilter<"OrdemServico"> | string
   status?: Prisma.StringFilter<"OrdemServico"> | string
   dataInicio?: Prisma.DateTimeFilter<"OrdemServico"> | Date | string
-  ClienteId?: Prisma.IntFilter<"OrdemServico"> | number
+  clienteId?: Prisma.IntFilter<"OrdemServico"> | number
 }
 
 export type OrdemServicoCreateManyClienteInput = {
@@ -531,7 +531,7 @@ export type OrdemServicoSelect<ExtArgs extends runtime.Types.Extensions.Internal
   problema?: boolean
   status?: boolean
   dataInicio?: boolean
-  ClienteId?: boolean
+  clienteId?: boolean
   cliente?: boolean | Prisma.ClienteDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["ordemServico"]>
 
@@ -543,10 +543,10 @@ export type OrdemServicoSelectScalar = {
   problema?: boolean
   status?: boolean
   dataInicio?: boolean
-  ClienteId?: boolean
+  clienteId?: boolean
 }
 
-export type OrdemServicoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "dispositivo" | "problema" | "status" | "dataInicio" | "ClienteId", ExtArgs["result"]["ordemServico"]>
+export type OrdemServicoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "dispositivo" | "problema" | "status" | "dataInicio" | "clienteId", ExtArgs["result"]["ordemServico"]>
 export type OrdemServicoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   cliente?: boolean | Prisma.ClienteDefaultArgs<ExtArgs>
 }
@@ -562,7 +562,7 @@ export type $OrdemServicoPayload<ExtArgs extends runtime.Types.Extensions.Intern
     problema: string
     status: string
     dataInicio: Date
-    ClienteId: number
+    clienteId: number
   }, ExtArgs["result"]["ordemServico"]>
   composites: {}
 }
@@ -938,7 +938,7 @@ export interface OrdemServicoFieldRefs {
   readonly problema: Prisma.FieldRef<"OrdemServico", 'String'>
   readonly status: Prisma.FieldRef<"OrdemServico", 'String'>
   readonly dataInicio: Prisma.FieldRef<"OrdemServico", 'DateTime'>
-  readonly ClienteId: Prisma.FieldRef<"OrdemServico", 'Int'>
+  readonly clienteId: Prisma.FieldRef<"OrdemServico", 'Int'>
 }
     
 

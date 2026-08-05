@@ -1,0 +1,25 @@
+import { Request, Response } from "express";
+import { ServiceOrderService } from "./serviceOrder.service";
+
+const serviceOrderService = new ServiceOrderService;
+
+export class ServiceOrderController{
+    async create(req:Request, res:Response){
+        const{
+            clienteId,
+            dispositivo,
+            problema,
+            status
+        } = req.body;
+
+        const userId = req.user!.id;
+        const serviceOrder = await serviceOrderService.createServiceOrder(
+            clienteId,
+            dispositivo,
+            problema,
+            status,
+            userId,
+        );
+        return res.status(201).json(serviceOrder);
+    }
+}
