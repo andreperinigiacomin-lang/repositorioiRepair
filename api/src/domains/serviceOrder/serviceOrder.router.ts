@@ -9,5 +9,6 @@ router.use(authMiddleware);
 
 router.post("/",serviceOrderController.create);
 router.get("/", serviceOrderController.getAll);
+router.delete("/:id",serviceOrderController.delete);
 
 export default router;

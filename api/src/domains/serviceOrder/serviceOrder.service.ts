@@ -40,4 +40,23 @@ export class ServiceOrderService {
             }
         });
     }
+
+    async deleteServiceOrder(orderId: number, userId: number){
+        const serviceOrder = await prisma.ordemServico.findFirst({
+            where:{
+                id:orderId,
+                cliente:{
+                    usuarioId: userId
+                }
+            }
+        });
+        if(!serviceOrder){
+            throw new Error("Ordem de serviço não encontrada");
+        }
+        return await prisma.ordemServico.delete({
+            where:{
+                id:orderId,
+            }
+        }); 
+    }
 }
