@@ -17,10 +17,14 @@ export class ClientService {
     });
     }
 
-    getClients(){
-
+    async getClients(userId:number){
+        return await prisma.cliente.findMany({
+            where:{
+                usuarioId:userId
+            }
+        });
     }
-
+    
     deleteClient(){
 
     }
