@@ -27,4 +27,17 @@ export class ServiceOrderService {
             }
          });
     }
+
+    async getServiceOrders(userId:number){
+        return await prisma.ordemServico.findMany({
+            where:{
+                cliente:{
+                    usuarioId:userId,
+                }
+            },
+            include:{
+                cliente:true,
+            }
+        });
+    }
 }

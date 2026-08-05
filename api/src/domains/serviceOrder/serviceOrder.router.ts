@@ -8,5 +8,6 @@ const serviceOrderController = new ServiceOrderController();
 router.use(authMiddleware);
 
 router.post("/",serviceOrderController.create);
+router.get("/", serviceOrderController.getAll);
 
 export default router;

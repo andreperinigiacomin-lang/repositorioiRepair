@@ -22,4 +22,9 @@ export class ServiceOrderController{
         );
         return res.status(201).json(serviceOrder);
     }
+    async getAll(req:Request, res:Response){
+        const userId = req.user!.id;
+        const serviceOrders = await serviceOrderService.getServiceOrders(userId);
+        return res.json(serviceOrders);
+    }
 }
