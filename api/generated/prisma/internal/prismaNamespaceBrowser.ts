@@ -51,8 +51,10 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  Task: 'Task',
-  Usuario: 'Usuario'
+  Usuario: 'Usuario',
+  Cliente: 'Cliente',
+  Dispositivo: 'Dispositivo',
+  OrdemServico: 'OrdemServico'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -71,16 +73,6 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-export const TaskScalarFieldEnum = {
-  id: 'id',
-  title: 'title',
-  completed: 'completed',
-  createdAt: 'createdAt'
-} as const
-
-export type TaskScalarFieldEnum = (typeof TaskScalarFieldEnum)[keyof typeof TaskScalarFieldEnum]
-
-
 export const UsuarioScalarFieldEnum = {
   id: 'id',
   email: 'email',
@@ -88,6 +80,37 @@ export const UsuarioScalarFieldEnum = {
 } as const
 
 export type UsuarioScalarFieldEnum = (typeof UsuarioScalarFieldEnum)[keyof typeof UsuarioScalarFieldEnum]
+
+
+export const ClienteScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome',
+  email: 'email',
+  telefone: 'telefone',
+  usuarioId: 'usuarioId'
+} as const
+
+export type ClienteScalarFieldEnum = (typeof ClienteScalarFieldEnum)[keyof typeof ClienteScalarFieldEnum]
+
+
+export const DispositivoScalarFieldEnum = {
+  id: 'id',
+  modelo: 'modelo',
+  clienteId: 'clienteId'
+} as const
+
+export type DispositivoScalarFieldEnum = (typeof DispositivoScalarFieldEnum)[keyof typeof DispositivoScalarFieldEnum]
+
+
+export const OrdemServicoScalarFieldEnum = {
+  id: 'id',
+  problema: 'problema',
+  status: 'status',
+  dataInicio: 'dataInicio',
+  dispositivoId: 'dispositivoId'
+} as const
+
+export type OrdemServicoScalarFieldEnum = (typeof OrdemServicoScalarFieldEnum)[keyof typeof OrdemServicoScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -98,17 +121,34 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
-export const TaskOrderByRelevanceFieldEnum = {
-  title: 'title'
-} as const
-
-export type TaskOrderByRelevanceFieldEnum = (typeof TaskOrderByRelevanceFieldEnum)[keyof typeof TaskOrderByRelevanceFieldEnum]
-
-
 export const UsuarioOrderByRelevanceFieldEnum = {
   email: 'email',
   senha: 'senha'
 } as const
 
 export type UsuarioOrderByRelevanceFieldEnum = (typeof UsuarioOrderByRelevanceFieldEnum)[keyof typeof UsuarioOrderByRelevanceFieldEnum]
+
+
+export const ClienteOrderByRelevanceFieldEnum = {
+  nome: 'nome',
+  email: 'email',
+  telefone: 'telefone'
+} as const
+
+export type ClienteOrderByRelevanceFieldEnum = (typeof ClienteOrderByRelevanceFieldEnum)[keyof typeof ClienteOrderByRelevanceFieldEnum]
+
+
+export const DispositivoOrderByRelevanceFieldEnum = {
+  modelo: 'modelo'
+} as const
+
+export type DispositivoOrderByRelevanceFieldEnum = (typeof DispositivoOrderByRelevanceFieldEnum)[keyof typeof DispositivoOrderByRelevanceFieldEnum]
+
+
+export const OrdemServicoOrderByRelevanceFieldEnum = {
+  problema: 'problema',
+  status: 'status'
+} as const
+
+export type OrdemServicoOrderByRelevanceFieldEnum = (typeof OrdemServicoOrderByRelevanceFieldEnum)[keyof typeof OrdemServicoOrderByRelevanceFieldEnum]
 
