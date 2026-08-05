@@ -28,11 +28,6 @@ export type Usuario = Prisma.UsuarioModel
  */
 export type Cliente = Prisma.ClienteModel
 /**
- * Model Dispositivo
- * 
- */
-export type Dispositivo = Prisma.DispositivoModel
-/**
  * Model OrdemServico
  * 
  */

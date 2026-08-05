@@ -10,6 +10,5 @@
  */
 export type * from './models/Usuario'
 export type * from './models/Cliente'
-export type * from './models/Dispositivo'
 export type * from './models/OrdemServico'
 export type * from './commonInputTypes'

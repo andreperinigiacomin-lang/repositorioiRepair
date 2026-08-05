@@ -399,7 +399,6 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 export const ModelName = {
   Usuario: 'Usuario',
   Cliente: 'Cliente',
-  Dispositivo: 'Dispositivo',
   OrdemServico: 'OrdemServico'
 } as const
 
@@ -416,7 +415,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "usuario" | "cliente" | "dispositivo" | "ordemServico"
+    modelProps: "usuario" | "cliente" | "ordemServico"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -552,72 +551,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    Dispositivo: {
-      payload: Prisma.$DispositivoPayload<ExtArgs>
-      fields: Prisma.DispositivoFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.DispositivoFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$DispositivoPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.DispositivoFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$DispositivoPayload>
-        }
-        findFirst: {
-          args: Prisma.DispositivoFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$DispositivoPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.DispositivoFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$DispositivoPayload>
-        }
-        findMany: {
-          args: Prisma.DispositivoFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$DispositivoPayload>[]
-        }
-        create: {
-          args: Prisma.DispositivoCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$DispositivoPayload>
-        }
-        createMany: {
-          args: Prisma.DispositivoCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        delete: {
-          args: Prisma.DispositivoDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$DispositivoPayload>
-        }
-        update: {
-          args: Prisma.DispositivoUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$DispositivoPayload>
-        }
-        deleteMany: {
-          args: Prisma.DispositivoDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.DispositivoUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        upsert: {
-          args: Prisma.DispositivoUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$DispositivoPayload>
-        }
-        aggregate: {
-          args: Prisma.DispositivoAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateDispositivo>
-        }
-        groupBy: {
-          args: Prisma.DispositivoGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.DispositivoGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.DispositivoCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.DispositivoCountAggregateOutputType> | number
-        }
-      }
-    }
     OrdemServico: {
       payload: Prisma.$OrdemServicoPayload<ExtArgs>
       fields: Prisma.OrdemServicoFieldRefs
@@ -743,21 +676,13 @@ export const ClienteScalarFieldEnum = {
 export type ClienteScalarFieldEnum = (typeof ClienteScalarFieldEnum)[keyof typeof ClienteScalarFieldEnum]
 
 
-export const DispositivoScalarFieldEnum = {
-  id: 'id',
-  modelo: 'modelo',
-  clienteId: 'clienteId'
-} as const
-
-export type DispositivoScalarFieldEnum = (typeof DispositivoScalarFieldEnum)[keyof typeof DispositivoScalarFieldEnum]
-
-
 export const OrdemServicoScalarFieldEnum = {
   id: 'id',
+  dispositivo: 'dispositivo',
   problema: 'problema',
   status: 'status',
   dataInicio: 'dataInicio',
-  dispositivoId: 'dispositivoId'
+  ClienteId: 'ClienteId'
 } as const
 
 export type OrdemServicoScalarFieldEnum = (typeof OrdemServicoScalarFieldEnum)[keyof typeof OrdemServicoScalarFieldEnum]
@@ -788,14 +713,8 @@ export const ClienteOrderByRelevanceFieldEnum = {
 export type ClienteOrderByRelevanceFieldEnum = (typeof ClienteOrderByRelevanceFieldEnum)[keyof typeof ClienteOrderByRelevanceFieldEnum]
 
 
-export const DispositivoOrderByRelevanceFieldEnum = {
-  modelo: 'modelo'
-} as const
-
-export type DispositivoOrderByRelevanceFieldEnum = (typeof DispositivoOrderByRelevanceFieldEnum)[keyof typeof DispositivoOrderByRelevanceFieldEnum]
-
-
 export const OrdemServicoOrderByRelevanceFieldEnum = {
+  dispositivo: 'dispositivo',
   problema: 'problema',
   status: 'status'
 } as const
@@ -989,7 +908,6 @@ export type PrismaClientOptions = PrismaClientOptionsWithAccelerateUrl | PrismaC
 export type GlobalOmitConfig = {
   usuario?: Prisma.UsuarioOmit
   cliente?: Prisma.ClienteOmit
-  dispositivo?: Prisma.DispositivoOmit
   ordemServico?: Prisma.OrdemServicoOmit
 }
 

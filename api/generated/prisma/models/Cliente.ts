@@ -221,7 +221,7 @@ export type ClienteWhereInput = {
   telefone?: Prisma.StringFilter<"Cliente"> | string
   usuarioId?: Prisma.IntFilter<"Cliente"> | number
   usuario?: Prisma.XOR<Prisma.UsuarioScalarRelationFilter, Prisma.UsuarioWhereInput>
-  dispositivos?: Prisma.DispositivoListRelationFilter
+  ordens?: Prisma.OrdemServicoListRelationFilter
 }
 
 export type ClienteOrderByWithRelationInput = {
@@ -231,7 +231,7 @@ export type ClienteOrderByWithRelationInput = {
   telefone?: Prisma.SortOrder
   usuarioId?: Prisma.SortOrder
   usuario?: Prisma.UsuarioOrderByWithRelationInput
-  dispositivos?: Prisma.DispositivoOrderByRelationAggregateInput
+  ordens?: Prisma.OrdemServicoOrderByRelationAggregateInput
   _relevance?: Prisma.ClienteOrderByRelevanceInput
 }
 
@@ -245,7 +245,7 @@ export type ClienteWhereUniqueInput = Prisma.AtLeast<{
   telefone?: Prisma.StringFilter<"Cliente"> | string
   usuarioId?: Prisma.IntFilter<"Cliente"> | number
   usuario?: Prisma.XOR<Prisma.UsuarioScalarRelationFilter, Prisma.UsuarioWhereInput>
-  dispositivos?: Prisma.DispositivoListRelationFilter
+  ordens?: Prisma.OrdemServicoListRelationFilter
 }, "id">
 
 export type ClienteOrderByWithAggregationInput = {
@@ -277,7 +277,7 @@ export type ClienteCreateInput = {
   email: string
   telefone: string
   usuario: Prisma.UsuarioCreateNestedOneWithoutClientesInput
-  dispositivos?: Prisma.DispositivoCreateNestedManyWithoutClienteInput
+  ordens?: Prisma.OrdemServicoCreateNestedManyWithoutClienteInput
 }
 
 export type ClienteUncheckedCreateInput = {
@@ -286,7 +286,7 @@ export type ClienteUncheckedCreateInput = {
   email: string
   telefone: string
   usuarioId: number
-  dispositivos?: Prisma.DispositivoUncheckedCreateNestedManyWithoutClienteInput
+  ordens?: Prisma.OrdemServicoUncheckedCreateNestedManyWithoutClienteInput
 }
 
 export type ClienteUpdateInput = {
@@ -294,7 +294,7 @@ export type ClienteUpdateInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   telefone?: Prisma.StringFieldUpdateOperationsInput | string
   usuario?: Prisma.UsuarioUpdateOneRequiredWithoutClientesNestedInput
-  dispositivos?: Prisma.DispositivoUpdateManyWithoutClienteNestedInput
+  ordens?: Prisma.OrdemServicoUpdateManyWithoutClienteNestedInput
 }
 
 export type ClienteUncheckedUpdateInput = {
@@ -303,7 +303,7 @@ export type ClienteUncheckedUpdateInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   telefone?: Prisma.StringFieldUpdateOperationsInput | string
   usuarioId?: Prisma.IntFieldUpdateOperationsInput | number
-  dispositivos?: Prisma.DispositivoUncheckedUpdateManyWithoutClienteNestedInput
+  ordens?: Prisma.OrdemServicoUncheckedUpdateManyWithoutClienteNestedInput
 }
 
 export type ClienteCreateManyInput = {
@@ -425,25 +425,25 @@ export type ClienteUncheckedUpdateManyWithoutUsuarioNestedInput = {
   deleteMany?: Prisma.ClienteScalarWhereInput | Prisma.ClienteScalarWhereInput[]
 }
 
-export type ClienteCreateNestedOneWithoutDispositivosInput = {
-  create?: Prisma.XOR<Prisma.ClienteCreateWithoutDispositivosInput, Prisma.ClienteUncheckedCreateWithoutDispositivosInput>
-  connectOrCreate?: Prisma.ClienteCreateOrConnectWithoutDispositivosInput
+export type ClienteCreateNestedOneWithoutOrdensInput = {
+  create?: Prisma.XOR<Prisma.ClienteCreateWithoutOrdensInput, Prisma.ClienteUncheckedCreateWithoutOrdensInput>
+  connectOrCreate?: Prisma.ClienteCreateOrConnectWithoutOrdensInput
   connect?: Prisma.ClienteWhereUniqueInput
 }
 
-export type ClienteUpdateOneRequiredWithoutDispositivosNestedInput = {
-  create?: Prisma.XOR<Prisma.ClienteCreateWithoutDispositivosInput, Prisma.ClienteUncheckedCreateWithoutDispositivosInput>
-  connectOrCreate?: Prisma.ClienteCreateOrConnectWithoutDispositivosInput
-  upsert?: Prisma.ClienteUpsertWithoutDispositivosInput
+export type ClienteUpdateOneRequiredWithoutOrdensNestedInput = {
+  create?: Prisma.XOR<Prisma.ClienteCreateWithoutOrdensInput, Prisma.ClienteUncheckedCreateWithoutOrdensInput>
+  connectOrCreate?: Prisma.ClienteCreateOrConnectWithoutOrdensInput
+  upsert?: Prisma.ClienteUpsertWithoutOrdensInput
   connect?: Prisma.ClienteWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.ClienteUpdateToOneWithWhereWithoutDispositivosInput, Prisma.ClienteUpdateWithoutDispositivosInput>, Prisma.ClienteUncheckedUpdateWithoutDispositivosInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ClienteUpdateToOneWithWhereWithoutOrdensInput, Prisma.ClienteUpdateWithoutOrdensInput>, Prisma.ClienteUncheckedUpdateWithoutOrdensInput>
 }
 
 export type ClienteCreateWithoutUsuarioInput = {
   nome: string
   email: string
   telefone: string
-  dispositivos?: Prisma.DispositivoCreateNestedManyWithoutClienteInput
+  ordens?: Prisma.OrdemServicoCreateNestedManyWithoutClienteInput
 }
 
 export type ClienteUncheckedCreateWithoutUsuarioInput = {
@@ -451,7 +451,7 @@ export type ClienteUncheckedCreateWithoutUsuarioInput = {
   nome: string
   email: string
   telefone: string
-  dispositivos?: Prisma.DispositivoUncheckedCreateNestedManyWithoutClienteInput
+  ordens?: Prisma.OrdemServicoUncheckedCreateNestedManyWithoutClienteInput
 }
 
 export type ClienteCreateOrConnectWithoutUsuarioInput = {
@@ -491,14 +491,14 @@ export type ClienteScalarWhereInput = {
   usuarioId?: Prisma.IntFilter<"Cliente"> | number
 }
 
-export type ClienteCreateWithoutDispositivosInput = {
+export type ClienteCreateWithoutOrdensInput = {
   nome: string
   email: string
   telefone: string
   usuario: Prisma.UsuarioCreateNestedOneWithoutClientesInput
 }
 
-export type ClienteUncheckedCreateWithoutDispositivosInput = {
+export type ClienteUncheckedCreateWithoutOrdensInput = {
   id?: number
   nome: string
   email: string
@@ -506,30 +506,30 @@ export type ClienteUncheckedCreateWithoutDispositivosInput = {
   usuarioId: number
 }
 
-export type ClienteCreateOrConnectWithoutDispositivosInput = {
+export type ClienteCreateOrConnectWithoutOrdensInput = {
   where: Prisma.ClienteWhereUniqueInput
-  create: Prisma.XOR<Prisma.ClienteCreateWithoutDispositivosInput, Prisma.ClienteUncheckedCreateWithoutDispositivosInput>
+  create: Prisma.XOR<Prisma.ClienteCreateWithoutOrdensInput, Prisma.ClienteUncheckedCreateWithoutOrdensInput>
 }
 
-export type ClienteUpsertWithoutDispositivosInput = {
-  update: Prisma.XOR<Prisma.ClienteUpdateWithoutDispositivosInput, Prisma.ClienteUncheckedUpdateWithoutDispositivosInput>
-  create: Prisma.XOR<Prisma.ClienteCreateWithoutDispositivosInput, Prisma.ClienteUncheckedCreateWithoutDispositivosInput>
+export type ClienteUpsertWithoutOrdensInput = {
+  update: Prisma.XOR<Prisma.ClienteUpdateWithoutOrdensInput, Prisma.ClienteUncheckedUpdateWithoutOrdensInput>
+  create: Prisma.XOR<Prisma.ClienteCreateWithoutOrdensInput, Prisma.ClienteUncheckedCreateWithoutOrdensInput>
   where?: Prisma.ClienteWhereInput
 }
 
-export type ClienteUpdateToOneWithWhereWithoutDispositivosInput = {
+export type ClienteUpdateToOneWithWhereWithoutOrdensInput = {
   where?: Prisma.ClienteWhereInput
-  data: Prisma.XOR<Prisma.ClienteUpdateWithoutDispositivosInput, Prisma.ClienteUncheckedUpdateWithoutDispositivosInput>
+  data: Prisma.XOR<Prisma.ClienteUpdateWithoutOrdensInput, Prisma.ClienteUncheckedUpdateWithoutOrdensInput>
 }
 
-export type ClienteUpdateWithoutDispositivosInput = {
+export type ClienteUpdateWithoutOrdensInput = {
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   telefone?: Prisma.StringFieldUpdateOperationsInput | string
   usuario?: Prisma.UsuarioUpdateOneRequiredWithoutClientesNestedInput
 }
 
-export type ClienteUncheckedUpdateWithoutDispositivosInput = {
+export type ClienteUncheckedUpdateWithoutOrdensInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
@@ -548,7 +548,7 @@ export type ClienteUpdateWithoutUsuarioInput = {
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   telefone?: Prisma.StringFieldUpdateOperationsInput | string
-  dispositivos?: Prisma.DispositivoUpdateManyWithoutClienteNestedInput
+  ordens?: Prisma.OrdemServicoUpdateManyWithoutClienteNestedInput
 }
 
 export type ClienteUncheckedUpdateWithoutUsuarioInput = {
@@ -556,7 +556,7 @@ export type ClienteUncheckedUpdateWithoutUsuarioInput = {
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   telefone?: Prisma.StringFieldUpdateOperationsInput | string
-  dispositivos?: Prisma.DispositivoUncheckedUpdateManyWithoutClienteNestedInput
+  ordens?: Prisma.OrdemServicoUncheckedUpdateManyWithoutClienteNestedInput
 }
 
 export type ClienteUncheckedUpdateManyWithoutUsuarioInput = {
@@ -572,11 +572,11 @@ export type ClienteUncheckedUpdateManyWithoutUsuarioInput = {
  */
 
 export type ClienteCountOutputType = {
-  dispositivos: number
+  ordens: number
 }
 
 export type ClienteCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  dispositivos?: boolean | ClienteCountOutputTypeCountDispositivosArgs
+  ordens?: boolean | ClienteCountOutputTypeCountOrdensArgs
 }
 
 /**
@@ -592,8 +592,8 @@ export type ClienteCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Exte
 /**
  * ClienteCountOutputType without action
  */
-export type ClienteCountOutputTypeCountDispositivosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.DispositivoWhereInput
+export type ClienteCountOutputTypeCountOrdensArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OrdemServicoWhereInput
 }
 
 
@@ -604,7 +604,7 @@ export type ClienteSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   telefone?: boolean
   usuarioId?: boolean
   usuario?: boolean | Prisma.UsuarioDefaultArgs<ExtArgs>
-  dispositivos?: boolean | Prisma.Cliente$dispositivosArgs<ExtArgs>
+  ordens?: boolean | Prisma.Cliente$ordensArgs<ExtArgs>
   _count?: boolean | Prisma.ClienteCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["cliente"]>
 
@@ -621,7 +621,7 @@ export type ClienteSelectScalar = {
 export type ClienteOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nome" | "email" | "telefone" | "usuarioId", ExtArgs["result"]["cliente"]>
 export type ClienteInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   usuario?: boolean | Prisma.UsuarioDefaultArgs<ExtArgs>
-  dispositivos?: boolean | Prisma.Cliente$dispositivosArgs<ExtArgs>
+  ordens?: boolean | Prisma.Cliente$ordensArgs<ExtArgs>
   _count?: boolean | Prisma.ClienteCountOutputTypeDefaultArgs<ExtArgs>
 }
 
@@ -629,7 +629,7 @@ export type $ClientePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   name: "Cliente"
   objects: {
     usuario: Prisma.$UsuarioPayload<ExtArgs>
-    dispositivos: Prisma.$DispositivoPayload<ExtArgs>[]
+    ordens: Prisma.$OrdemServicoPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -978,7 +978,7 @@ readonly fields: ClienteFieldRefs;
 export interface Prisma__ClienteClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   usuario<T extends Prisma.UsuarioDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UsuarioDefaultArgs<ExtArgs>>): Prisma.Prisma__UsuarioClient<runtime.Types.Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  dispositivos<T extends Prisma.Cliente$dispositivosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Cliente$dispositivosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DispositivoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  ordens<T extends Prisma.Cliente$ordensArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Cliente$ordensArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrdemServicoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1361,27 +1361,27 @@ export type ClienteDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
 }
 
 /**
- * Cliente.dispositivos
+ * Cliente.ordens
  */
-export type Cliente$dispositivosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Cliente$ordensArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Dispositivo
+   * Select specific fields to fetch from the OrdemServico
    */
-  select?: Prisma.DispositivoSelect<ExtArgs> | null
+  select?: Prisma.OrdemServicoSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Dispositivo
+   * Omit specific fields from the OrdemServico
    */
-  omit?: Prisma.DispositivoOmit<ExtArgs> | null
+  omit?: Prisma.OrdemServicoOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.DispositivoInclude<ExtArgs> | null
-  where?: Prisma.DispositivoWhereInput
-  orderBy?: Prisma.DispositivoOrderByWithRelationInput | Prisma.DispositivoOrderByWithRelationInput[]
-  cursor?: Prisma.DispositivoWhereUniqueInput
+  include?: Prisma.OrdemServicoInclude<ExtArgs> | null
+  where?: Prisma.OrdemServicoWhereInput
+  orderBy?: Prisma.OrdemServicoOrderByWithRelationInput | Prisma.OrdemServicoOrderByWithRelationInput[]
+  cursor?: Prisma.OrdemServicoWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.DispositivoScalarFieldEnum | Prisma.DispositivoScalarFieldEnum[]
+  distinct?: Prisma.OrdemServicoScalarFieldEnum | Prisma.OrdemServicoScalarFieldEnum[]
 }
 
 /**

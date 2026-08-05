@@ -53,7 +53,6 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   Usuario: 'Usuario',
   Cliente: 'Cliente',
-  Dispositivo: 'Dispositivo',
   OrdemServico: 'OrdemServico'
 } as const
 
@@ -93,21 +92,13 @@ export const ClienteScalarFieldEnum = {
 export type ClienteScalarFieldEnum = (typeof ClienteScalarFieldEnum)[keyof typeof ClienteScalarFieldEnum]
 
 
-export const DispositivoScalarFieldEnum = {
-  id: 'id',
-  modelo: 'modelo',
-  clienteId: 'clienteId'
-} as const
-
-export type DispositivoScalarFieldEnum = (typeof DispositivoScalarFieldEnum)[keyof typeof DispositivoScalarFieldEnum]
-
-
 export const OrdemServicoScalarFieldEnum = {
   id: 'id',
+  dispositivo: 'dispositivo',
   problema: 'problema',
   status: 'status',
   dataInicio: 'dataInicio',
-  dispositivoId: 'dispositivoId'
+  ClienteId: 'ClienteId'
 } as const
 
 export type OrdemServicoScalarFieldEnum = (typeof OrdemServicoScalarFieldEnum)[keyof typeof OrdemServicoScalarFieldEnum]
@@ -138,14 +129,8 @@ export const ClienteOrderByRelevanceFieldEnum = {
 export type ClienteOrderByRelevanceFieldEnum = (typeof ClienteOrderByRelevanceFieldEnum)[keyof typeof ClienteOrderByRelevanceFieldEnum]
 
 
-export const DispositivoOrderByRelevanceFieldEnum = {
-  modelo: 'modelo'
-} as const
-
-export type DispositivoOrderByRelevanceFieldEnum = (typeof DispositivoOrderByRelevanceFieldEnum)[keyof typeof DispositivoOrderByRelevanceFieldEnum]
-
-
 export const OrdemServicoOrderByRelevanceFieldEnum = {
+  dispositivo: 'dispositivo',
   problema: 'problema',
   status: 'status'
 } as const

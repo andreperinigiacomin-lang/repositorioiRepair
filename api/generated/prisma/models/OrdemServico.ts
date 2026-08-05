@@ -28,72 +28,78 @@ export type AggregateOrdemServico = {
 
 export type OrdemServicoAvgAggregateOutputType = {
   id: number | null
-  dispositivoId: number | null
+  ClienteId: number | null
 }
 
 export type OrdemServicoSumAggregateOutputType = {
   id: number | null
-  dispositivoId: number | null
+  ClienteId: number | null
 }
 
 export type OrdemServicoMinAggregateOutputType = {
   id: number | null
+  dispositivo: string | null
   problema: string | null
   status: string | null
   dataInicio: Date | null
-  dispositivoId: number | null
+  ClienteId: number | null
 }
 
 export type OrdemServicoMaxAggregateOutputType = {
   id: number | null
+  dispositivo: string | null
   problema: string | null
   status: string | null
   dataInicio: Date | null
-  dispositivoId: number | null
+  ClienteId: number | null
 }
 
 export type OrdemServicoCountAggregateOutputType = {
   id: number
+  dispositivo: number
   problema: number
   status: number
   dataInicio: number
-  dispositivoId: number
+  ClienteId: number
   _all: number
 }
 
 
 export type OrdemServicoAvgAggregateInputType = {
   id?: true
-  dispositivoId?: true
+  ClienteId?: true
 }
 
 export type OrdemServicoSumAggregateInputType = {
   id?: true
-  dispositivoId?: true
+  ClienteId?: true
 }
 
 export type OrdemServicoMinAggregateInputType = {
   id?: true
+  dispositivo?: true
   problema?: true
   status?: true
   dataInicio?: true
-  dispositivoId?: true
+  ClienteId?: true
 }
 
 export type OrdemServicoMaxAggregateInputType = {
   id?: true
+  dispositivo?: true
   problema?: true
   status?: true
   dataInicio?: true
-  dispositivoId?: true
+  ClienteId?: true
 }
 
 export type OrdemServicoCountAggregateInputType = {
   id?: true
+  dispositivo?: true
   problema?: true
   status?: true
   dataInicio?: true
-  dispositivoId?: true
+  ClienteId?: true
   _all?: true
 }
 
@@ -185,10 +191,11 @@ export type OrdemServicoGroupByArgs<ExtArgs extends runtime.Types.Extensions.Int
 
 export type OrdemServicoGroupByOutputType = {
   id: number
+  dispositivo: string
   problema: string
   status: string
   dataInicio: Date
-  dispositivoId: number
+  ClienteId: number
   _count: OrdemServicoCountAggregateOutputType | null
   _avg: OrdemServicoAvgAggregateOutputType | null
   _sum: OrdemServicoSumAggregateOutputType | null
@@ -216,20 +223,22 @@ export type OrdemServicoWhereInput = {
   OR?: Prisma.OrdemServicoWhereInput[]
   NOT?: Prisma.OrdemServicoWhereInput | Prisma.OrdemServicoWhereInput[]
   id?: Prisma.IntFilter<"OrdemServico"> | number
+  dispositivo?: Prisma.StringFilter<"OrdemServico"> | string
   problema?: Prisma.StringFilter<"OrdemServico"> | string
   status?: Prisma.StringFilter<"OrdemServico"> | string
   dataInicio?: Prisma.DateTimeFilter<"OrdemServico"> | Date | string
-  dispositivoId?: Prisma.IntFilter<"OrdemServico"> | number
-  dispositivo?: Prisma.XOR<Prisma.DispositivoScalarRelationFilter, Prisma.DispositivoWhereInput>
+  ClienteId?: Prisma.IntFilter<"OrdemServico"> | number
+  cliente?: Prisma.XOR<Prisma.ClienteScalarRelationFilter, Prisma.ClienteWhereInput>
 }
 
 export type OrdemServicoOrderByWithRelationInput = {
   id?: Prisma.SortOrder
+  dispositivo?: Prisma.SortOrder
   problema?: Prisma.SortOrder
   status?: Prisma.SortOrder
   dataInicio?: Prisma.SortOrder
-  dispositivoId?: Prisma.SortOrder
-  dispositivo?: Prisma.DispositivoOrderByWithRelationInput
+  ClienteId?: Prisma.SortOrder
+  cliente?: Prisma.ClienteOrderByWithRelationInput
   _relevance?: Prisma.OrdemServicoOrderByRelevanceInput
 }
 
@@ -238,19 +247,21 @@ export type OrdemServicoWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.OrdemServicoWhereInput | Prisma.OrdemServicoWhereInput[]
   OR?: Prisma.OrdemServicoWhereInput[]
   NOT?: Prisma.OrdemServicoWhereInput | Prisma.OrdemServicoWhereInput[]
+  dispositivo?: Prisma.StringFilter<"OrdemServico"> | string
   problema?: Prisma.StringFilter<"OrdemServico"> | string
   status?: Prisma.StringFilter<"OrdemServico"> | string
   dataInicio?: Prisma.DateTimeFilter<"OrdemServico"> | Date | string
-  dispositivoId?: Prisma.IntFilter<"OrdemServico"> | number
-  dispositivo?: Prisma.XOR<Prisma.DispositivoScalarRelationFilter, Prisma.DispositivoWhereInput>
+  ClienteId?: Prisma.IntFilter<"OrdemServico"> | number
+  cliente?: Prisma.XOR<Prisma.ClienteScalarRelationFilter, Prisma.ClienteWhereInput>
 }, "id">
 
 export type OrdemServicoOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
+  dispositivo?: Prisma.SortOrder
   problema?: Prisma.SortOrder
   status?: Prisma.SortOrder
   dataInicio?: Prisma.SortOrder
-  dispositivoId?: Prisma.SortOrder
+  ClienteId?: Prisma.SortOrder
   _count?: Prisma.OrdemServicoCountOrderByAggregateInput
   _avg?: Prisma.OrdemServicoAvgOrderByAggregateInput
   _max?: Prisma.OrdemServicoMaxOrderByAggregateInput
@@ -263,51 +274,58 @@ export type OrdemServicoScalarWhereWithAggregatesInput = {
   OR?: Prisma.OrdemServicoScalarWhereWithAggregatesInput[]
   NOT?: Prisma.OrdemServicoScalarWhereWithAggregatesInput | Prisma.OrdemServicoScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"OrdemServico"> | number
+  dispositivo?: Prisma.StringWithAggregatesFilter<"OrdemServico"> | string
   problema?: Prisma.StringWithAggregatesFilter<"OrdemServico"> | string
   status?: Prisma.StringWithAggregatesFilter<"OrdemServico"> | string
   dataInicio?: Prisma.DateTimeWithAggregatesFilter<"OrdemServico"> | Date | string
-  dispositivoId?: Prisma.IntWithAggregatesFilter<"OrdemServico"> | number
+  ClienteId?: Prisma.IntWithAggregatesFilter<"OrdemServico"> | number
 }
 
 export type OrdemServicoCreateInput = {
+  dispositivo: string
   problema: string
   status: string
   dataInicio?: Date | string
-  dispositivo: Prisma.DispositivoCreateNestedOneWithoutOrdensInput
+  cliente: Prisma.ClienteCreateNestedOneWithoutOrdensInput
 }
 
 export type OrdemServicoUncheckedCreateInput = {
   id?: number
+  dispositivo: string
   problema: string
   status: string
   dataInicio?: Date | string
-  dispositivoId: number
+  ClienteId: number
 }
 
 export type OrdemServicoUpdateInput = {
+  dispositivo?: Prisma.StringFieldUpdateOperationsInput | string
   problema?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.StringFieldUpdateOperationsInput | string
   dataInicio?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  dispositivo?: Prisma.DispositivoUpdateOneRequiredWithoutOrdensNestedInput
+  cliente?: Prisma.ClienteUpdateOneRequiredWithoutOrdensNestedInput
 }
 
 export type OrdemServicoUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  dispositivo?: Prisma.StringFieldUpdateOperationsInput | string
   problema?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.StringFieldUpdateOperationsInput | string
   dataInicio?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  dispositivoId?: Prisma.IntFieldUpdateOperationsInput | number
+  ClienteId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type OrdemServicoCreateManyInput = {
   id?: number
+  dispositivo: string
   problema: string
   status: string
   dataInicio?: Date | string
-  dispositivoId: number
+  ClienteId: number
 }
 
 export type OrdemServicoUpdateManyMutationInput = {
+  dispositivo?: Prisma.StringFieldUpdateOperationsInput | string
   problema?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.StringFieldUpdateOperationsInput | string
   dataInicio?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -315,10 +333,11 @@ export type OrdemServicoUpdateManyMutationInput = {
 
 export type OrdemServicoUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  dispositivo?: Prisma.StringFieldUpdateOperationsInput | string
   problema?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.StringFieldUpdateOperationsInput | string
   dataInicio?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  dispositivoId?: Prisma.IntFieldUpdateOperationsInput | number
+  ClienteId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type OrdemServicoListRelationFilter = {
@@ -339,77 +358,80 @@ export type OrdemServicoOrderByRelevanceInput = {
 
 export type OrdemServicoCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  dispositivo?: Prisma.SortOrder
   problema?: Prisma.SortOrder
   status?: Prisma.SortOrder
   dataInicio?: Prisma.SortOrder
-  dispositivoId?: Prisma.SortOrder
+  ClienteId?: Prisma.SortOrder
 }
 
 export type OrdemServicoAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  dispositivoId?: Prisma.SortOrder
+  ClienteId?: Prisma.SortOrder
 }
 
 export type OrdemServicoMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  dispositivo?: Prisma.SortOrder
   problema?: Prisma.SortOrder
   status?: Prisma.SortOrder
   dataInicio?: Prisma.SortOrder
-  dispositivoId?: Prisma.SortOrder
+  ClienteId?: Prisma.SortOrder
 }
 
 export type OrdemServicoMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  dispositivo?: Prisma.SortOrder
   problema?: Prisma.SortOrder
   status?: Prisma.SortOrder
   dataInicio?: Prisma.SortOrder
-  dispositivoId?: Prisma.SortOrder
+  ClienteId?: Prisma.SortOrder
 }
 
 export type OrdemServicoSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  dispositivoId?: Prisma.SortOrder
+  ClienteId?: Prisma.SortOrder
 }
 
-export type OrdemServicoCreateNestedManyWithoutDispositivoInput = {
-  create?: Prisma.XOR<Prisma.OrdemServicoCreateWithoutDispositivoInput, Prisma.OrdemServicoUncheckedCreateWithoutDispositivoInput> | Prisma.OrdemServicoCreateWithoutDispositivoInput[] | Prisma.OrdemServicoUncheckedCreateWithoutDispositivoInput[]
-  connectOrCreate?: Prisma.OrdemServicoCreateOrConnectWithoutDispositivoInput | Prisma.OrdemServicoCreateOrConnectWithoutDispositivoInput[]
-  createMany?: Prisma.OrdemServicoCreateManyDispositivoInputEnvelope
+export type OrdemServicoCreateNestedManyWithoutClienteInput = {
+  create?: Prisma.XOR<Prisma.OrdemServicoCreateWithoutClienteInput, Prisma.OrdemServicoUncheckedCreateWithoutClienteInput> | Prisma.OrdemServicoCreateWithoutClienteInput[] | Prisma.OrdemServicoUncheckedCreateWithoutClienteInput[]
+  connectOrCreate?: Prisma.OrdemServicoCreateOrConnectWithoutClienteInput | Prisma.OrdemServicoCreateOrConnectWithoutClienteInput[]
+  createMany?: Prisma.OrdemServicoCreateManyClienteInputEnvelope
   connect?: Prisma.OrdemServicoWhereUniqueInput | Prisma.OrdemServicoWhereUniqueInput[]
 }
 
-export type OrdemServicoUncheckedCreateNestedManyWithoutDispositivoInput = {
-  create?: Prisma.XOR<Prisma.OrdemServicoCreateWithoutDispositivoInput, Prisma.OrdemServicoUncheckedCreateWithoutDispositivoInput> | Prisma.OrdemServicoCreateWithoutDispositivoInput[] | Prisma.OrdemServicoUncheckedCreateWithoutDispositivoInput[]
-  connectOrCreate?: Prisma.OrdemServicoCreateOrConnectWithoutDispositivoInput | Prisma.OrdemServicoCreateOrConnectWithoutDispositivoInput[]
-  createMany?: Prisma.OrdemServicoCreateManyDispositivoInputEnvelope
+export type OrdemServicoUncheckedCreateNestedManyWithoutClienteInput = {
+  create?: Prisma.XOR<Prisma.OrdemServicoCreateWithoutClienteInput, Prisma.OrdemServicoUncheckedCreateWithoutClienteInput> | Prisma.OrdemServicoCreateWithoutClienteInput[] | Prisma.OrdemServicoUncheckedCreateWithoutClienteInput[]
+  connectOrCreate?: Prisma.OrdemServicoCreateOrConnectWithoutClienteInput | Prisma.OrdemServicoCreateOrConnectWithoutClienteInput[]
+  createMany?: Prisma.OrdemServicoCreateManyClienteInputEnvelope
   connect?: Prisma.OrdemServicoWhereUniqueInput | Prisma.OrdemServicoWhereUniqueInput[]
 }
 
-export type OrdemServicoUpdateManyWithoutDispositivoNestedInput = {
-  create?: Prisma.XOR<Prisma.OrdemServicoCreateWithoutDispositivoInput, Prisma.OrdemServicoUncheckedCreateWithoutDispositivoInput> | Prisma.OrdemServicoCreateWithoutDispositivoInput[] | Prisma.OrdemServicoUncheckedCreateWithoutDispositivoInput[]
-  connectOrCreate?: Prisma.OrdemServicoCreateOrConnectWithoutDispositivoInput | Prisma.OrdemServicoCreateOrConnectWithoutDispositivoInput[]
-  upsert?: Prisma.OrdemServicoUpsertWithWhereUniqueWithoutDispositivoInput | Prisma.OrdemServicoUpsertWithWhereUniqueWithoutDispositivoInput[]
-  createMany?: Prisma.OrdemServicoCreateManyDispositivoInputEnvelope
+export type OrdemServicoUpdateManyWithoutClienteNestedInput = {
+  create?: Prisma.XOR<Prisma.OrdemServicoCreateWithoutClienteInput, Prisma.OrdemServicoUncheckedCreateWithoutClienteInput> | Prisma.OrdemServicoCreateWithoutClienteInput[] | Prisma.OrdemServicoUncheckedCreateWithoutClienteInput[]
+  connectOrCreate?: Prisma.OrdemServicoCreateOrConnectWithoutClienteInput | Prisma.OrdemServicoCreateOrConnectWithoutClienteInput[]
+  upsert?: Prisma.OrdemServicoUpsertWithWhereUniqueWithoutClienteInput | Prisma.OrdemServicoUpsertWithWhereUniqueWithoutClienteInput[]
+  createMany?: Prisma.OrdemServicoCreateManyClienteInputEnvelope
   set?: Prisma.OrdemServicoWhereUniqueInput | Prisma.OrdemServicoWhereUniqueInput[]
   disconnect?: Prisma.OrdemServicoWhereUniqueInput | Prisma.OrdemServicoWhereUniqueInput[]
   delete?: Prisma.OrdemServicoWhereUniqueInput | Prisma.OrdemServicoWhereUniqueInput[]
   connect?: Prisma.OrdemServicoWhereUniqueInput | Prisma.OrdemServicoWhereUniqueInput[]
-  update?: Prisma.OrdemServicoUpdateWithWhereUniqueWithoutDispositivoInput | Prisma.OrdemServicoUpdateWithWhereUniqueWithoutDispositivoInput[]
-  updateMany?: Prisma.OrdemServicoUpdateManyWithWhereWithoutDispositivoInput | Prisma.OrdemServicoUpdateManyWithWhereWithoutDispositivoInput[]
+  update?: Prisma.OrdemServicoUpdateWithWhereUniqueWithoutClienteInput | Prisma.OrdemServicoUpdateWithWhereUniqueWithoutClienteInput[]
+  updateMany?: Prisma.OrdemServicoUpdateManyWithWhereWithoutClienteInput | Prisma.OrdemServicoUpdateManyWithWhereWithoutClienteInput[]
   deleteMany?: Prisma.OrdemServicoScalarWhereInput | Prisma.OrdemServicoScalarWhereInput[]
 }
 
-export type OrdemServicoUncheckedUpdateManyWithoutDispositivoNestedInput = {
-  create?: Prisma.XOR<Prisma.OrdemServicoCreateWithoutDispositivoInput, Prisma.OrdemServicoUncheckedCreateWithoutDispositivoInput> | Prisma.OrdemServicoCreateWithoutDispositivoInput[] | Prisma.OrdemServicoUncheckedCreateWithoutDispositivoInput[]
-  connectOrCreate?: Prisma.OrdemServicoCreateOrConnectWithoutDispositivoInput | Prisma.OrdemServicoCreateOrConnectWithoutDispositivoInput[]
-  upsert?: Prisma.OrdemServicoUpsertWithWhereUniqueWithoutDispositivoInput | Prisma.OrdemServicoUpsertWithWhereUniqueWithoutDispositivoInput[]
-  createMany?: Prisma.OrdemServicoCreateManyDispositivoInputEnvelope
+export type OrdemServicoUncheckedUpdateManyWithoutClienteNestedInput = {
+  create?: Prisma.XOR<Prisma.OrdemServicoCreateWithoutClienteInput, Prisma.OrdemServicoUncheckedCreateWithoutClienteInput> | Prisma.OrdemServicoCreateWithoutClienteInput[] | Prisma.OrdemServicoUncheckedCreateWithoutClienteInput[]
+  connectOrCreate?: Prisma.OrdemServicoCreateOrConnectWithoutClienteInput | Prisma.OrdemServicoCreateOrConnectWithoutClienteInput[]
+  upsert?: Prisma.OrdemServicoUpsertWithWhereUniqueWithoutClienteInput | Prisma.OrdemServicoUpsertWithWhereUniqueWithoutClienteInput[]
+  createMany?: Prisma.OrdemServicoCreateManyClienteInputEnvelope
   set?: Prisma.OrdemServicoWhereUniqueInput | Prisma.OrdemServicoWhereUniqueInput[]
   disconnect?: Prisma.OrdemServicoWhereUniqueInput | Prisma.OrdemServicoWhereUniqueInput[]
   delete?: Prisma.OrdemServicoWhereUniqueInput | Prisma.OrdemServicoWhereUniqueInput[]
   connect?: Prisma.OrdemServicoWhereUniqueInput | Prisma.OrdemServicoWhereUniqueInput[]
-  update?: Prisma.OrdemServicoUpdateWithWhereUniqueWithoutDispositivoInput | Prisma.OrdemServicoUpdateWithWhereUniqueWithoutDispositivoInput[]
-  updateMany?: Prisma.OrdemServicoUpdateManyWithWhereWithoutDispositivoInput | Prisma.OrdemServicoUpdateManyWithWhereWithoutDispositivoInput[]
+  update?: Prisma.OrdemServicoUpdateWithWhereUniqueWithoutClienteInput | Prisma.OrdemServicoUpdateWithWhereUniqueWithoutClienteInput[]
+  updateMany?: Prisma.OrdemServicoUpdateManyWithWhereWithoutClienteInput | Prisma.OrdemServicoUpdateManyWithWhereWithoutClienteInput[]
   deleteMany?: Prisma.OrdemServicoScalarWhereInput | Prisma.OrdemServicoScalarWhereInput[]
 }
 
@@ -417,43 +439,45 @@ export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
 }
 
-export type OrdemServicoCreateWithoutDispositivoInput = {
+export type OrdemServicoCreateWithoutClienteInput = {
+  dispositivo: string
   problema: string
   status: string
   dataInicio?: Date | string
 }
 
-export type OrdemServicoUncheckedCreateWithoutDispositivoInput = {
+export type OrdemServicoUncheckedCreateWithoutClienteInput = {
   id?: number
+  dispositivo: string
   problema: string
   status: string
   dataInicio?: Date | string
 }
 
-export type OrdemServicoCreateOrConnectWithoutDispositivoInput = {
+export type OrdemServicoCreateOrConnectWithoutClienteInput = {
   where: Prisma.OrdemServicoWhereUniqueInput
-  create: Prisma.XOR<Prisma.OrdemServicoCreateWithoutDispositivoInput, Prisma.OrdemServicoUncheckedCreateWithoutDispositivoInput>
+  create: Prisma.XOR<Prisma.OrdemServicoCreateWithoutClienteInput, Prisma.OrdemServicoUncheckedCreateWithoutClienteInput>
 }
 
-export type OrdemServicoCreateManyDispositivoInputEnvelope = {
-  data: Prisma.OrdemServicoCreateManyDispositivoInput | Prisma.OrdemServicoCreateManyDispositivoInput[]
+export type OrdemServicoCreateManyClienteInputEnvelope = {
+  data: Prisma.OrdemServicoCreateManyClienteInput | Prisma.OrdemServicoCreateManyClienteInput[]
   skipDuplicates?: boolean
 }
 
-export type OrdemServicoUpsertWithWhereUniqueWithoutDispositivoInput = {
+export type OrdemServicoUpsertWithWhereUniqueWithoutClienteInput = {
   where: Prisma.OrdemServicoWhereUniqueInput
-  update: Prisma.XOR<Prisma.OrdemServicoUpdateWithoutDispositivoInput, Prisma.OrdemServicoUncheckedUpdateWithoutDispositivoInput>
-  create: Prisma.XOR<Prisma.OrdemServicoCreateWithoutDispositivoInput, Prisma.OrdemServicoUncheckedCreateWithoutDispositivoInput>
+  update: Prisma.XOR<Prisma.OrdemServicoUpdateWithoutClienteInput, Prisma.OrdemServicoUncheckedUpdateWithoutClienteInput>
+  create: Prisma.XOR<Prisma.OrdemServicoCreateWithoutClienteInput, Prisma.OrdemServicoUncheckedCreateWithoutClienteInput>
 }
 
-export type OrdemServicoUpdateWithWhereUniqueWithoutDispositivoInput = {
+export type OrdemServicoUpdateWithWhereUniqueWithoutClienteInput = {
   where: Prisma.OrdemServicoWhereUniqueInput
-  data: Prisma.XOR<Prisma.OrdemServicoUpdateWithoutDispositivoInput, Prisma.OrdemServicoUncheckedUpdateWithoutDispositivoInput>
+  data: Prisma.XOR<Prisma.OrdemServicoUpdateWithoutClienteInput, Prisma.OrdemServicoUncheckedUpdateWithoutClienteInput>
 }
 
-export type OrdemServicoUpdateManyWithWhereWithoutDispositivoInput = {
+export type OrdemServicoUpdateManyWithWhereWithoutClienteInput = {
   where: Prisma.OrdemServicoScalarWhereInput
-  data: Prisma.XOR<Prisma.OrdemServicoUpdateManyMutationInput, Prisma.OrdemServicoUncheckedUpdateManyWithoutDispositivoInput>
+  data: Prisma.XOR<Prisma.OrdemServicoUpdateManyMutationInput, Prisma.OrdemServicoUncheckedUpdateManyWithoutClienteInput>
 }
 
 export type OrdemServicoScalarWhereInput = {
@@ -461,34 +485,39 @@ export type OrdemServicoScalarWhereInput = {
   OR?: Prisma.OrdemServicoScalarWhereInput[]
   NOT?: Prisma.OrdemServicoScalarWhereInput | Prisma.OrdemServicoScalarWhereInput[]
   id?: Prisma.IntFilter<"OrdemServico"> | number
+  dispositivo?: Prisma.StringFilter<"OrdemServico"> | string
   problema?: Prisma.StringFilter<"OrdemServico"> | string
   status?: Prisma.StringFilter<"OrdemServico"> | string
   dataInicio?: Prisma.DateTimeFilter<"OrdemServico"> | Date | string
-  dispositivoId?: Prisma.IntFilter<"OrdemServico"> | number
+  ClienteId?: Prisma.IntFilter<"OrdemServico"> | number
 }
 
-export type OrdemServicoCreateManyDispositivoInput = {
+export type OrdemServicoCreateManyClienteInput = {
   id?: number
+  dispositivo: string
   problema: string
   status: string
   dataInicio?: Date | string
 }
 
-export type OrdemServicoUpdateWithoutDispositivoInput = {
+export type OrdemServicoUpdateWithoutClienteInput = {
+  dispositivo?: Prisma.StringFieldUpdateOperationsInput | string
   problema?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.StringFieldUpdateOperationsInput | string
   dataInicio?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type OrdemServicoUncheckedUpdateWithoutDispositivoInput = {
+export type OrdemServicoUncheckedUpdateWithoutClienteInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  dispositivo?: Prisma.StringFieldUpdateOperationsInput | string
   problema?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.StringFieldUpdateOperationsInput | string
   dataInicio?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type OrdemServicoUncheckedUpdateManyWithoutDispositivoInput = {
+export type OrdemServicoUncheckedUpdateManyWithoutClienteInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  dispositivo?: Prisma.StringFieldUpdateOperationsInput | string
   problema?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.StringFieldUpdateOperationsInput | string
   dataInicio?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -498,39 +527,42 @@ export type OrdemServicoUncheckedUpdateManyWithoutDispositivoInput = {
 
 export type OrdemServicoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  dispositivo?: boolean
   problema?: boolean
   status?: boolean
   dataInicio?: boolean
-  dispositivoId?: boolean
-  dispositivo?: boolean | Prisma.DispositivoDefaultArgs<ExtArgs>
+  ClienteId?: boolean
+  cliente?: boolean | Prisma.ClienteDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["ordemServico"]>
 
 
 
 export type OrdemServicoSelectScalar = {
   id?: boolean
+  dispositivo?: boolean
   problema?: boolean
   status?: boolean
   dataInicio?: boolean
-  dispositivoId?: boolean
+  ClienteId?: boolean
 }
 
-export type OrdemServicoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "problema" | "status" | "dataInicio" | "dispositivoId", ExtArgs["result"]["ordemServico"]>
+export type OrdemServicoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "dispositivo" | "problema" | "status" | "dataInicio" | "ClienteId", ExtArgs["result"]["ordemServico"]>
 export type OrdemServicoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  dispositivo?: boolean | Prisma.DispositivoDefaultArgs<ExtArgs>
+  cliente?: boolean | Prisma.ClienteDefaultArgs<ExtArgs>
 }
 
 export type $OrdemServicoPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "OrdemServico"
   objects: {
-    dispositivo: Prisma.$DispositivoPayload<ExtArgs>
+    cliente: Prisma.$ClientePayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
+    dispositivo: string
     problema: string
     status: string
     dataInicio: Date
-    dispositivoId: number
+    ClienteId: number
   }, ExtArgs["result"]["ordemServico"]>
   composites: {}
 }
@@ -871,7 +903,7 @@ readonly fields: OrdemServicoFieldRefs;
  */
 export interface Prisma__OrdemServicoClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  dispositivo<T extends Prisma.DispositivoDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.DispositivoDefaultArgs<ExtArgs>>): Prisma.Prisma__DispositivoClient<runtime.Types.Result.GetResult<Prisma.$DispositivoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  cliente<T extends Prisma.ClienteDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ClienteDefaultArgs<ExtArgs>>): Prisma.Prisma__ClienteClient<runtime.Types.Result.GetResult<Prisma.$ClientePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -902,10 +934,11 @@ export interface Prisma__OrdemServicoClient<T, Null = never, ExtArgs extends run
  */
 export interface OrdemServicoFieldRefs {
   readonly id: Prisma.FieldRef<"OrdemServico", 'Int'>
+  readonly dispositivo: Prisma.FieldRef<"OrdemServico", 'String'>
   readonly problema: Prisma.FieldRef<"OrdemServico", 'String'>
   readonly status: Prisma.FieldRef<"OrdemServico", 'String'>
   readonly dataInicio: Prisma.FieldRef<"OrdemServico", 'DateTime'>
-  readonly dispositivoId: Prisma.FieldRef<"OrdemServico", 'Int'>
+  readonly ClienteId: Prisma.FieldRef<"OrdemServico", 'Int'>
 }
     
 

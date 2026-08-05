@@ -11,6 +11,7 @@ generator client {
 datasource db {
   provider = "mysql"
 }
+
 model Usuario {
   id    Int    @id @default(autoincrement())
   email String @unique
@@ -19,31 +20,23 @@ model Usuario {
   clientes Cliente[]
 }
 
-model Cliente{
-  id    Int    @id @default(autoincrement())
-  nome String
-  email  String
-  telefone String
+model Cliente {
+  id        Int     @id @default(autoincrement())
+  nome      String
+  email     String
+  telefone  String
   usuarioId Int
-  usuario Usuario @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
-
-  dispositivos Dispositivo[]
-}
-
-model Dispositivo{
-  id    Int    @id @default(autoincrement())
-  modelo String
-  clienteId Int
-  cliente Cliente @relation(fields: [clienteId], references: [id], onDelete: Cascade)
+  usuario   Usuario @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
 
   ordens OrdemServico[]
 }
 
 model OrdemServico {
-  id Int @id @default(autoincrement())
-  problema String
-  status String
-  dataInicio DateTime @default(now())
-  dispositivoId Int
-  dispositivo Dispositivo @relation(fields: [dispositivoId], references: [id], onDelete: Cascade)
+  id          Int      @id @default(autoincrement())
+  dispositivo String
+  problema    String
+  status      String
+  dataInicio  DateTime @default(now())
+  ClienteId   Int
+  cliente     Cliente  @relation(fields: [ClienteId], references: [id], onDelete: Cascade)
 }
