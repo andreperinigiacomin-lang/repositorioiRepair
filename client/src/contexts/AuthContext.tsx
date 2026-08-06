@@ -28,4 +28,44 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                 setIsLoading(false);
             });
     }, []);
+
+    async function login(email: string, senha: string) {
+        const response = await api.post("/auth/login", {
+            email,
+            senha,
+        });
+    
+        setUser(response.data.usuario);
+    }
+
+    async function logout() {
+    await api.post("/auth/logout");
+
+    setUser(null);
+    }
+    
+return (
+    <AuthContext.Provider
+        value={{
+            user,
+            isAuthenticated: user !== null,
+            isLoading,
+            login,
+            logout,
+        }}
+    >
+        {children}
+    </AuthContext.Provider>
+);
+}
+export function useAuth() {
+    const context = useContext(AuthContext);
+
+    if (!context) {
+        throw new Error(
+            "useAuth deve ser usado dentro do AuthProvider"
+        );
+    }
+
+    return context;
 }
