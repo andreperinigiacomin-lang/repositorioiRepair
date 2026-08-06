@@ -1,4 +1,5 @@
 import { prisma } from "../../config/prismaClient";
+import { AppError } from "../../utils/AppError";
 
 export class ServiceOrderService {
     async createServiceOrder(
@@ -51,7 +52,7 @@ export class ServiceOrderService {
             }
         });
         if(!serviceOrder){
-            throw new Error("Ordem de serviço não encontrada");
+            throw new AppError("Ordem de serviço não encontrada", 404);
         }
         return await prisma.ordemServico.delete({
             where:{

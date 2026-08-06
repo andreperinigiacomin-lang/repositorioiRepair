@@ -1,4 +1,5 @@
 import { prisma } from "../../config/prismaClient";
+import { AppError } from "../../utils/AppError";
 
 export class ClientService {
     async createClient(
@@ -33,7 +34,7 @@ export class ClientService {
             }
         });
         if(!client){
-            throw new Error("Cliente não encontrado");
+            throw new AppError("Cliente não encontrado", 404);
         }
         return await prisma.cliente.delete({
             where:{
