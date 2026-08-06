@@ -12,3 +12,20 @@ interface AuthContextType {
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
+
+export function AuthProvider({ children }: { children: ReactNode }) {
+    const [user, setUser] = useState<User | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
+    useEffect(() => {
+        api.get("/auth/me")
+            .then(response => {
+                setUser(response.data.usuario);
+            })
+            .catch(() => {
+                setUser(null);
+            })
+            .finally(() => {
+                setIsLoading(false);
+            });
+    }, []);
+}
