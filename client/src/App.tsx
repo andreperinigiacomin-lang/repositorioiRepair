@@ -15,7 +15,7 @@ export const App = () => {
                 <Routes>
                     <Route
                     path="/login"
-                    element={<login/>}
+                    element={<Login/>}
                     />
 
                     <Route element={<PrivateRoute/>}>

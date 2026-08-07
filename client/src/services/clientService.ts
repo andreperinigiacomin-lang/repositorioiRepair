@@ -2,8 +2,14 @@ import { api } from "./api";
 import type{ Client, CreateClientData } from "../types";
 
 export async function getAllClients(): Promise<Client[]> {
-    const response = await api.get<Client[]>("/clients");
-    return response.data;
+    const response = await api.get("/clients");
+
+    return response.data.map((client:any) => ({
+        id: client.id,
+        name: client.nome,
+        email: client.email,
+        phone: client.telefone,
+    }));
 }
 
 export async function createClient(

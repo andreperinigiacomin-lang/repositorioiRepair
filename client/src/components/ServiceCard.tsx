@@ -14,9 +14,9 @@ const ServiceCard = ({
   onRemoveOrder,
   fullWidth = false,
 }: ServiceCardProps) => {
-  const client = clients.find((client) => client.id === order.client_id);
+  const client = clients.find((client) => client.id === order.clienteId);
   const getDeviceIcon = () => {
-    const device = order.device.toLowerCase();
+    const device = order.dispositivo.toLowerCase();
 
     if (
       device.includes("iphone") ||
@@ -81,7 +81,7 @@ const ServiceCard = ({
             <h4 className="text-sm font-bold text-slate-800 tracking-tight truncate max-w-[140px]">
               {client?.name ?? "Cliente não encontrado"}
             </h4>
-            <p className="text-xs font-medium text-slate-400">{order.device}</p>
+            <p className="text-xs font-medium text-slate-400">{order.dispositivo}</p>
           </div>
           {/*centralizar-card*/}
         </div>
@@ -101,7 +101,7 @@ const ServiceCard = ({
       <div className="flex flex-col gap-3 mt-4 my-auto">
         {/*meio do card*/}
         <p className="text-sm text-slate-600 font-semibold tracking-tight">
-          {order.issue}
+          {order.problema}
         </p>
         <div className="flex">
           {/*bolinha e status lado a lado*/}
@@ -123,7 +123,7 @@ const ServiceCard = ({
         <div className="flex items-center justify-between text-[11px] font-medium text-slate-400">
           {/*codigo e data*/}
           <p>{order.id}</p>
-          <p>{order.created_at}</p>
+          <p>{order.dataInicio}</p>
         </div>
         {/*codigo e data */}
       </div>

@@ -5,16 +5,16 @@ export type ServiceOrderStatus =
 
 export interface ServiceOrder {
     id: number;
-    client_id: number;
-    device: string;
-    issue: string;
+    clienteId: number;
+    dispositivo: string;
+    problema: string;
     status: ServiceOrderStatus;
-    created_at: string;
+    dataInicio: string;
 }
 
 export interface CreateServiceOrderData {
-    clientId: number;
-    device: string;
-    issue: string;
+    clienteId: number;
+    dispositivo: string;
+    problema: string;
     status: ServiceOrderStatus;
 }

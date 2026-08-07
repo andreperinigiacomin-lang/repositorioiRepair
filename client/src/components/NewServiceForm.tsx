@@ -30,9 +30,9 @@ const NewServiceForm = ({
     }
 
     onCreateServiceOrder({
-      clientId: Number(clientId),
-      device,
-      issue,
+      clienteId: Number(clientId),
+      dispositivo: device,
+      problema: issue,
       status,
     });
 

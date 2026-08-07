@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useAuth } from "../contexts/AuthContext";
+import React from "react";
 
 export function Login(){
     const [email, setEmail] = useState("");
@@ -11,8 +12,8 @@ export function Login(){
     const {login} = useAuth();
     const navigate = useNavigate();
 
-    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault;
+    async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
+        e.preventDefault();
         setErro(null);
         setCarregando(true);
 
