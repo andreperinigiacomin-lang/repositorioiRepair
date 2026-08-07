@@ -19,7 +19,7 @@ export class ServiceOrderService {
          if(!cliente){
             throw new Error('Cliente não encontrado');
          }
-         return await prisma.ordemServico.create({
+         return await prisma.ordemservico.create({
             data: {
                 clienteId,
                 dispositivo,
@@ -30,7 +30,7 @@ export class ServiceOrderService {
     }
 
     async getServiceOrders(userId:number){
-        return await prisma.ordemServico.findMany({
+        return await prisma.ordemservico.findMany({
             where:{
                 cliente:{
                     usuarioId:userId,
@@ -43,7 +43,7 @@ export class ServiceOrderService {
     }
 
     async deleteServiceOrder(orderId: number, userId: number){
-        const serviceOrder = await prisma.ordemServico.findFirst({
+        const serviceOrder = await prisma.ordemservico.findFirst({
             where:{
                 id:orderId,
                 cliente:{
@@ -54,7 +54,7 @@ export class ServiceOrderService {
         if(!serviceOrder){
             throw new AppError("Ordem de serviço não encontrada", 404);
         }
-        return await prisma.ordemServico.delete({
+        return await prisma.ordemservico.delete({
             where:{
                 id:orderId,
             }

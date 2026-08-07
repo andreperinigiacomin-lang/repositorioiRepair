@@ -8,7 +8,7 @@
  *
  * 🟢 You can import this file directly.
  */
-export type * from './models/Usuario'
-export type * from './models/Cliente'
-export type * from './models/OrdemServico'
+export type * from './models/cliente'
+export type * from './models/ordemservico'
+export type * from './models/usuario'
 export type * from './commonInputTypes'

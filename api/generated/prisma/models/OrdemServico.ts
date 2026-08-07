@@ -4,7 +4,7 @@
 // biome-ignore-all lint: generated file
 // @ts-nocheck 
 /*
- * This file exports the `OrdemServico` model and its related types.
+ * This file exports the `ordemservico` model and its related types.
  *
  * 🟢 You can import this file directly.
  */
@@ -13,693 +13,693 @@ import type * as $Enums from "../enums"
 import type * as Prisma from "../internal/prismaNamespace"
 
 /**
- * Model OrdemServico
+ * Model ordemservico
  * 
  */
-export type OrdemServicoModel = runtime.Types.Result.DefaultSelection<Prisma.$OrdemServicoPayload>
+export type ordemservicoModel = runtime.Types.Result.DefaultSelection<Prisma.$ordemservicoPayload>
 
-export type AggregateOrdemServico = {
-  _count: OrdemServicoCountAggregateOutputType | null
-  _avg: OrdemServicoAvgAggregateOutputType | null
-  _sum: OrdemServicoSumAggregateOutputType | null
-  _min: OrdemServicoMinAggregateOutputType | null
-  _max: OrdemServicoMaxAggregateOutputType | null
+export type AggregateOrdemservico = {
+  _count: OrdemservicoCountAggregateOutputType | null
+  _avg: OrdemservicoAvgAggregateOutputType | null
+  _sum: OrdemservicoSumAggregateOutputType | null
+  _min: OrdemservicoMinAggregateOutputType | null
+  _max: OrdemservicoMaxAggregateOutputType | null
 }
 
-export type OrdemServicoAvgAggregateOutputType = {
+export type OrdemservicoAvgAggregateOutputType = {
   id: number | null
   clienteId: number | null
 }
 
-export type OrdemServicoSumAggregateOutputType = {
+export type OrdemservicoSumAggregateOutputType = {
   id: number | null
   clienteId: number | null
 }
 
-export type OrdemServicoMinAggregateOutputType = {
+export type OrdemservicoMinAggregateOutputType = {
   id: number | null
-  dispositivo: string | null
   problema: string | null
   status: string | null
   dataInicio: Date | null
+  dispositivo: string | null
   clienteId: number | null
 }
 
-export type OrdemServicoMaxAggregateOutputType = {
+export type OrdemservicoMaxAggregateOutputType = {
   id: number | null
-  dispositivo: string | null
   problema: string | null
   status: string | null
   dataInicio: Date | null
+  dispositivo: string | null
   clienteId: number | null
 }
 
-export type OrdemServicoCountAggregateOutputType = {
+export type OrdemservicoCountAggregateOutputType = {
   id: number
-  dispositivo: number
   problema: number
   status: number
   dataInicio: number
+  dispositivo: number
   clienteId: number
   _all: number
 }
 
 
-export type OrdemServicoAvgAggregateInputType = {
+export type OrdemservicoAvgAggregateInputType = {
   id?: true
   clienteId?: true
 }
 
-export type OrdemServicoSumAggregateInputType = {
+export type OrdemservicoSumAggregateInputType = {
   id?: true
   clienteId?: true
 }
 
-export type OrdemServicoMinAggregateInputType = {
+export type OrdemservicoMinAggregateInputType = {
   id?: true
-  dispositivo?: true
   problema?: true
   status?: true
   dataInicio?: true
+  dispositivo?: true
   clienteId?: true
 }
 
-export type OrdemServicoMaxAggregateInputType = {
+export type OrdemservicoMaxAggregateInputType = {
   id?: true
-  dispositivo?: true
   problema?: true
   status?: true
   dataInicio?: true
+  dispositivo?: true
   clienteId?: true
 }
 
-export type OrdemServicoCountAggregateInputType = {
+export type OrdemservicoCountAggregateInputType = {
   id?: true
-  dispositivo?: true
   problema?: true
   status?: true
   dataInicio?: true
+  dispositivo?: true
   clienteId?: true
   _all?: true
 }
 
-export type OrdemServicoAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type OrdemservicoAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which OrdemServico to aggregate.
+   * Filter which ordemservico to aggregate.
    */
-  where?: Prisma.OrdemServicoWhereInput
+  where?: Prisma.ordemservicoWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of OrdemServicos to fetch.
+   * Determine the order of ordemservicos to fetch.
    */
-  orderBy?: Prisma.OrdemServicoOrderByWithRelationInput | Prisma.OrdemServicoOrderByWithRelationInput[]
+  orderBy?: Prisma.ordemservicoOrderByWithRelationInput | Prisma.ordemservicoOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
    * Sets the start position
    */
-  cursor?: Prisma.OrdemServicoWhereUniqueInput
+  cursor?: Prisma.ordemservicoWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` OrdemServicos from the position of the cursor.
+   * Take `±n` ordemservicos from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` OrdemServicos.
+   * Skip the first `n` ordemservicos.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Count returned OrdemServicos
+   * Count returned ordemservicos
   **/
-  _count?: true | OrdemServicoCountAggregateInputType
+  _count?: true | OrdemservicoCountAggregateInputType
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
    * Select which fields to average
   **/
-  _avg?: OrdemServicoAvgAggregateInputType
+  _avg?: OrdemservicoAvgAggregateInputType
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
    * Select which fields to sum
   **/
-  _sum?: OrdemServicoSumAggregateInputType
+  _sum?: OrdemservicoSumAggregateInputType
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
    * Select which fields to find the minimum value
   **/
-  _min?: OrdemServicoMinAggregateInputType
+  _min?: OrdemservicoMinAggregateInputType
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
    * Select which fields to find the maximum value
   **/
-  _max?: OrdemServicoMaxAggregateInputType
+  _max?: OrdemservicoMaxAggregateInputType
 }
 
-export type GetOrdemServicoAggregateType<T extends OrdemServicoAggregateArgs> = {
-      [P in keyof T & keyof AggregateOrdemServico]: P extends '_count' | 'count'
+export type GetOrdemservicoAggregateType<T extends OrdemservicoAggregateArgs> = {
+      [P in keyof T & keyof AggregateOrdemservico]: P extends '_count' | 'count'
     ? T[P] extends true
       ? number
-      : Prisma.GetScalarType<T[P], AggregateOrdemServico[P]>
-    : Prisma.GetScalarType<T[P], AggregateOrdemServico[P]>
+      : Prisma.GetScalarType<T[P], AggregateOrdemservico[P]>
+    : Prisma.GetScalarType<T[P], AggregateOrdemservico[P]>
 }
 
 
 
 
-export type OrdemServicoGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.OrdemServicoWhereInput
-  orderBy?: Prisma.OrdemServicoOrderByWithAggregationInput | Prisma.OrdemServicoOrderByWithAggregationInput[]
-  by: Prisma.OrdemServicoScalarFieldEnum[] | Prisma.OrdemServicoScalarFieldEnum
-  having?: Prisma.OrdemServicoScalarWhereWithAggregatesInput
+export type ordemservicoGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ordemservicoWhereInput
+  orderBy?: Prisma.ordemservicoOrderByWithAggregationInput | Prisma.ordemservicoOrderByWithAggregationInput[]
+  by: Prisma.OrdemservicoScalarFieldEnum[] | Prisma.OrdemservicoScalarFieldEnum
+  having?: Prisma.ordemservicoScalarWhereWithAggregatesInput
   take?: number
   skip?: number
-  _count?: OrdemServicoCountAggregateInputType | true
-  _avg?: OrdemServicoAvgAggregateInputType
-  _sum?: OrdemServicoSumAggregateInputType
-  _min?: OrdemServicoMinAggregateInputType
-  _max?: OrdemServicoMaxAggregateInputType
+  _count?: OrdemservicoCountAggregateInputType | true
+  _avg?: OrdemservicoAvgAggregateInputType
+  _sum?: OrdemservicoSumAggregateInputType
+  _min?: OrdemservicoMinAggregateInputType
+  _max?: OrdemservicoMaxAggregateInputType
 }
 
-export type OrdemServicoGroupByOutputType = {
+export type OrdemservicoGroupByOutputType = {
   id: number
-  dispositivo: string
   problema: string
   status: string
   dataInicio: Date
+  dispositivo: string
   clienteId: number
-  _count: OrdemServicoCountAggregateOutputType | null
-  _avg: OrdemServicoAvgAggregateOutputType | null
-  _sum: OrdemServicoSumAggregateOutputType | null
-  _min: OrdemServicoMinAggregateOutputType | null
-  _max: OrdemServicoMaxAggregateOutputType | null
+  _count: OrdemservicoCountAggregateOutputType | null
+  _avg: OrdemservicoAvgAggregateOutputType | null
+  _sum: OrdemservicoSumAggregateOutputType | null
+  _min: OrdemservicoMinAggregateOutputType | null
+  _max: OrdemservicoMaxAggregateOutputType | null
 }
 
-export type GetOrdemServicoGroupByPayload<T extends OrdemServicoGroupByArgs> = Prisma.PrismaPromise<
+export type GetOrdemservicoGroupByPayload<T extends ordemservicoGroupByArgs> = Prisma.PrismaPromise<
   Array<
-    Prisma.PickEnumerable<OrdemServicoGroupByOutputType, T['by']> &
+    Prisma.PickEnumerable<OrdemservicoGroupByOutputType, T['by']> &
       {
-        [P in ((keyof T) & (keyof OrdemServicoGroupByOutputType))]: P extends '_count'
+        [P in ((keyof T) & (keyof OrdemservicoGroupByOutputType))]: P extends '_count'
           ? T[P] extends boolean
             ? number
-            : Prisma.GetScalarType<T[P], OrdemServicoGroupByOutputType[P]>
-          : Prisma.GetScalarType<T[P], OrdemServicoGroupByOutputType[P]>
+            : Prisma.GetScalarType<T[P], OrdemservicoGroupByOutputType[P]>
+          : Prisma.GetScalarType<T[P], OrdemservicoGroupByOutputType[P]>
       }
     >
   >
 
 
 
-export type OrdemServicoWhereInput = {
-  AND?: Prisma.OrdemServicoWhereInput | Prisma.OrdemServicoWhereInput[]
-  OR?: Prisma.OrdemServicoWhereInput[]
-  NOT?: Prisma.OrdemServicoWhereInput | Prisma.OrdemServicoWhereInput[]
-  id?: Prisma.IntFilter<"OrdemServico"> | number
-  dispositivo?: Prisma.StringFilter<"OrdemServico"> | string
-  problema?: Prisma.StringFilter<"OrdemServico"> | string
-  status?: Prisma.StringFilter<"OrdemServico"> | string
-  dataInicio?: Prisma.DateTimeFilter<"OrdemServico"> | Date | string
-  clienteId?: Prisma.IntFilter<"OrdemServico"> | number
-  cliente?: Prisma.XOR<Prisma.ClienteScalarRelationFilter, Prisma.ClienteWhereInput>
+export type ordemservicoWhereInput = {
+  AND?: Prisma.ordemservicoWhereInput | Prisma.ordemservicoWhereInput[]
+  OR?: Prisma.ordemservicoWhereInput[]
+  NOT?: Prisma.ordemservicoWhereInput | Prisma.ordemservicoWhereInput[]
+  id?: Prisma.IntFilter<"ordemservico"> | number
+  problema?: Prisma.StringFilter<"ordemservico"> | string
+  status?: Prisma.StringFilter<"ordemservico"> | string
+  dataInicio?: Prisma.DateTimeFilter<"ordemservico"> | Date | string
+  dispositivo?: Prisma.StringFilter<"ordemservico"> | string
+  clienteId?: Prisma.IntFilter<"ordemservico"> | number
+  cliente?: Prisma.XOR<Prisma.ClienteScalarRelationFilter, Prisma.clienteWhereInput>
 }
 
-export type OrdemServicoOrderByWithRelationInput = {
+export type ordemservicoOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  dispositivo?: Prisma.SortOrder
   problema?: Prisma.SortOrder
   status?: Prisma.SortOrder
   dataInicio?: Prisma.SortOrder
+  dispositivo?: Prisma.SortOrder
   clienteId?: Prisma.SortOrder
-  cliente?: Prisma.ClienteOrderByWithRelationInput
-  _relevance?: Prisma.OrdemServicoOrderByRelevanceInput
+  cliente?: Prisma.clienteOrderByWithRelationInput
+  _relevance?: Prisma.ordemservicoOrderByRelevanceInput
 }
 
-export type OrdemServicoWhereUniqueInput = Prisma.AtLeast<{
+export type ordemservicoWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  AND?: Prisma.OrdemServicoWhereInput | Prisma.OrdemServicoWhereInput[]
-  OR?: Prisma.OrdemServicoWhereInput[]
-  NOT?: Prisma.OrdemServicoWhereInput | Prisma.OrdemServicoWhereInput[]
-  dispositivo?: Prisma.StringFilter<"OrdemServico"> | string
-  problema?: Prisma.StringFilter<"OrdemServico"> | string
-  status?: Prisma.StringFilter<"OrdemServico"> | string
-  dataInicio?: Prisma.DateTimeFilter<"OrdemServico"> | Date | string
-  clienteId?: Prisma.IntFilter<"OrdemServico"> | number
-  cliente?: Prisma.XOR<Prisma.ClienteScalarRelationFilter, Prisma.ClienteWhereInput>
+  AND?: Prisma.ordemservicoWhereInput | Prisma.ordemservicoWhereInput[]
+  OR?: Prisma.ordemservicoWhereInput[]
+  NOT?: Prisma.ordemservicoWhereInput | Prisma.ordemservicoWhereInput[]
+  problema?: Prisma.StringFilter<"ordemservico"> | string
+  status?: Prisma.StringFilter<"ordemservico"> | string
+  dataInicio?: Prisma.DateTimeFilter<"ordemservico"> | Date | string
+  dispositivo?: Prisma.StringFilter<"ordemservico"> | string
+  clienteId?: Prisma.IntFilter<"ordemservico"> | number
+  cliente?: Prisma.XOR<Prisma.ClienteScalarRelationFilter, Prisma.clienteWhereInput>
 }, "id">
 
-export type OrdemServicoOrderByWithAggregationInput = {
+export type ordemservicoOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  dispositivo?: Prisma.SortOrder
   problema?: Prisma.SortOrder
   status?: Prisma.SortOrder
   dataInicio?: Prisma.SortOrder
+  dispositivo?: Prisma.SortOrder
   clienteId?: Prisma.SortOrder
-  _count?: Prisma.OrdemServicoCountOrderByAggregateInput
-  _avg?: Prisma.OrdemServicoAvgOrderByAggregateInput
-  _max?: Prisma.OrdemServicoMaxOrderByAggregateInput
-  _min?: Prisma.OrdemServicoMinOrderByAggregateInput
-  _sum?: Prisma.OrdemServicoSumOrderByAggregateInput
+  _count?: Prisma.ordemservicoCountOrderByAggregateInput
+  _avg?: Prisma.ordemservicoAvgOrderByAggregateInput
+  _max?: Prisma.ordemservicoMaxOrderByAggregateInput
+  _min?: Prisma.ordemservicoMinOrderByAggregateInput
+  _sum?: Prisma.ordemservicoSumOrderByAggregateInput
 }
 
-export type OrdemServicoScalarWhereWithAggregatesInput = {
-  AND?: Prisma.OrdemServicoScalarWhereWithAggregatesInput | Prisma.OrdemServicoScalarWhereWithAggregatesInput[]
-  OR?: Prisma.OrdemServicoScalarWhereWithAggregatesInput[]
-  NOT?: Prisma.OrdemServicoScalarWhereWithAggregatesInput | Prisma.OrdemServicoScalarWhereWithAggregatesInput[]
-  id?: Prisma.IntWithAggregatesFilter<"OrdemServico"> | number
-  dispositivo?: Prisma.StringWithAggregatesFilter<"OrdemServico"> | string
-  problema?: Prisma.StringWithAggregatesFilter<"OrdemServico"> | string
-  status?: Prisma.StringWithAggregatesFilter<"OrdemServico"> | string
-  dataInicio?: Prisma.DateTimeWithAggregatesFilter<"OrdemServico"> | Date | string
-  clienteId?: Prisma.IntWithAggregatesFilter<"OrdemServico"> | number
+export type ordemservicoScalarWhereWithAggregatesInput = {
+  AND?: Prisma.ordemservicoScalarWhereWithAggregatesInput | Prisma.ordemservicoScalarWhereWithAggregatesInput[]
+  OR?: Prisma.ordemservicoScalarWhereWithAggregatesInput[]
+  NOT?: Prisma.ordemservicoScalarWhereWithAggregatesInput | Prisma.ordemservicoScalarWhereWithAggregatesInput[]
+  id?: Prisma.IntWithAggregatesFilter<"ordemservico"> | number
+  problema?: Prisma.StringWithAggregatesFilter<"ordemservico"> | string
+  status?: Prisma.StringWithAggregatesFilter<"ordemservico"> | string
+  dataInicio?: Prisma.DateTimeWithAggregatesFilter<"ordemservico"> | Date | string
+  dispositivo?: Prisma.StringWithAggregatesFilter<"ordemservico"> | string
+  clienteId?: Prisma.IntWithAggregatesFilter<"ordemservico"> | number
 }
 
-export type OrdemServicoCreateInput = {
-  dispositivo: string
+export type ordemservicoCreateInput = {
   problema: string
   status: string
   dataInicio?: Date | string
-  cliente: Prisma.ClienteCreateNestedOneWithoutOrdensInput
+  dispositivo: string
+  cliente: Prisma.clienteCreateNestedOneWithoutOrdemservicoInput
 }
 
-export type OrdemServicoUncheckedCreateInput = {
+export type ordemservicoUncheckedCreateInput = {
   id?: number
-  dispositivo: string
   problema: string
   status: string
   dataInicio?: Date | string
+  dispositivo: string
   clienteId: number
 }
 
-export type OrdemServicoUpdateInput = {
-  dispositivo?: Prisma.StringFieldUpdateOperationsInput | string
+export type ordemservicoUpdateInput = {
   problema?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.StringFieldUpdateOperationsInput | string
   dataInicio?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  cliente?: Prisma.ClienteUpdateOneRequiredWithoutOrdensNestedInput
+  dispositivo?: Prisma.StringFieldUpdateOperationsInput | string
+  cliente?: Prisma.clienteUpdateOneRequiredWithoutOrdemservicoNestedInput
 }
 
-export type OrdemServicoUncheckedUpdateInput = {
+export type ordemservicoUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  dispositivo?: Prisma.StringFieldUpdateOperationsInput | string
   problema?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.StringFieldUpdateOperationsInput | string
   dataInicio?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  dispositivo?: Prisma.StringFieldUpdateOperationsInput | string
   clienteId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
-export type OrdemServicoCreateManyInput = {
+export type ordemservicoCreateManyInput = {
   id?: number
-  dispositivo: string
   problema: string
   status: string
   dataInicio?: Date | string
+  dispositivo: string
   clienteId: number
 }
 
-export type OrdemServicoUpdateManyMutationInput = {
-  dispositivo?: Prisma.StringFieldUpdateOperationsInput | string
+export type ordemservicoUpdateManyMutationInput = {
   problema?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.StringFieldUpdateOperationsInput | string
   dataInicio?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  dispositivo?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
-export type OrdemServicoUncheckedUpdateManyInput = {
+export type ordemservicoUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  dispositivo?: Prisma.StringFieldUpdateOperationsInput | string
   problema?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.StringFieldUpdateOperationsInput | string
   dataInicio?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  dispositivo?: Prisma.StringFieldUpdateOperationsInput | string
   clienteId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
-export type OrdemServicoListRelationFilter = {
-  every?: Prisma.OrdemServicoWhereInput
-  some?: Prisma.OrdemServicoWhereInput
-  none?: Prisma.OrdemServicoWhereInput
+export type OrdemservicoListRelationFilter = {
+  every?: Prisma.ordemservicoWhereInput
+  some?: Prisma.ordemservicoWhereInput
+  none?: Prisma.ordemservicoWhereInput
 }
 
-export type OrdemServicoOrderByRelationAggregateInput = {
+export type ordemservicoOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
-export type OrdemServicoOrderByRelevanceInput = {
-  fields: Prisma.OrdemServicoOrderByRelevanceFieldEnum | Prisma.OrdemServicoOrderByRelevanceFieldEnum[]
+export type ordemservicoOrderByRelevanceInput = {
+  fields: Prisma.ordemservicoOrderByRelevanceFieldEnum | Prisma.ordemservicoOrderByRelevanceFieldEnum[]
   sort: Prisma.SortOrder
   search: string
 }
 
-export type OrdemServicoCountOrderByAggregateInput = {
+export type ordemservicoCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  dispositivo?: Prisma.SortOrder
   problema?: Prisma.SortOrder
   status?: Prisma.SortOrder
   dataInicio?: Prisma.SortOrder
-  clienteId?: Prisma.SortOrder
-}
-
-export type OrdemServicoAvgOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  clienteId?: Prisma.SortOrder
-}
-
-export type OrdemServicoMaxOrderByAggregateInput = {
-  id?: Prisma.SortOrder
   dispositivo?: Prisma.SortOrder
+  clienteId?: Prisma.SortOrder
+}
+
+export type ordemservicoAvgOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  clienteId?: Prisma.SortOrder
+}
+
+export type ordemservicoMaxOrderByAggregateInput = {
+  id?: Prisma.SortOrder
   problema?: Prisma.SortOrder
   status?: Prisma.SortOrder
   dataInicio?: Prisma.SortOrder
+  dispositivo?: Prisma.SortOrder
   clienteId?: Prisma.SortOrder
 }
 
-export type OrdemServicoMinOrderByAggregateInput = {
+export type ordemservicoMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  dispositivo?: Prisma.SortOrder
   problema?: Prisma.SortOrder
   status?: Prisma.SortOrder
   dataInicio?: Prisma.SortOrder
+  dispositivo?: Prisma.SortOrder
   clienteId?: Prisma.SortOrder
 }
 
-export type OrdemServicoSumOrderByAggregateInput = {
+export type ordemservicoSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   clienteId?: Prisma.SortOrder
 }
 
-export type OrdemServicoCreateNestedManyWithoutClienteInput = {
-  create?: Prisma.XOR<Prisma.OrdemServicoCreateWithoutClienteInput, Prisma.OrdemServicoUncheckedCreateWithoutClienteInput> | Prisma.OrdemServicoCreateWithoutClienteInput[] | Prisma.OrdemServicoUncheckedCreateWithoutClienteInput[]
-  connectOrCreate?: Prisma.OrdemServicoCreateOrConnectWithoutClienteInput | Prisma.OrdemServicoCreateOrConnectWithoutClienteInput[]
-  createMany?: Prisma.OrdemServicoCreateManyClienteInputEnvelope
-  connect?: Prisma.OrdemServicoWhereUniqueInput | Prisma.OrdemServicoWhereUniqueInput[]
+export type ordemservicoCreateNestedManyWithoutClienteInput = {
+  create?: Prisma.XOR<Prisma.ordemservicoCreateWithoutClienteInput, Prisma.ordemservicoUncheckedCreateWithoutClienteInput> | Prisma.ordemservicoCreateWithoutClienteInput[] | Prisma.ordemservicoUncheckedCreateWithoutClienteInput[]
+  connectOrCreate?: Prisma.ordemservicoCreateOrConnectWithoutClienteInput | Prisma.ordemservicoCreateOrConnectWithoutClienteInput[]
+  createMany?: Prisma.ordemservicoCreateManyClienteInputEnvelope
+  connect?: Prisma.ordemservicoWhereUniqueInput | Prisma.ordemservicoWhereUniqueInput[]
 }
 
-export type OrdemServicoUncheckedCreateNestedManyWithoutClienteInput = {
-  create?: Prisma.XOR<Prisma.OrdemServicoCreateWithoutClienteInput, Prisma.OrdemServicoUncheckedCreateWithoutClienteInput> | Prisma.OrdemServicoCreateWithoutClienteInput[] | Prisma.OrdemServicoUncheckedCreateWithoutClienteInput[]
-  connectOrCreate?: Prisma.OrdemServicoCreateOrConnectWithoutClienteInput | Prisma.OrdemServicoCreateOrConnectWithoutClienteInput[]
-  createMany?: Prisma.OrdemServicoCreateManyClienteInputEnvelope
-  connect?: Prisma.OrdemServicoWhereUniqueInput | Prisma.OrdemServicoWhereUniqueInput[]
+export type ordemservicoUncheckedCreateNestedManyWithoutClienteInput = {
+  create?: Prisma.XOR<Prisma.ordemservicoCreateWithoutClienteInput, Prisma.ordemservicoUncheckedCreateWithoutClienteInput> | Prisma.ordemservicoCreateWithoutClienteInput[] | Prisma.ordemservicoUncheckedCreateWithoutClienteInput[]
+  connectOrCreate?: Prisma.ordemservicoCreateOrConnectWithoutClienteInput | Prisma.ordemservicoCreateOrConnectWithoutClienteInput[]
+  createMany?: Prisma.ordemservicoCreateManyClienteInputEnvelope
+  connect?: Prisma.ordemservicoWhereUniqueInput | Prisma.ordemservicoWhereUniqueInput[]
 }
 
-export type OrdemServicoUpdateManyWithoutClienteNestedInput = {
-  create?: Prisma.XOR<Prisma.OrdemServicoCreateWithoutClienteInput, Prisma.OrdemServicoUncheckedCreateWithoutClienteInput> | Prisma.OrdemServicoCreateWithoutClienteInput[] | Prisma.OrdemServicoUncheckedCreateWithoutClienteInput[]
-  connectOrCreate?: Prisma.OrdemServicoCreateOrConnectWithoutClienteInput | Prisma.OrdemServicoCreateOrConnectWithoutClienteInput[]
-  upsert?: Prisma.OrdemServicoUpsertWithWhereUniqueWithoutClienteInput | Prisma.OrdemServicoUpsertWithWhereUniqueWithoutClienteInput[]
-  createMany?: Prisma.OrdemServicoCreateManyClienteInputEnvelope
-  set?: Prisma.OrdemServicoWhereUniqueInput | Prisma.OrdemServicoWhereUniqueInput[]
-  disconnect?: Prisma.OrdemServicoWhereUniqueInput | Prisma.OrdemServicoWhereUniqueInput[]
-  delete?: Prisma.OrdemServicoWhereUniqueInput | Prisma.OrdemServicoWhereUniqueInput[]
-  connect?: Prisma.OrdemServicoWhereUniqueInput | Prisma.OrdemServicoWhereUniqueInput[]
-  update?: Prisma.OrdemServicoUpdateWithWhereUniqueWithoutClienteInput | Prisma.OrdemServicoUpdateWithWhereUniqueWithoutClienteInput[]
-  updateMany?: Prisma.OrdemServicoUpdateManyWithWhereWithoutClienteInput | Prisma.OrdemServicoUpdateManyWithWhereWithoutClienteInput[]
-  deleteMany?: Prisma.OrdemServicoScalarWhereInput | Prisma.OrdemServicoScalarWhereInput[]
+export type ordemservicoUpdateManyWithoutClienteNestedInput = {
+  create?: Prisma.XOR<Prisma.ordemservicoCreateWithoutClienteInput, Prisma.ordemservicoUncheckedCreateWithoutClienteInput> | Prisma.ordemservicoCreateWithoutClienteInput[] | Prisma.ordemservicoUncheckedCreateWithoutClienteInput[]
+  connectOrCreate?: Prisma.ordemservicoCreateOrConnectWithoutClienteInput | Prisma.ordemservicoCreateOrConnectWithoutClienteInput[]
+  upsert?: Prisma.ordemservicoUpsertWithWhereUniqueWithoutClienteInput | Prisma.ordemservicoUpsertWithWhereUniqueWithoutClienteInput[]
+  createMany?: Prisma.ordemservicoCreateManyClienteInputEnvelope
+  set?: Prisma.ordemservicoWhereUniqueInput | Prisma.ordemservicoWhereUniqueInput[]
+  disconnect?: Prisma.ordemservicoWhereUniqueInput | Prisma.ordemservicoWhereUniqueInput[]
+  delete?: Prisma.ordemservicoWhereUniqueInput | Prisma.ordemservicoWhereUniqueInput[]
+  connect?: Prisma.ordemservicoWhereUniqueInput | Prisma.ordemservicoWhereUniqueInput[]
+  update?: Prisma.ordemservicoUpdateWithWhereUniqueWithoutClienteInput | Prisma.ordemservicoUpdateWithWhereUniqueWithoutClienteInput[]
+  updateMany?: Prisma.ordemservicoUpdateManyWithWhereWithoutClienteInput | Prisma.ordemservicoUpdateManyWithWhereWithoutClienteInput[]
+  deleteMany?: Prisma.ordemservicoScalarWhereInput | Prisma.ordemservicoScalarWhereInput[]
 }
 
-export type OrdemServicoUncheckedUpdateManyWithoutClienteNestedInput = {
-  create?: Prisma.XOR<Prisma.OrdemServicoCreateWithoutClienteInput, Prisma.OrdemServicoUncheckedCreateWithoutClienteInput> | Prisma.OrdemServicoCreateWithoutClienteInput[] | Prisma.OrdemServicoUncheckedCreateWithoutClienteInput[]
-  connectOrCreate?: Prisma.OrdemServicoCreateOrConnectWithoutClienteInput | Prisma.OrdemServicoCreateOrConnectWithoutClienteInput[]
-  upsert?: Prisma.OrdemServicoUpsertWithWhereUniqueWithoutClienteInput | Prisma.OrdemServicoUpsertWithWhereUniqueWithoutClienteInput[]
-  createMany?: Prisma.OrdemServicoCreateManyClienteInputEnvelope
-  set?: Prisma.OrdemServicoWhereUniqueInput | Prisma.OrdemServicoWhereUniqueInput[]
-  disconnect?: Prisma.OrdemServicoWhereUniqueInput | Prisma.OrdemServicoWhereUniqueInput[]
-  delete?: Prisma.OrdemServicoWhereUniqueInput | Prisma.OrdemServicoWhereUniqueInput[]
-  connect?: Prisma.OrdemServicoWhereUniqueInput | Prisma.OrdemServicoWhereUniqueInput[]
-  update?: Prisma.OrdemServicoUpdateWithWhereUniqueWithoutClienteInput | Prisma.OrdemServicoUpdateWithWhereUniqueWithoutClienteInput[]
-  updateMany?: Prisma.OrdemServicoUpdateManyWithWhereWithoutClienteInput | Prisma.OrdemServicoUpdateManyWithWhereWithoutClienteInput[]
-  deleteMany?: Prisma.OrdemServicoScalarWhereInput | Prisma.OrdemServicoScalarWhereInput[]
+export type ordemservicoUncheckedUpdateManyWithoutClienteNestedInput = {
+  create?: Prisma.XOR<Prisma.ordemservicoCreateWithoutClienteInput, Prisma.ordemservicoUncheckedCreateWithoutClienteInput> | Prisma.ordemservicoCreateWithoutClienteInput[] | Prisma.ordemservicoUncheckedCreateWithoutClienteInput[]
+  connectOrCreate?: Prisma.ordemservicoCreateOrConnectWithoutClienteInput | Prisma.ordemservicoCreateOrConnectWithoutClienteInput[]
+  upsert?: Prisma.ordemservicoUpsertWithWhereUniqueWithoutClienteInput | Prisma.ordemservicoUpsertWithWhereUniqueWithoutClienteInput[]
+  createMany?: Prisma.ordemservicoCreateManyClienteInputEnvelope
+  set?: Prisma.ordemservicoWhereUniqueInput | Prisma.ordemservicoWhereUniqueInput[]
+  disconnect?: Prisma.ordemservicoWhereUniqueInput | Prisma.ordemservicoWhereUniqueInput[]
+  delete?: Prisma.ordemservicoWhereUniqueInput | Prisma.ordemservicoWhereUniqueInput[]
+  connect?: Prisma.ordemservicoWhereUniqueInput | Prisma.ordemservicoWhereUniqueInput[]
+  update?: Prisma.ordemservicoUpdateWithWhereUniqueWithoutClienteInput | Prisma.ordemservicoUpdateWithWhereUniqueWithoutClienteInput[]
+  updateMany?: Prisma.ordemservicoUpdateManyWithWhereWithoutClienteInput | Prisma.ordemservicoUpdateManyWithWhereWithoutClienteInput[]
+  deleteMany?: Prisma.ordemservicoScalarWhereInput | Prisma.ordemservicoScalarWhereInput[]
 }
 
 export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
 }
 
-export type OrdemServicoCreateWithoutClienteInput = {
-  dispositivo: string
+export type ordemservicoCreateWithoutClienteInput = {
   problema: string
   status: string
   dataInicio?: Date | string
+  dispositivo: string
 }
 
-export type OrdemServicoUncheckedCreateWithoutClienteInput = {
+export type ordemservicoUncheckedCreateWithoutClienteInput = {
   id?: number
-  dispositivo: string
   problema: string
   status: string
   dataInicio?: Date | string
+  dispositivo: string
 }
 
-export type OrdemServicoCreateOrConnectWithoutClienteInput = {
-  where: Prisma.OrdemServicoWhereUniqueInput
-  create: Prisma.XOR<Prisma.OrdemServicoCreateWithoutClienteInput, Prisma.OrdemServicoUncheckedCreateWithoutClienteInput>
+export type ordemservicoCreateOrConnectWithoutClienteInput = {
+  where: Prisma.ordemservicoWhereUniqueInput
+  create: Prisma.XOR<Prisma.ordemservicoCreateWithoutClienteInput, Prisma.ordemservicoUncheckedCreateWithoutClienteInput>
 }
 
-export type OrdemServicoCreateManyClienteInputEnvelope = {
-  data: Prisma.OrdemServicoCreateManyClienteInput | Prisma.OrdemServicoCreateManyClienteInput[]
+export type ordemservicoCreateManyClienteInputEnvelope = {
+  data: Prisma.ordemservicoCreateManyClienteInput | Prisma.ordemservicoCreateManyClienteInput[]
   skipDuplicates?: boolean
 }
 
-export type OrdemServicoUpsertWithWhereUniqueWithoutClienteInput = {
-  where: Prisma.OrdemServicoWhereUniqueInput
-  update: Prisma.XOR<Prisma.OrdemServicoUpdateWithoutClienteInput, Prisma.OrdemServicoUncheckedUpdateWithoutClienteInput>
-  create: Prisma.XOR<Prisma.OrdemServicoCreateWithoutClienteInput, Prisma.OrdemServicoUncheckedCreateWithoutClienteInput>
+export type ordemservicoUpsertWithWhereUniqueWithoutClienteInput = {
+  where: Prisma.ordemservicoWhereUniqueInput
+  update: Prisma.XOR<Prisma.ordemservicoUpdateWithoutClienteInput, Prisma.ordemservicoUncheckedUpdateWithoutClienteInput>
+  create: Prisma.XOR<Prisma.ordemservicoCreateWithoutClienteInput, Prisma.ordemservicoUncheckedCreateWithoutClienteInput>
 }
 
-export type OrdemServicoUpdateWithWhereUniqueWithoutClienteInput = {
-  where: Prisma.OrdemServicoWhereUniqueInput
-  data: Prisma.XOR<Prisma.OrdemServicoUpdateWithoutClienteInput, Prisma.OrdemServicoUncheckedUpdateWithoutClienteInput>
+export type ordemservicoUpdateWithWhereUniqueWithoutClienteInput = {
+  where: Prisma.ordemservicoWhereUniqueInput
+  data: Prisma.XOR<Prisma.ordemservicoUpdateWithoutClienteInput, Prisma.ordemservicoUncheckedUpdateWithoutClienteInput>
 }
 
-export type OrdemServicoUpdateManyWithWhereWithoutClienteInput = {
-  where: Prisma.OrdemServicoScalarWhereInput
-  data: Prisma.XOR<Prisma.OrdemServicoUpdateManyMutationInput, Prisma.OrdemServicoUncheckedUpdateManyWithoutClienteInput>
+export type ordemservicoUpdateManyWithWhereWithoutClienteInput = {
+  where: Prisma.ordemservicoScalarWhereInput
+  data: Prisma.XOR<Prisma.ordemservicoUpdateManyMutationInput, Prisma.ordemservicoUncheckedUpdateManyWithoutClienteInput>
 }
 
-export type OrdemServicoScalarWhereInput = {
-  AND?: Prisma.OrdemServicoScalarWhereInput | Prisma.OrdemServicoScalarWhereInput[]
-  OR?: Prisma.OrdemServicoScalarWhereInput[]
-  NOT?: Prisma.OrdemServicoScalarWhereInput | Prisma.OrdemServicoScalarWhereInput[]
-  id?: Prisma.IntFilter<"OrdemServico"> | number
-  dispositivo?: Prisma.StringFilter<"OrdemServico"> | string
-  problema?: Prisma.StringFilter<"OrdemServico"> | string
-  status?: Prisma.StringFilter<"OrdemServico"> | string
-  dataInicio?: Prisma.DateTimeFilter<"OrdemServico"> | Date | string
-  clienteId?: Prisma.IntFilter<"OrdemServico"> | number
+export type ordemservicoScalarWhereInput = {
+  AND?: Prisma.ordemservicoScalarWhereInput | Prisma.ordemservicoScalarWhereInput[]
+  OR?: Prisma.ordemservicoScalarWhereInput[]
+  NOT?: Prisma.ordemservicoScalarWhereInput | Prisma.ordemservicoScalarWhereInput[]
+  id?: Prisma.IntFilter<"ordemservico"> | number
+  problema?: Prisma.StringFilter<"ordemservico"> | string
+  status?: Prisma.StringFilter<"ordemservico"> | string
+  dataInicio?: Prisma.DateTimeFilter<"ordemservico"> | Date | string
+  dispositivo?: Prisma.StringFilter<"ordemservico"> | string
+  clienteId?: Prisma.IntFilter<"ordemservico"> | number
 }
 
-export type OrdemServicoCreateManyClienteInput = {
+export type ordemservicoCreateManyClienteInput = {
   id?: number
-  dispositivo: string
   problema: string
   status: string
   dataInicio?: Date | string
+  dispositivo: string
 }
 
-export type OrdemServicoUpdateWithoutClienteInput = {
-  dispositivo?: Prisma.StringFieldUpdateOperationsInput | string
+export type ordemservicoUpdateWithoutClienteInput = {
   problema?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.StringFieldUpdateOperationsInput | string
   dataInicio?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  dispositivo?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
-export type OrdemServicoUncheckedUpdateWithoutClienteInput = {
+export type ordemservicoUncheckedUpdateWithoutClienteInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  dispositivo?: Prisma.StringFieldUpdateOperationsInput | string
   problema?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.StringFieldUpdateOperationsInput | string
   dataInicio?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  dispositivo?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
-export type OrdemServicoUncheckedUpdateManyWithoutClienteInput = {
+export type ordemservicoUncheckedUpdateManyWithoutClienteInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  dispositivo?: Prisma.StringFieldUpdateOperationsInput | string
   problema?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.StringFieldUpdateOperationsInput | string
   dataInicio?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  dispositivo?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 
 
-export type OrdemServicoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type ordemservicoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  dispositivo?: boolean
   problema?: boolean
   status?: boolean
   dataInicio?: boolean
-  clienteId?: boolean
-  cliente?: boolean | Prisma.ClienteDefaultArgs<ExtArgs>
-}, ExtArgs["result"]["ordemServico"]>
-
-
-
-export type OrdemServicoSelectScalar = {
-  id?: boolean
   dispositivo?: boolean
+  clienteId?: boolean
+  cliente?: boolean | Prisma.clienteDefaultArgs<ExtArgs>
+}, ExtArgs["result"]["ordemservico"]>
+
+
+
+export type ordemservicoSelectScalar = {
+  id?: boolean
   problema?: boolean
   status?: boolean
   dataInicio?: boolean
+  dispositivo?: boolean
   clienteId?: boolean
 }
 
-export type OrdemServicoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "dispositivo" | "problema" | "status" | "dataInicio" | "clienteId", ExtArgs["result"]["ordemServico"]>
-export type OrdemServicoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  cliente?: boolean | Prisma.ClienteDefaultArgs<ExtArgs>
+export type ordemservicoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "problema" | "status" | "dataInicio" | "dispositivo" | "clienteId", ExtArgs["result"]["ordemservico"]>
+export type ordemservicoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  cliente?: boolean | Prisma.clienteDefaultArgs<ExtArgs>
 }
 
-export type $OrdemServicoPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  name: "OrdemServico"
+export type $ordemservicoPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  name: "ordemservico"
   objects: {
-    cliente: Prisma.$ClientePayload<ExtArgs>
+    cliente: Prisma.$clientePayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    dispositivo: string
     problema: string
     status: string
     dataInicio: Date
+    dispositivo: string
     clienteId: number
-  }, ExtArgs["result"]["ordemServico"]>
+  }, ExtArgs["result"]["ordemservico"]>
   composites: {}
 }
 
-export type OrdemServicoGetPayload<S extends boolean | null | undefined | OrdemServicoDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$OrdemServicoPayload, S>
+export type ordemservicoGetPayload<S extends boolean | null | undefined | ordemservicoDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$ordemservicoPayload, S>
 
-export type OrdemServicoCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
-  Omit<OrdemServicoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-    select?: OrdemServicoCountAggregateInputType | true
+export type ordemservicoCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
+  Omit<ordemservicoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: OrdemservicoCountAggregateInputType | true
   }
 
-export interface OrdemServicoDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['OrdemServico'], meta: { name: 'OrdemServico' } }
+export interface ordemservicoDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ordemservico'], meta: { name: 'ordemservico' } }
   /**
-   * Find zero or one OrdemServico that matches the filter.
-   * @param {OrdemServicoFindUniqueArgs} args - Arguments to find a OrdemServico
+   * Find zero or one Ordemservico that matches the filter.
+   * @param {ordemservicoFindUniqueArgs} args - Arguments to find a Ordemservico
    * @example
-   * // Get one OrdemServico
-   * const ordemServico = await prisma.ordemServico.findUnique({
+   * // Get one Ordemservico
+   * const ordemservico = await prisma.ordemservico.findUnique({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    */
-  findUnique<T extends OrdemServicoFindUniqueArgs>(args: Prisma.SelectSubset<T, OrdemServicoFindUniqueArgs<ExtArgs>>): Prisma.Prisma__OrdemServicoClient<runtime.Types.Result.GetResult<Prisma.$OrdemServicoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findUnique<T extends ordemservicoFindUniqueArgs>(args: Prisma.SelectSubset<T, ordemservicoFindUniqueArgs<ExtArgs>>): Prisma.Prisma__ordemservicoClient<runtime.Types.Result.GetResult<Prisma.$ordemservicoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Find one OrdemServico that matches the filter or throw an error with `error.code='P2025'`
+   * Find one Ordemservico that matches the filter or throw an error with `error.code='P2025'`
    * if no matches were found.
-   * @param {OrdemServicoFindUniqueOrThrowArgs} args - Arguments to find a OrdemServico
+   * @param {ordemservicoFindUniqueOrThrowArgs} args - Arguments to find a Ordemservico
    * @example
-   * // Get one OrdemServico
-   * const ordemServico = await prisma.ordemServico.findUniqueOrThrow({
+   * // Get one Ordemservico
+   * const ordemservico = await prisma.ordemservico.findUniqueOrThrow({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    */
-  findUniqueOrThrow<T extends OrdemServicoFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, OrdemServicoFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__OrdemServicoClient<runtime.Types.Result.GetResult<Prisma.$OrdemServicoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findUniqueOrThrow<T extends ordemservicoFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, ordemservicoFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__ordemservicoClient<runtime.Types.Result.GetResult<Prisma.$ordemservicoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Find the first OrdemServico that matches the filter.
+   * Find the first Ordemservico that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {OrdemServicoFindFirstArgs} args - Arguments to find a OrdemServico
+   * @param {ordemservicoFindFirstArgs} args - Arguments to find a Ordemservico
    * @example
-   * // Get one OrdemServico
-   * const ordemServico = await prisma.ordemServico.findFirst({
+   * // Get one Ordemservico
+   * const ordemservico = await prisma.ordemservico.findFirst({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    */
-  findFirst<T extends OrdemServicoFindFirstArgs>(args?: Prisma.SelectSubset<T, OrdemServicoFindFirstArgs<ExtArgs>>): Prisma.Prisma__OrdemServicoClient<runtime.Types.Result.GetResult<Prisma.$OrdemServicoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findFirst<T extends ordemservicoFindFirstArgs>(args?: Prisma.SelectSubset<T, ordemservicoFindFirstArgs<ExtArgs>>): Prisma.Prisma__ordemservicoClient<runtime.Types.Result.GetResult<Prisma.$ordemservicoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Find the first OrdemServico that matches the filter or
+   * Find the first Ordemservico that matches the filter or
    * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {OrdemServicoFindFirstOrThrowArgs} args - Arguments to find a OrdemServico
+   * @param {ordemservicoFindFirstOrThrowArgs} args - Arguments to find a Ordemservico
    * @example
-   * // Get one OrdemServico
-   * const ordemServico = await prisma.ordemServico.findFirstOrThrow({
+   * // Get one Ordemservico
+   * const ordemservico = await prisma.ordemservico.findFirstOrThrow({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    */
-  findFirstOrThrow<T extends OrdemServicoFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, OrdemServicoFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__OrdemServicoClient<runtime.Types.Result.GetResult<Prisma.$OrdemServicoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findFirstOrThrow<T extends ordemservicoFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, ordemservicoFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__ordemservicoClient<runtime.Types.Result.GetResult<Prisma.$ordemservicoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Find zero or more OrdemServicos that matches the filter.
+   * Find zero or more Ordemservicos that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {OrdemServicoFindManyArgs} args - Arguments to filter and select certain fields only.
+   * @param {ordemservicoFindManyArgs} args - Arguments to filter and select certain fields only.
    * @example
-   * // Get all OrdemServicos
-   * const ordemServicos = await prisma.ordemServico.findMany()
+   * // Get all Ordemservicos
+   * const ordemservicos = await prisma.ordemservico.findMany()
    * 
-   * // Get first 10 OrdemServicos
-   * const ordemServicos = await prisma.ordemServico.findMany({ take: 10 })
+   * // Get first 10 Ordemservicos
+   * const ordemservicos = await prisma.ordemservico.findMany({ take: 10 })
    * 
    * // Only select the `id`
-   * const ordemServicoWithIdOnly = await prisma.ordemServico.findMany({ select: { id: true } })
+   * const ordemservicoWithIdOnly = await prisma.ordemservico.findMany({ select: { id: true } })
    * 
    */
-  findMany<T extends OrdemServicoFindManyArgs>(args?: Prisma.SelectSubset<T, OrdemServicoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrdemServicoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+  findMany<T extends ordemservicoFindManyArgs>(args?: Prisma.SelectSubset<T, ordemservicoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ordemservicoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
   /**
-   * Create a OrdemServico.
-   * @param {OrdemServicoCreateArgs} args - Arguments to create a OrdemServico.
+   * Create a Ordemservico.
+   * @param {ordemservicoCreateArgs} args - Arguments to create a Ordemservico.
    * @example
-   * // Create one OrdemServico
-   * const OrdemServico = await prisma.ordemServico.create({
+   * // Create one Ordemservico
+   * const Ordemservico = await prisma.ordemservico.create({
    *   data: {
-   *     // ... data to create a OrdemServico
+   *     // ... data to create a Ordemservico
    *   }
    * })
    * 
    */
-  create<T extends OrdemServicoCreateArgs>(args: Prisma.SelectSubset<T, OrdemServicoCreateArgs<ExtArgs>>): Prisma.Prisma__OrdemServicoClient<runtime.Types.Result.GetResult<Prisma.$OrdemServicoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  create<T extends ordemservicoCreateArgs>(args: Prisma.SelectSubset<T, ordemservicoCreateArgs<ExtArgs>>): Prisma.Prisma__ordemservicoClient<runtime.Types.Result.GetResult<Prisma.$ordemservicoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Create many OrdemServicos.
-   * @param {OrdemServicoCreateManyArgs} args - Arguments to create many OrdemServicos.
+   * Create many Ordemservicos.
+   * @param {ordemservicoCreateManyArgs} args - Arguments to create many Ordemservicos.
    * @example
-   * // Create many OrdemServicos
-   * const ordemServico = await prisma.ordemServico.createMany({
+   * // Create many Ordemservicos
+   * const ordemservico = await prisma.ordemservico.createMany({
    *   data: [
    *     // ... provide data here
    *   ]
    * })
    *     
    */
-  createMany<T extends OrdemServicoCreateManyArgs>(args?: Prisma.SelectSubset<T, OrdemServicoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  createMany<T extends ordemservicoCreateManyArgs>(args?: Prisma.SelectSubset<T, ordemservicoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
-   * Delete a OrdemServico.
-   * @param {OrdemServicoDeleteArgs} args - Arguments to delete one OrdemServico.
+   * Delete a Ordemservico.
+   * @param {ordemservicoDeleteArgs} args - Arguments to delete one Ordemservico.
    * @example
-   * // Delete one OrdemServico
-   * const OrdemServico = await prisma.ordemServico.delete({
+   * // Delete one Ordemservico
+   * const Ordemservico = await prisma.ordemservico.delete({
    *   where: {
-   *     // ... filter to delete one OrdemServico
+   *     // ... filter to delete one Ordemservico
    *   }
    * })
    * 
    */
-  delete<T extends OrdemServicoDeleteArgs>(args: Prisma.SelectSubset<T, OrdemServicoDeleteArgs<ExtArgs>>): Prisma.Prisma__OrdemServicoClient<runtime.Types.Result.GetResult<Prisma.$OrdemServicoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  delete<T extends ordemservicoDeleteArgs>(args: Prisma.SelectSubset<T, ordemservicoDeleteArgs<ExtArgs>>): Prisma.Prisma__ordemservicoClient<runtime.Types.Result.GetResult<Prisma.$ordemservicoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Update one OrdemServico.
-   * @param {OrdemServicoUpdateArgs} args - Arguments to update one OrdemServico.
+   * Update one Ordemservico.
+   * @param {ordemservicoUpdateArgs} args - Arguments to update one Ordemservico.
    * @example
-   * // Update one OrdemServico
-   * const ordemServico = await prisma.ordemServico.update({
+   * // Update one Ordemservico
+   * const ordemservico = await prisma.ordemservico.update({
    *   where: {
    *     // ... provide filter here
    *   },
@@ -709,30 +709,30 @@ export interface OrdemServicoDelegate<ExtArgs extends runtime.Types.Extensions.I
    * })
    * 
    */
-  update<T extends OrdemServicoUpdateArgs>(args: Prisma.SelectSubset<T, OrdemServicoUpdateArgs<ExtArgs>>): Prisma.Prisma__OrdemServicoClient<runtime.Types.Result.GetResult<Prisma.$OrdemServicoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  update<T extends ordemservicoUpdateArgs>(args: Prisma.SelectSubset<T, ordemservicoUpdateArgs<ExtArgs>>): Prisma.Prisma__ordemservicoClient<runtime.Types.Result.GetResult<Prisma.$ordemservicoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
-   * Delete zero or more OrdemServicos.
-   * @param {OrdemServicoDeleteManyArgs} args - Arguments to filter OrdemServicos to delete.
+   * Delete zero or more Ordemservicos.
+   * @param {ordemservicoDeleteManyArgs} args - Arguments to filter Ordemservicos to delete.
    * @example
-   * // Delete a few OrdemServicos
-   * const { count } = await prisma.ordemServico.deleteMany({
+   * // Delete a few Ordemservicos
+   * const { count } = await prisma.ordemservico.deleteMany({
    *   where: {
    *     // ... provide filter here
    *   }
    * })
    * 
    */
-  deleteMany<T extends OrdemServicoDeleteManyArgs>(args?: Prisma.SelectSubset<T, OrdemServicoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  deleteMany<T extends ordemservicoDeleteManyArgs>(args?: Prisma.SelectSubset<T, ordemservicoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
-   * Update zero or more OrdemServicos.
+   * Update zero or more Ordemservicos.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {OrdemServicoUpdateManyArgs} args - Arguments to update one or more rows.
+   * @param {ordemservicoUpdateManyArgs} args - Arguments to update one or more rows.
    * @example
-   * // Update many OrdemServicos
-   * const ordemServico = await prisma.ordemServico.updateMany({
+   * // Update many Ordemservicos
+   * const ordemservico = await prisma.ordemservico.updateMany({
    *   where: {
    *     // ... provide filter here
    *   },
@@ -742,56 +742,56 @@ export interface OrdemServicoDelegate<ExtArgs extends runtime.Types.Extensions.I
    * })
    * 
    */
-  updateMany<T extends OrdemServicoUpdateManyArgs>(args: Prisma.SelectSubset<T, OrdemServicoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  updateMany<T extends ordemservicoUpdateManyArgs>(args: Prisma.SelectSubset<T, ordemservicoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
-   * Create or update one OrdemServico.
-   * @param {OrdemServicoUpsertArgs} args - Arguments to update or create a OrdemServico.
+   * Create or update one Ordemservico.
+   * @param {ordemservicoUpsertArgs} args - Arguments to update or create a Ordemservico.
    * @example
-   * // Update or create a OrdemServico
-   * const ordemServico = await prisma.ordemServico.upsert({
+   * // Update or create a Ordemservico
+   * const ordemservico = await prisma.ordemservico.upsert({
    *   create: {
-   *     // ... data to create a OrdemServico
+   *     // ... data to create a Ordemservico
    *   },
    *   update: {
    *     // ... in case it already exists, update
    *   },
    *   where: {
-   *     // ... the filter for the OrdemServico we want to update
+   *     // ... the filter for the Ordemservico we want to update
    *   }
    * })
    */
-  upsert<T extends OrdemServicoUpsertArgs>(args: Prisma.SelectSubset<T, OrdemServicoUpsertArgs<ExtArgs>>): Prisma.Prisma__OrdemServicoClient<runtime.Types.Result.GetResult<Prisma.$OrdemServicoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  upsert<T extends ordemservicoUpsertArgs>(args: Prisma.SelectSubset<T, ordemservicoUpsertArgs<ExtArgs>>): Prisma.Prisma__ordemservicoClient<runtime.Types.Result.GetResult<Prisma.$ordemservicoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
   /**
-   * Count the number of OrdemServicos.
+   * Count the number of Ordemservicos.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {OrdemServicoCountArgs} args - Arguments to filter OrdemServicos to count.
+   * @param {ordemservicoCountArgs} args - Arguments to filter Ordemservicos to count.
    * @example
-   * // Count the number of OrdemServicos
-   * const count = await prisma.ordemServico.count({
+   * // Count the number of Ordemservicos
+   * const count = await prisma.ordemservico.count({
    *   where: {
-   *     // ... the filter for the OrdemServicos we want to count
+   *     // ... the filter for the Ordemservicos we want to count
    *   }
    * })
   **/
-  count<T extends OrdemServicoCountArgs>(
-    args?: Prisma.Subset<T, OrdemServicoCountArgs>,
+  count<T extends ordemservicoCountArgs>(
+    args?: Prisma.Subset<T, ordemservicoCountArgs>,
   ): Prisma.PrismaPromise<
     T extends runtime.Types.Utils.Record<'select', any>
       ? T['select'] extends true
         ? number
-        : Prisma.GetScalarType<T['select'], OrdemServicoCountAggregateOutputType>
+        : Prisma.GetScalarType<T['select'], OrdemservicoCountAggregateOutputType>
       : number
   >
 
   /**
-   * Allows you to perform aggregations operations on a OrdemServico.
+   * Allows you to perform aggregations operations on a Ordemservico.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {OrdemServicoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+   * @param {OrdemservicoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
    * @example
    * // Ordered by age ascending
    * // Where email contains prisma.io
@@ -811,13 +811,13 @@ export interface OrdemServicoDelegate<ExtArgs extends runtime.Types.Extensions.I
    *   take: 10,
    * })
   **/
-  aggregate<T extends OrdemServicoAggregateArgs>(args: Prisma.Subset<T, OrdemServicoAggregateArgs>): Prisma.PrismaPromise<GetOrdemServicoAggregateType<T>>
+  aggregate<T extends OrdemservicoAggregateArgs>(args: Prisma.Subset<T, OrdemservicoAggregateArgs>): Prisma.PrismaPromise<GetOrdemservicoAggregateType<T>>
 
   /**
-   * Group by OrdemServico.
+   * Group by Ordemservico.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {OrdemServicoGroupByArgs} args - Group by arguments.
+   * @param {ordemservicoGroupByArgs} args - Group by arguments.
    * @example
    * // Group by city, order by createdAt, get count
    * const result = await prisma.user.groupBy({
@@ -832,14 +832,14 @@ export interface OrdemServicoDelegate<ExtArgs extends runtime.Types.Extensions.I
    * 
   **/
   groupBy<
-    T extends OrdemServicoGroupByArgs,
+    T extends ordemservicoGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
       Prisma.Extends<'skip', Prisma.Keys<T>>,
       Prisma.Extends<'take', Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: OrdemServicoGroupByArgs['orderBy'] }
-      : { orderBy?: OrdemServicoGroupByArgs['orderBy'] },
+      ? { orderBy: ordemservicoGroupByArgs['orderBy'] }
+      : { orderBy?: ordemservicoGroupByArgs['orderBy'] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
     ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
@@ -888,22 +888,22 @@ export interface OrdemServicoDelegate<ExtArgs extends runtime.Types.Extensions.I
           ? never
           : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
       }[OrderFields]
-  >(args: Prisma.SubsetIntersection<T, OrdemServicoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOrdemServicoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  >(args: Prisma.SubsetIntersection<T, ordemservicoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOrdemservicoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
 /**
- * Fields of the OrdemServico model
+ * Fields of the ordemservico model
  */
-readonly fields: OrdemServicoFieldRefs;
+readonly fields: ordemservicoFieldRefs;
 }
 
 /**
- * The delegate class that acts as a "Promise-like" for OrdemServico.
+ * The delegate class that acts as a "Promise-like" for ordemservico.
  * Why is this prefixed with `Prisma__`?
  * Because we want to prevent naming conflicts as mentioned in
  * https://github.com/prisma/prisma-client-js/issues/707
  */
-export interface Prisma__OrdemServicoClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+export interface Prisma__ordemservicoClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  cliente<T extends Prisma.ClienteDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ClienteDefaultArgs<ExtArgs>>): Prisma.Prisma__ClienteClient<runtime.Types.Result.GetResult<Prisma.$ClientePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  cliente<T extends Prisma.clienteDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.clienteDefaultArgs<ExtArgs>>): Prisma.Prisma__clienteClient<runtime.Types.Result.GetResult<Prisma.$clientePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -930,376 +930,376 @@ export interface Prisma__OrdemServicoClient<T, Null = never, ExtArgs extends run
 
 
 /**
- * Fields of the OrdemServico model
+ * Fields of the ordemservico model
  */
-export interface OrdemServicoFieldRefs {
-  readonly id: Prisma.FieldRef<"OrdemServico", 'Int'>
-  readonly dispositivo: Prisma.FieldRef<"OrdemServico", 'String'>
-  readonly problema: Prisma.FieldRef<"OrdemServico", 'String'>
-  readonly status: Prisma.FieldRef<"OrdemServico", 'String'>
-  readonly dataInicio: Prisma.FieldRef<"OrdemServico", 'DateTime'>
-  readonly clienteId: Prisma.FieldRef<"OrdemServico", 'Int'>
+export interface ordemservicoFieldRefs {
+  readonly id: Prisma.FieldRef<"ordemservico", 'Int'>
+  readonly problema: Prisma.FieldRef<"ordemservico", 'String'>
+  readonly status: Prisma.FieldRef<"ordemservico", 'String'>
+  readonly dataInicio: Prisma.FieldRef<"ordemservico", 'DateTime'>
+  readonly dispositivo: Prisma.FieldRef<"ordemservico", 'String'>
+  readonly clienteId: Prisma.FieldRef<"ordemservico", 'Int'>
 }
     
 
 // Custom InputTypes
 /**
- * OrdemServico findUnique
+ * ordemservico findUnique
  */
-export type OrdemServicoFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ordemservicoFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the OrdemServico
+   * Select specific fields to fetch from the ordemservico
    */
-  select?: Prisma.OrdemServicoSelect<ExtArgs> | null
+  select?: Prisma.ordemservicoSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the OrdemServico
+   * Omit specific fields from the ordemservico
    */
-  omit?: Prisma.OrdemServicoOmit<ExtArgs> | null
+  omit?: Prisma.ordemservicoOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.OrdemServicoInclude<ExtArgs> | null
+  include?: Prisma.ordemservicoInclude<ExtArgs> | null
   /**
-   * Filter, which OrdemServico to fetch.
+   * Filter, which ordemservico to fetch.
    */
-  where: Prisma.OrdemServicoWhereUniqueInput
+  where: Prisma.ordemservicoWhereUniqueInput
 }
 
 /**
- * OrdemServico findUniqueOrThrow
+ * ordemservico findUniqueOrThrow
  */
-export type OrdemServicoFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ordemservicoFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the OrdemServico
+   * Select specific fields to fetch from the ordemservico
    */
-  select?: Prisma.OrdemServicoSelect<ExtArgs> | null
+  select?: Prisma.ordemservicoSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the OrdemServico
+   * Omit specific fields from the ordemservico
    */
-  omit?: Prisma.OrdemServicoOmit<ExtArgs> | null
+  omit?: Prisma.ordemservicoOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.OrdemServicoInclude<ExtArgs> | null
+  include?: Prisma.ordemservicoInclude<ExtArgs> | null
   /**
-   * Filter, which OrdemServico to fetch.
+   * Filter, which ordemservico to fetch.
    */
-  where: Prisma.OrdemServicoWhereUniqueInput
+  where: Prisma.ordemservicoWhereUniqueInput
 }
 
 /**
- * OrdemServico findFirst
+ * ordemservico findFirst
  */
-export type OrdemServicoFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ordemservicoFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the OrdemServico
+   * Select specific fields to fetch from the ordemservico
    */
-  select?: Prisma.OrdemServicoSelect<ExtArgs> | null
+  select?: Prisma.ordemservicoSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the OrdemServico
+   * Omit specific fields from the ordemservico
    */
-  omit?: Prisma.OrdemServicoOmit<ExtArgs> | null
+  omit?: Prisma.ordemservicoOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.OrdemServicoInclude<ExtArgs> | null
+  include?: Prisma.ordemservicoInclude<ExtArgs> | null
   /**
-   * Filter, which OrdemServico to fetch.
+   * Filter, which ordemservico to fetch.
    */
-  where?: Prisma.OrdemServicoWhereInput
+  where?: Prisma.ordemservicoWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of OrdemServicos to fetch.
+   * Determine the order of ordemservicos to fetch.
    */
-  orderBy?: Prisma.OrdemServicoOrderByWithRelationInput | Prisma.OrdemServicoOrderByWithRelationInput[]
+  orderBy?: Prisma.ordemservicoOrderByWithRelationInput | Prisma.ordemservicoOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for OrdemServicos.
+   * Sets the position for searching for ordemservicos.
    */
-  cursor?: Prisma.OrdemServicoWhereUniqueInput
+  cursor?: Prisma.ordemservicoWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` OrdemServicos from the position of the cursor.
+   * Take `±n` ordemservicos from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` OrdemServicos.
+   * Skip the first `n` ordemservicos.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of OrdemServicos.
+   * Filter by unique combinations of ordemservicos.
    */
-  distinct?: Prisma.OrdemServicoScalarFieldEnum | Prisma.OrdemServicoScalarFieldEnum[]
+  distinct?: Prisma.OrdemservicoScalarFieldEnum | Prisma.OrdemservicoScalarFieldEnum[]
 }
 
 /**
- * OrdemServico findFirstOrThrow
+ * ordemservico findFirstOrThrow
  */
-export type OrdemServicoFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ordemservicoFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the OrdemServico
+   * Select specific fields to fetch from the ordemservico
    */
-  select?: Prisma.OrdemServicoSelect<ExtArgs> | null
+  select?: Prisma.ordemservicoSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the OrdemServico
+   * Omit specific fields from the ordemservico
    */
-  omit?: Prisma.OrdemServicoOmit<ExtArgs> | null
+  omit?: Prisma.ordemservicoOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.OrdemServicoInclude<ExtArgs> | null
+  include?: Prisma.ordemservicoInclude<ExtArgs> | null
   /**
-   * Filter, which OrdemServico to fetch.
+   * Filter, which ordemservico to fetch.
    */
-  where?: Prisma.OrdemServicoWhereInput
+  where?: Prisma.ordemservicoWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of OrdemServicos to fetch.
+   * Determine the order of ordemservicos to fetch.
    */
-  orderBy?: Prisma.OrdemServicoOrderByWithRelationInput | Prisma.OrdemServicoOrderByWithRelationInput[]
+  orderBy?: Prisma.ordemservicoOrderByWithRelationInput | Prisma.ordemservicoOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for OrdemServicos.
+   * Sets the position for searching for ordemservicos.
    */
-  cursor?: Prisma.OrdemServicoWhereUniqueInput
+  cursor?: Prisma.ordemservicoWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` OrdemServicos from the position of the cursor.
+   * Take `±n` ordemservicos from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` OrdemServicos.
+   * Skip the first `n` ordemservicos.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of OrdemServicos.
+   * Filter by unique combinations of ordemservicos.
    */
-  distinct?: Prisma.OrdemServicoScalarFieldEnum | Prisma.OrdemServicoScalarFieldEnum[]
+  distinct?: Prisma.OrdemservicoScalarFieldEnum | Prisma.OrdemservicoScalarFieldEnum[]
 }
 
 /**
- * OrdemServico findMany
+ * ordemservico findMany
  */
-export type OrdemServicoFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ordemservicoFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the OrdemServico
+   * Select specific fields to fetch from the ordemservico
    */
-  select?: Prisma.OrdemServicoSelect<ExtArgs> | null
+  select?: Prisma.ordemservicoSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the OrdemServico
+   * Omit specific fields from the ordemservico
    */
-  omit?: Prisma.OrdemServicoOmit<ExtArgs> | null
+  omit?: Prisma.ordemservicoOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.OrdemServicoInclude<ExtArgs> | null
+  include?: Prisma.ordemservicoInclude<ExtArgs> | null
   /**
-   * Filter, which OrdemServicos to fetch.
+   * Filter, which ordemservicos to fetch.
    */
-  where?: Prisma.OrdemServicoWhereInput
+  where?: Prisma.ordemservicoWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of OrdemServicos to fetch.
+   * Determine the order of ordemservicos to fetch.
    */
-  orderBy?: Prisma.OrdemServicoOrderByWithRelationInput | Prisma.OrdemServicoOrderByWithRelationInput[]
+  orderBy?: Prisma.ordemservicoOrderByWithRelationInput | Prisma.ordemservicoOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for listing OrdemServicos.
+   * Sets the position for listing ordemservicos.
    */
-  cursor?: Prisma.OrdemServicoWhereUniqueInput
+  cursor?: Prisma.ordemservicoWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` OrdemServicos from the position of the cursor.
+   * Take `±n` ordemservicos from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` OrdemServicos.
+   * Skip the first `n` ordemservicos.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of OrdemServicos.
+   * Filter by unique combinations of ordemservicos.
    */
-  distinct?: Prisma.OrdemServicoScalarFieldEnum | Prisma.OrdemServicoScalarFieldEnum[]
+  distinct?: Prisma.OrdemservicoScalarFieldEnum | Prisma.OrdemservicoScalarFieldEnum[]
 }
 
 /**
- * OrdemServico create
+ * ordemservico create
  */
-export type OrdemServicoCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ordemservicoCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the OrdemServico
+   * Select specific fields to fetch from the ordemservico
    */
-  select?: Prisma.OrdemServicoSelect<ExtArgs> | null
+  select?: Prisma.ordemservicoSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the OrdemServico
+   * Omit specific fields from the ordemservico
    */
-  omit?: Prisma.OrdemServicoOmit<ExtArgs> | null
+  omit?: Prisma.ordemservicoOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.OrdemServicoInclude<ExtArgs> | null
+  include?: Prisma.ordemservicoInclude<ExtArgs> | null
   /**
-   * The data needed to create a OrdemServico.
+   * The data needed to create a ordemservico.
    */
-  data: Prisma.XOR<Prisma.OrdemServicoCreateInput, Prisma.OrdemServicoUncheckedCreateInput>
+  data: Prisma.XOR<Prisma.ordemservicoCreateInput, Prisma.ordemservicoUncheckedCreateInput>
 }
 
 /**
- * OrdemServico createMany
+ * ordemservico createMany
  */
-export type OrdemServicoCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ordemservicoCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to create many OrdemServicos.
+   * The data used to create many ordemservicos.
    */
-  data: Prisma.OrdemServicoCreateManyInput | Prisma.OrdemServicoCreateManyInput[]
+  data: Prisma.ordemservicoCreateManyInput | Prisma.ordemservicoCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * OrdemServico update
+ * ordemservico update
  */
-export type OrdemServicoUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ordemservicoUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the OrdemServico
+   * Select specific fields to fetch from the ordemservico
    */
-  select?: Prisma.OrdemServicoSelect<ExtArgs> | null
+  select?: Prisma.ordemservicoSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the OrdemServico
+   * Omit specific fields from the ordemservico
    */
-  omit?: Prisma.OrdemServicoOmit<ExtArgs> | null
+  omit?: Prisma.ordemservicoOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.OrdemServicoInclude<ExtArgs> | null
+  include?: Prisma.ordemservicoInclude<ExtArgs> | null
   /**
-   * The data needed to update a OrdemServico.
+   * The data needed to update a ordemservico.
    */
-  data: Prisma.XOR<Prisma.OrdemServicoUpdateInput, Prisma.OrdemServicoUncheckedUpdateInput>
+  data: Prisma.XOR<Prisma.ordemservicoUpdateInput, Prisma.ordemservicoUncheckedUpdateInput>
   /**
-   * Choose, which OrdemServico to update.
+   * Choose, which ordemservico to update.
    */
-  where: Prisma.OrdemServicoWhereUniqueInput
+  where: Prisma.ordemservicoWhereUniqueInput
 }
 
 /**
- * OrdemServico updateMany
+ * ordemservico updateMany
  */
-export type OrdemServicoUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ordemservicoUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to update OrdemServicos.
+   * The data used to update ordemservicos.
    */
-  data: Prisma.XOR<Prisma.OrdemServicoUpdateManyMutationInput, Prisma.OrdemServicoUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.ordemservicoUpdateManyMutationInput, Prisma.ordemservicoUncheckedUpdateManyInput>
   /**
-   * Filter which OrdemServicos to update
+   * Filter which ordemservicos to update
    */
-  where?: Prisma.OrdemServicoWhereInput
+  where?: Prisma.ordemservicoWhereInput
   /**
-   * Limit how many OrdemServicos to update.
+   * Limit how many ordemservicos to update.
    */
   limit?: number
 }
 
 /**
- * OrdemServico upsert
+ * ordemservico upsert
  */
-export type OrdemServicoUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ordemservicoUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the OrdemServico
+   * Select specific fields to fetch from the ordemservico
    */
-  select?: Prisma.OrdemServicoSelect<ExtArgs> | null
+  select?: Prisma.ordemservicoSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the OrdemServico
+   * Omit specific fields from the ordemservico
    */
-  omit?: Prisma.OrdemServicoOmit<ExtArgs> | null
+  omit?: Prisma.ordemservicoOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.OrdemServicoInclude<ExtArgs> | null
+  include?: Prisma.ordemservicoInclude<ExtArgs> | null
   /**
-   * The filter to search for the OrdemServico to update in case it exists.
+   * The filter to search for the ordemservico to update in case it exists.
    */
-  where: Prisma.OrdemServicoWhereUniqueInput
+  where: Prisma.ordemservicoWhereUniqueInput
   /**
-   * In case the OrdemServico found by the `where` argument doesn't exist, create a new OrdemServico with this data.
+   * In case the ordemservico found by the `where` argument doesn't exist, create a new ordemservico with this data.
    */
-  create: Prisma.XOR<Prisma.OrdemServicoCreateInput, Prisma.OrdemServicoUncheckedCreateInput>
+  create: Prisma.XOR<Prisma.ordemservicoCreateInput, Prisma.ordemservicoUncheckedCreateInput>
   /**
-   * In case the OrdemServico was found with the provided `where` argument, update it with this data.
+   * In case the ordemservico was found with the provided `where` argument, update it with this data.
    */
-  update: Prisma.XOR<Prisma.OrdemServicoUpdateInput, Prisma.OrdemServicoUncheckedUpdateInput>
+  update: Prisma.XOR<Prisma.ordemservicoUpdateInput, Prisma.ordemservicoUncheckedUpdateInput>
 }
 
 /**
- * OrdemServico delete
+ * ordemservico delete
  */
-export type OrdemServicoDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ordemservicoDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the OrdemServico
+   * Select specific fields to fetch from the ordemservico
    */
-  select?: Prisma.OrdemServicoSelect<ExtArgs> | null
+  select?: Prisma.ordemservicoSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the OrdemServico
+   * Omit specific fields from the ordemservico
    */
-  omit?: Prisma.OrdemServicoOmit<ExtArgs> | null
+  omit?: Prisma.ordemservicoOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.OrdemServicoInclude<ExtArgs> | null
+  include?: Prisma.ordemservicoInclude<ExtArgs> | null
   /**
-   * Filter which OrdemServico to delete.
+   * Filter which ordemservico to delete.
    */
-  where: Prisma.OrdemServicoWhereUniqueInput
+  where: Prisma.ordemservicoWhereUniqueInput
 }
 
 /**
- * OrdemServico deleteMany
+ * ordemservico deleteMany
  */
-export type OrdemServicoDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ordemservicoDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which OrdemServicos to delete
+   * Filter which ordemservicos to delete
    */
-  where?: Prisma.OrdemServicoWhereInput
+  where?: Prisma.ordemservicoWhereInput
   /**
-   * Limit how many OrdemServicos to delete.
+   * Limit how many ordemservicos to delete.
    */
   limit?: number
 }
 
 /**
- * OrdemServico without action
+ * ordemservico without action
  */
-export type OrdemServicoDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ordemservicoDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the OrdemServico
+   * Select specific fields to fetch from the ordemservico
    */
-  select?: Prisma.OrdemServicoSelect<ExtArgs> | null
+  select?: Prisma.ordemservicoSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the OrdemServico
+   * Omit specific fields from the ordemservico
    */
-  omit?: Prisma.OrdemServicoOmit<ExtArgs> | null
+  omit?: Prisma.ordemservicoOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.OrdemServicoInclude<ExtArgs> | null
+  include?: Prisma.ordemservicoInclude<ExtArgs> | null
 }
