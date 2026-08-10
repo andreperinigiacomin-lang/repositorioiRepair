@@ -7,6 +7,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import { AuthProvider } from "./contexts/AuthContext";
 import { PrivateRoute } from "./routes/PrivateRoute";
 import { Login } from "./pages/Login";
+import { Register } from "./pages/Register";
 
 export const App = () => {
     return (
@@ -16,6 +17,10 @@ export const App = () => {
                     <Route
                     path="/login"
                     element={<Login/>}
+                    />
+                    <Route
+                        path="/register"
+                        element={<Register />}
                     />
 
                     <Route element={<PrivateRoute/>}>

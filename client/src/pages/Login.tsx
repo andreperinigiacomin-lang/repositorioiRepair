@@ -89,7 +89,7 @@ export function Login(){
 
                 </form>
 
-                 <div className="mt-6 text-center">
+                 <div className="mt-6 text-center">{/* botao cadastro */}
                     <p className="text-sm text-slate-400">
                         Ainda não possui uma conta?
                     </p>
@@ -98,10 +98,10 @@ export function Login(){
                         type="button"
                         onClick={() => navigate("/register")}
                         className="mt-2 text-sm font-semibold text-emerald-600 hover:text-emerald-700 transition cursor-pointer"
-                    >
+                        >
                         Cadastrar
                     </button>
-                </div>
+                </div>{/* botao cadastro */}
             </div>
         </div>
     )
