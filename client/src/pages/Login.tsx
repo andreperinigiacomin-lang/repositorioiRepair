@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 import { useAuth } from "../contexts/AuthContext";
 import React from "react";
 
@@ -11,6 +11,8 @@ export function Login(){
 
     const {login} = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
+    const sucesso = location.state?.sucesso;
 
     async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -78,6 +80,13 @@ export function Login(){
                         className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"/>
 
                     </div>{/* formulario senha */}
+
+
+                    {sucesso && (
+                        <p className="text-emerald-600 text-sm">
+                            {sucesso}
+                        </p>
+                    )}
 
                     {erro && (
                         <p className="text-red-500 text-sm">

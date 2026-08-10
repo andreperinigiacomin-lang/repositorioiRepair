@@ -1,6 +1,7 @@
 import { useState} from "react";
 import { useNavigate } from "react-router";
 import { api } from "../services/api";
+import axios from "axios";
 
 export function Register(){
     const [email, setEmail] = useState("");
@@ -21,9 +22,21 @@ export function Register(){
                 email,
                 senha,
             });
-            navigate("/login");
-        } catch{
-            setErro("Não foi possível realizar o cadastro.")
+            navigate("/login", {
+                state: {
+                    sucesso: "Cadastro realizado com sucesso!"
+                }
+            });
+        } catch (error){
+            if (axios.isAxiosError(error)) {
+                if (error.response?.status === 409) {
+                    setErro("Este email já está cadastrado.");
+                } else {
+                    setErro("Não foi possível realizar o cadastro.");
+                }
+            } else {
+                setErro("Ocorreu um erro inesperado.");
+            }
         } finally{
             setCarregando(false);
         }
