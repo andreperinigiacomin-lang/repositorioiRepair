@@ -31,9 +31,13 @@ export function Login(){
             <div className="w-full max-w-md bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
 
                 <div className= "text-center mb-8>">{/* textos do login */}
-                    <h1 className="text-3xl font-bold text-slate-800">
-                        iRepair
-                    </h1>
+                    <div className="flex items-center justify-center gap-2">
+                        <i className="bi bi-tools text-emerald-600 text-2xl [-webkit-text-stroke:1px]"></i>
+
+                        <h1 className="text-3xl font-bold text-slate-800">
+                            iRepair
+                        </h1>
+                    </div>
                     <p className="text-sm text-slate-400 mt-2">
                           Sistema de Ordens de Serviço
                     </p>
