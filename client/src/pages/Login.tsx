@@ -27,15 +27,22 @@ export function Login(){
         }
     }
     return(
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
-            <div className="w-full max-w-md bg-white rounded-xl shadow-lg p-8">
-                <h1 className="text-3xl font-bold text-center mb-8">
-                    iRepair
-                </h1>
+        <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
+            <div className="w-full max-w-md bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
+
+                <div className= "text-center mb-8>">{/* textos do login */}
+                    <h1 className="text-3xl font-bold text-slate-800">
+                        iRepair
+                    </h1>
+                    <p className="text-sm text-slate-400 mt-2">
+                          Sistema de Ordens de Serviço
+                    </p>
+                </div>{/* textos do login */}
+
                 <form onSubmit={handleSubmit} className="space-y-5">
                     <div>{/* formulario email */}
 
-                        <label className="block text-sm font-medium mb-2">
+                        <label className="block text-sm font-medium text-slate-700 mb-2">
                             Email
                         </label>
 
@@ -46,13 +53,13 @@ export function Login(){
                             setEmail(e.target.value)
                         }
                         required
-                        className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+                        className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"/>
 
                     </div>{/* formulario email */}
 
                     <div>{/* formulario senha */}
 
-                        <label className="block text-sm font-medium mb-2">
+                        <label className="block text-sm font-medium text-slate-700 mb-2">
                             Senha
                         </label>
 
@@ -64,7 +71,7 @@ export function Login(){
                             setSenha(e.target.value)
                         }
                         required
-                        className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+                        className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"/>
 
                     </div>{/* formulario senha */}
 
@@ -75,7 +82,7 @@ export function Login(){
                     )}
                     <button type="submit"
                     disabled={carregando}
-                    className="w-full rounded-lg bg-blue-600 py-2 text-white font-semibold hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full rounded-lg bg-emerald-500 py-2.5 text-white font-semibold hover:bg-emerald-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         {carregando? "Entrando": "Entrar"}
                     </button>
