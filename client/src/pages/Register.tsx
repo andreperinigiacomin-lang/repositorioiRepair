@@ -34,16 +34,20 @@ export function Register(){
             <div className="w-full max-w-md bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
 
                 <div className="text-center mb-8">
-                    <h1 className="text-3xl font-bold text-slate-800">
-                        iRepair
-                    </h1>
+                    <div className="flex items-center justify-center gap-2">
+                        <i className="bi bi-tools text-emerald-600 text-2xl [-webkit-text-stroke:1px]"></i>
+
+                        <h1 className="text-3xl font-bold text-slate-800">
+                            iRepair
+                        </h1>
+                    </div>
 
                     <p className="text-sm text-slate-400 mt-2">
                         Criar uma nova conta
                     </p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-2">
 
                     <div>
                         <label className="block text-sm font-medium text-slate-700 mb-2">
