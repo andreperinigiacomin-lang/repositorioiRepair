@@ -88,6 +88,20 @@ export function Login(){
                     </button>
 
                 </form>
+
+                 <div className="mt-6 text-center">
+                    <p className="text-sm text-slate-400">
+                        Ainda não possui uma conta?
+                    </p>
+
+                    <button
+                        type="button"
+                        onClick={() => navigate("/register")}
+                        className="mt-2 text-sm font-semibold text-emerald-600 hover:text-emerald-700 transition cursor-pointer"
+                    >
+                        Cadastrar
+                    </button>
+                </div>
             </div>
         </div>
     )
