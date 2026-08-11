@@ -53,6 +53,9 @@ export class AuthService {
 
   async refresh(refreshToken: string){
     const payload = verifyToken(refreshToken)
+      if (payload.type !== "refresh") {
+        throw new AppError('Token inválido para renovação', 401)
+      }
     const  acessToken = generateAccessToken({
       id: payload.id,
       email: payload.email
