@@ -56,6 +56,7 @@ export class AuthController {
 
   async logout(req: Request, res: Response) {
     res.clearCookie('token')
+    res.clearCookie('refreshToken')
     return res.status(200).json({ message: 'Logout realizado com sucesso' })
   }
   async me(req: Request, res: Response) {
