@@ -51,15 +51,22 @@ export class AuthService {
     return { accessToken, refreshToken, usuario: { id: usuario.id, email: usuario.email } }
   }
 
-  async refresh(refreshToken: string){
-    const payload = verifyToken(refreshToken)
-      if (payload.type !== "refresh") {
-        throw new AppError('Token inválido para renovação', 401)
-      }
-    const  acessToken = generateAccessToken({
-      id: payload.id,
-      email: payload.email
-    })
-    return acessToken
-  }
+async refresh(refreshToken: string) {
+    try {
+        const payload = verifyToken(refreshToken)
+        if (payload.type !== "refresh") {
+            throw new AppError('Token inválido para renovação', 401)
+        }
+        const accessToken = generateAccessToken({
+            id: payload.id,
+            email: payload.email
+        })
+        return accessToken
+    } catch (error) {
+        if (error instanceof AppError) {
+            throw error
+        }
+        throw new AppError('Refresh Token inválido ou expirado', 401)
+    }
+}
 }
