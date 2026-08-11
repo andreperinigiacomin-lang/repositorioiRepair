@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model cliente {
+  id           Int            @id @default(autoincrement())
+  nome         String
+  email        String
+  telefone     String
+  usuarioId    Int
+  usuario      usuario        @relation(fields: [usuarioId], references: [id], onDelete: Cascade, map: "Cliente_usuarioId_fkey")
+  ordemservico ordemservico[]
+
+  @@index([usuarioId], map: "Cliente_usuarioId_fkey")
+}
+
+model ordemservico {
+  id          Int      @id @default(autoincrement())
+  problema    String
+  status      String
+  dataInicio  DateTime @default(now())
+  dispositivo String
+  clienteId   Int
+  cliente     cliente  @relation(fields: [clienteId], references: [id], onDelete: Cascade, map: "OrdemServico_clienteId_fkey")
+
+  @@index([clienteId], map: "OrdemServico_clienteId_fkey")
+}
+
+model usuario {
+  id      Int       @id @default(autoincrement())
+  email   String    @unique(map: "Usuario_email_key")
+  senha   String
+  cliente cliente[]
+}
