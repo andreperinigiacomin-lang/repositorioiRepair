@@ -13,17 +13,46 @@ export class AuthController {
 
   async login(req: Request, res: Response) {
     const { email, senha } = req.body
-    const { token, usuario } = await authService.login(email, senha)
+    const { accessToken, refreshToken, usuario } = await authService.login(email, senha)
 
-    res.cookie('token', token, {
+    res.cookie('token', accessToken, {
       httpOnly: true,
       secure: false,
       sameSite: 'lax',
       maxAge: 60 * 60 * 1000,
     })
+    res.cookie('refreshToken', refreshToken, {
+      httpOnly: true,
+      secure: false,
+      sameSite: 'lax',
+      maxAge: 60 * 60 * 1000 * 24 * 7,
+    })
 
     return res.status(200).json({ usuario })
   }
+
+  async refresh(req: Request, res: Response) {
+    const refreshToken = req.cookies?.refreshToken
+
+    if (!refreshToken) {
+        return res.status(401).json({
+            message: 'Refresh Token não encontrado'
+        })
+    }
+
+    const accessToken = await authService.refresh(refreshToken)
+
+    res.cookie('token', accessToken, {
+        httpOnly: true,
+        secure: false,
+        sameSite: 'lax',
+        maxAge: 60 * 60 * 1000,
+    })
+
+    return res.status(200).json({
+        message: 'Access Token renovado com sucesso'
+    })
+}
 
   async logout(req: Request, res: Response) {
     res.clearCookie('token')
