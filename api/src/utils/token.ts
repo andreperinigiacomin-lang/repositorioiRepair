@@ -4,11 +4,19 @@ interface TokenPayLoad {
     id: number;
     email: string;
 }
-export function generateToken(payload: TokenPayLoad): string{
+export function generateAccessToken(payload: TokenPayLoad): string{
     return jwt.sign(
         payload,
         process.env.JWT_SECRET!,{
             expiresIn: process.env.JWT_EXPIRES_IN as jwt.SignOptions['expiresIn'],
+        }
+    )
+}
+export function generateRefreshToken(payload: object){
+    return jwt.sign(
+        payload,
+        process.env.JWT_SECRET!,{
+            expiresIn: process.env.JWT_REFRESH_EXPIRES_IN as jwt.SignOptions['expiresIn'],
         }
     )
 }

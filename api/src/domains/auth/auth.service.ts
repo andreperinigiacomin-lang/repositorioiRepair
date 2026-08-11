@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt'
 import { prisma } from '../../config/prismaClient'
-import { generateToken } from '../../utils/token'
+import { generateAccessToken } from '../../utils/token'
 import { AppError } from '../../utils/AppError'
 
 const SALT_ROUNDS = 10
@@ -45,7 +45,7 @@ export class AuthService {
       throw new AppError('Credenciais inválidas', 401)
     }
 
-    const token = generateToken({ id: usuario.id, email: usuario.email })
+    const token = generateAccessToken({ id: usuario.id, email: usuario.email })
 
     return { token, usuario: { id: usuario.id, email: usuario.email } }
   }
