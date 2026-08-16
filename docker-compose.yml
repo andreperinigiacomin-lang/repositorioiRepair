@@ -4,13 +4,15 @@ services:
   db:
     image: mysql:8.0
     restart: unless-stopped
+    # Nomes de tabela case-insensitive (igual ao MySQL do Windows).
+    # As migrations foram geradas no Windows e misturam `OrdemServico` / `ordemservico`.
+    # Só tem efeito na inicializacao do volume — trocar exige recriar o volume.
+    command: --lower-case-table-names=1
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
     volumes:
       - mysql_data:/var/lib/mysql
-    ports:
-      - "3306:3306"
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
@@ -31,16 +33,19 @@ services:
       JWT_SECRET: ${JWT_SECRET}
       JWT_EXPIRES_IN: ${JWT_EXPIRES_IN}
       JWT_REFRESH_EXPIRES_IN: ${JWT_REFRESH_EXPIRES_IN}
+      CORS_ORIGIN: ${CORS_ORIGIN}
       PORT: 3000
     ports:
       - "3000:3000"
-    command: sh -c "npx prisma migrate deploy && node dist/server.js"
+    command: sh -c "npx prisma migrate deploy && node dist/src/server.js"
 
   # ---- Front-End ----
   client:
     build:
       context: ./client
       dockerfile: Dockerfile
+      args:
+        VITE_API_URL: ${VITE_API_URL}
     restart: unless-stopped
     depends_on:
       - api
