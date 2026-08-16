@@ -1,0 +1,107 @@
+import { useEffect, useState } from "react";
+import {
+  getAllServiceOrders,
+  createServiceOrder,
+  deleteServiceOrder,
+} from "../services/serviceOrderService";
+import type { ServiceOrder, Client, CreateServiceOrderData } from "../types";
+import { getAllClients } from "../services/clientService";
+import ServiceCard from "../components/ServiceCard";
+import NewServiceForm from "../components/NewServiceForm";
+import Loading from "../components/Loading";
+
+const ServiceOrdersPage = () => {
+  const [orders, setOrders] = useState<ServiceOrder[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [clients, setClients] = useState<Client[]>([]);
+
+  async function loadServiceOrders() {
+    try {
+      const data = await getAllServiceOrders();
+      setOrders(data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function loadClients() {
+    try {
+      const data = await getAllClients();
+      setClients(data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function handleCreateServiceOrder(order: CreateServiceOrderData) {
+    try {
+      await createServiceOrder(order);
+      await loadServiceOrders();
+      alert('Ordem de Serviço criada com sucesso!');
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function handleDeleteOrder(id: number) {
+        const confirmed = window.confirm(
+        "Deseja realmente excluir esta ordem de serviço?"
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    try {
+        await deleteServiceOrder(id);
+        await loadServiceOrders();
+        alert('Ordem de Serviço excluída com sucesso!');
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+  useEffect(() => {
+    loadServiceOrders();
+    loadClients();
+  }, []);
+
+  if (isLoading) {
+    return <Loading />
+  }
+
+  return (
+    <div>
+      <h1 className="text-2xl font-bold mb-6">Ordens de Serviço</h1>
+      <NewServiceForm
+        clients={clients}
+        onCreateServiceOrder={handleCreateServiceOrder}
+      />
+      { orders.length === 0 ?(
+        <div className="bg-white rounded-2xl border border-slate-200 p-8 text-center shadow-sm">
+          <h2 className="text-lg font-semibold text-slate-700">
+            Nenhuma ordem de serviço cadastrada
+            </h2>
+          <p className="text-slate-500 mt-2">
+            Cadastre uma ordem de serviço no formulário acima
+          </p>
+        </div>
+      ): (
+        <div className="space-y-4 mt-8">
+        {orders.map((order) => (
+          <ServiceCard 
+          key={order.id} 
+          order={order} 
+          clients={clients} 
+          onRemoveOrder={handleDeleteOrder} 
+          fullWidth/>
+        ))}
+      </div>
+      )}
+    </div>
+  );
+};
+
+export default ServiceOrdersPage;
